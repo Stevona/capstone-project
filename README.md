@@ -5,25 +5,25 @@ The following is important information about the Capstone Project
 ### Team Leaders 
 ---
 
-1. Steven Portillo - Front End 
-2. Maria Ringes - Testing
-3. Baltej Toor - Back End
-4. Peter Baker - DevSecOps
-5. Jacob Whiteman - Database
+- Steven Portillo - Front End 
+- Maria Ringes - Testing
+- Baltej Toor - Back End
+- Peter Baker - DevSecOps
+- Jacob Whiteman - Database
 
 ### Good Practices
 ---
 
-1. Camel Case and communicate with other teams if you plan on doing any other formatting 
-2. Eslint
-3. Prettier
-4. Commit often on both an individual and team level.
+- Camel Case and communicate with other teams if you plan on doing any other formatting 
+- Eslint
+- Prettier
+- Commit often on both an individual and team level.
 
 
 ### Planning 
 ---
 
-1. Github Projects 
+- Github Projects 
 
 
 ### Capstone Project: Create an "Order Tracking" application
