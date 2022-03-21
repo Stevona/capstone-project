@@ -11,7 +11,7 @@ The following is important information about the Capstone Project
 - Peter Baker - DevSecOps
 - Jacob Whiteman - Database
 
-### Good Practices
+### Code Standards, Naming Conventions and Good Practices
 ---
 
 - Camel Case and communicate with other teams if you plan on doing any other formatting (EX. devsecopsVanguards)
@@ -20,17 +20,31 @@ The following is important information about the Capstone Project
 - Commit often on both an individual and team level
 
 
-### Planning 
+## Project Structure
 ---
 
 - Github Projects 
+
+### Branching Structure
+---
+
 - Reference the image below for specific branching practices
 
 <img src="https://res.cloudinary.com/duej1dvdm/image/upload/v1647873626/Branch_Layout.drawio_2_mtxxyl.png" alt="MarineGEO circle logo"/>
 
+### File Structure 
+---
 
-### Capstone Project: Create an "Order Tracking" application
-## Application purpose
+### API structure
+---
+
+### Database Structure
+---
+
+### Testing Structure
+---
+
+## Application purpose: Create an "Order Tracking" application
 We want to increase the productivity of our customer service representatives (CSR). We're building a new app for them that can do the following:  
 * Customer
     * Create a customer
@@ -213,17 +227,3 @@ This is not comprehensive or exhaustive.  Nor is it in any particular order!
 - DevSecOps coordinates with appropriate teams for a login system
 - Testing generates user acceptance tests (automated)
 - Testing and docs maintains the README and other documentation (Wiki?)
-
-# Project Structure 
-
-## File Structure 
-
-## Code standards
-
-## Naming conventions
-
-## API structure
-
-## Database Structure
-
-## Testing Structure
