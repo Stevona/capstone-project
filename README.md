@@ -28,12 +28,12 @@ The following is important information about the Capstone Project
 - Reference the image below for specific branching practices
 
 # Branch Layout for teams
-<img src="https://res.cloudinary.com/duej1dvdm/image/upload/v1647880524/Branch_Layout.drawio_2_otay9z.png" alt="Layout"/>
+<img src="https://res.cloudinary.com/duej1dvdm/image/upload/v1647884942/Branch_Layout.drawio_2_oolk6b.png" alt="Layout"/>
 
 # Who, What, Where, When and How Should We Branch
 
 <div align="center">
-   <img src="https://res.cloudinary.com/duej1dvdm/image/upload/v1647880517/Circle_d8ntaj.png" alt="Circle Graph"/>
+   <img src="https://res.cloudinary.com/duej1dvdm/image/upload/v1647884936/Circle_zvz90i.png" alt="Circle Graph"/>
 </div>
 
 ### File Structure 
