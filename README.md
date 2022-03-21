@@ -213,3 +213,17 @@ This is not comprehensive or exhaustive.  Nor is it in any particular order!
 - DevSecOps coordinates with appropriate teams for a login system
 - Testing generates user acceptance tests (automated)
 - Testing and docs maintains the README and other documentation (Wiki?)
+
+# Project Structure 
+
+## File Structure 
+
+## Code standards
+
+## Naming conventions
+
+## API structure
+
+## Database Structure
+
+## Testing Structure
