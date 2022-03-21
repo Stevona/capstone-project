@@ -17,13 +17,16 @@ The following is important information about the Capstone Project
 - Camel Case and communicate with other teams if you plan on doing any other formatting (EX. devsecopsVanguards)
 - Eslint
 - Prettier
-- Commit often on both an individual and team level.
+- Commit often on both an individual and team level
 
 
 ### Planning 
 ---
 
 - Github Projects 
+- Reference the image below for specific branching practices
+
+<img src="https://res.cloudinary.com/duej1dvdm/image/upload/v1647873626/Branch_Layout.drawio_2_mtxxyl.png" alt="MarineGEO circle logo"/>
 
 
 ### Capstone Project: Create an "Order Tracking" application
