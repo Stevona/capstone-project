@@ -14,7 +14,7 @@ The following is important information about the Capstone Project
 ### Good Practices
 ---
 
-- Camel Case and communicate with other teams if you plan on doing any other formatting 
+- Camel Case and communicate with other teams if you plan on doing any other formatting (EX. devsecopsVanguards)
 - Eslint
 - Prettier
 - Commit often on both an individual and team level.
