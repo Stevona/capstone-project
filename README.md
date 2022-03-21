@@ -104,7 +104,7 @@ We want to increase the productivity of our customer service representatives (CS
 
 ### Back-end
 - Caroline Manghan
-- Brianna Fahrenkopf
+- Bri Fahrenkopf
 - Katrina Wallace
 - Baltej Toor
 - Daniel Kotlinski
