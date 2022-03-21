@@ -2,8 +2,8 @@
 
 The following is important information about the Capstone Project
 
-### Team Leaders 
----
+# Team Leaders 
+
 
 - Steven Portillo - Front End 
 - Maria Ringes - Testing
@@ -11,8 +11,7 @@ The following is important information about the Capstone Project
 - Peter Baker - DevSecOps
 - Jacob Whiteman - Database
 
-### Code Standards, Naming Conventions and Good Practices
----
+# Code Standards, Naming Conventions and Good Practices
 
 - Camel Case and communicate with other teams if you plan on doing any other formatting (EX. devsecopsVanguards)
 - Eslint
@@ -20,17 +19,22 @@ The following is important information about the Capstone Project
 - Commit often on both an individual and team level
 
 
-## Project Structure
----
+# Project Structure
 
 - Github Projects 
 
-### Branching Structure
----
+# Branching Structure
 
 - Reference the image below for specific branching practices
 
-<img src="https://res.cloudinary.com/duej1dvdm/image/upload/v1647873626/Branch_Layout.drawio_2_mtxxyl.png" alt="MarineGEO circle logo"/>
+# Branch Layout for teams
+<img src="https://res.cloudinary.com/duej1dvdm/image/upload/v1647880524/Branch_Layout.drawio_2_otay9z.png" alt="Layout"/>
+
+# Who, What, Where, When and How Should We Branch
+
+<div align="center">
+   <img src="https://res.cloudinary.com/duej1dvdm/image/upload/v1647880517/Circle_d8ntaj.png" alt="Circle Graph"/>
+</div>
 
 ### File Structure 
 ---
