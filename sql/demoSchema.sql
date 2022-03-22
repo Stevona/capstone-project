@@ -1,12 +1,12 @@
-drop schema if exists orderTracking;
+drop schema if exists demoDB;
 
 
 
-create schema orderTracking;
+create schema demoDB;
 
 
 
-use orderTracking;
+use demoDB;
 
 
 
