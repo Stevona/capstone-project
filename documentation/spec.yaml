@@ -29,7 +29,6 @@ paths:
           content:
             application/json:
               schema:
-                # NEED EXACT PATH FOR REF
                 $ref: '#/.../Customers'
     
     post:
@@ -40,7 +39,6 @@ paths:
         content:
           application/json:
             schema:
-            # NEED EXACT PATH FOR REF
               $ref: '#/.../Customer'
       responses:
         '201':
@@ -66,7 +64,6 @@ paths:
           content:
             application/json:
               schema:
-                # NEED EXACT PATH FOR REF
                 $ref: '#/.../Customer'
       
     put:
@@ -86,34 +83,10 @@ paths:
         content:
           application/json:
             schema:
-            # NEED EXACT PATH FOR REF
               $ref: '#/.../Customer'
       responses:
         '200':
           description: Updated the specific customer completely
-
-    patch:
-      tags:
-        - Customers
-      summary: Update a customer
-      description: A partial replacement of customer data with a given id
-      parameters:
-      - name: id
-        in: path
-        required: true
-        description: the customerId requested by the user
-        schema:
-          type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-            # NEED EXACT PATH FOR REF
-              $ref: '#/.../PatchCustomer'
-      responses:
-        '200':
-          description: Updated a customer partially
 
     delete:
       tags:
@@ -144,7 +117,6 @@ paths:
           content:
             application/json:
               schema:
-              # NEED EXACT PATH FOR REF
                 $ref: '#/.../Orders'
 
     post:
@@ -155,7 +127,6 @@ paths:
         content:
           application/json:
             schema:
-            # NEED EXACT PATH FOR REF
               $ref: '#/.../Order'
       responses:
         '201':
@@ -181,7 +152,6 @@ paths:
             content:
               application/json:
                 schema:
-                # NEED EXACT PATH FOR REF
                   $ref: '#/.../Order'
 
     put: 
@@ -201,7 +171,6 @@ paths:
         content:
           application/json:
             schema:
-            # NEED EXACT PATH FOR REF
               $ref: '#/.../Order'
       responses:
         '200':
@@ -224,7 +193,6 @@ paths:
         content:
           application/json:
             schema:
-            # NEED EXACT PATH FOR REF
               $ref: '#/.../PatchOrder'
       responses:
         '200':
@@ -259,7 +227,6 @@ paths:
           content:
             application/json:
               schema:
-              # NEED EXACT PATH FOR REF
                 $ref: '#/.../Products'
 
   /products/{id}:
@@ -282,7 +249,6 @@ paths:
           content:
             application/json:
               schema:
-              # NEED EXACT PATH FOR REF
                 $ref: '#/.../Product'
 
     put:
@@ -302,7 +268,6 @@ paths:
         content:
           application/json:
             schema:
-            # NEED EXACT PATH FOR REF
               $ref: '#/.../Product'
       responses:
         '200':
@@ -325,7 +290,6 @@ paths:
         content:
           application/json:
             schema:
-            # NEED EXACT PATH FOR REF
               $ref: '#/.../PatchProduct'
       responses:
         '200':
@@ -333,4 +297,220 @@ paths:
 
 components:
   schemas:
+    Customers:
+      description: "An array of Customer objects."
+      type: array
+      items:
+        $ref: '#/.../Customer'
+      example: [
+        {
+          "firstName": Phillip,
+          "middleName": Jason,
+          "lastName": Fry,
+          "phone": 8491237583,
+          "email": pjfry@gmail.com,
+          "address": 125 Main Street,
+          "city": New York,
+          "region": United States,
+          "zip": 10001,
+          "customerNotes": Prefers express delivery,
+          "customerId": 1
+        },
+        {
+          "firstName": James,
+          "middleName": Paul,
+          "lastName": McCartney,
+          "phone": 1517282497,
+          "email": thebeatles@gmail.com,
+          "address": 15 Abbey Road,
+          "city": London,
+          "region": United Kingdom,
+          "zip": 5211,
+          "customerNotes": N/A,
+          "customerId": 2
+        },
+        {
+          "firstName": Sponge,
+          "middleName": Bob,
+          "lastName": SquarePants,
+          "phone": 1111111111,
+          "email": sbsquarep@gmail.com,
+          "address": 142 West Street,
+          "city": Montreal,
+          "region": Canada,
+          "zip": 514,
+          "customerNotes": N/A,
+          "customerId": 3
+        }
+      ]
     
+    Customer:
+      type: object
+      properties:
+        firstName:
+          type: string
+          description: "First name of customer"
+        middleName:
+          type: string
+          description: "Middle name of customer"
+        lastName:
+          type: string
+          description: "Last name of customer"
+        phone:
+          type: string
+          description: "Phone number of customer"
+        email:
+          type: string
+          description: "Email address of customer"
+        address:
+          type: string
+          description: "Address of customer"
+        city:
+          type: string
+          description: "City the customer is from"
+        region:
+          type: string
+          description: "Region the customer is in"
+        zip:
+          type: string
+          description: "Zip code for customer's location"
+        customerNotes:
+          type: string
+          description: "Notes about the customer"
+        customerId:
+          type: integer
+          description: "The customer's id"
+      required:
+        - firstName
+        - middleName
+        - lastName
+        - phone
+        - email
+        - address
+        - city
+        - region
+        - zip
+        - customerId
+      example:
+        firstName: Sponge
+        middleName: Bob
+        lastName: SquarePants
+        phone: 1111111111
+        email: sbsquarep@gmail.com
+        address: 142 West Street
+        city: Montreal
+        region: Canada
+        zip: 514
+        customerNotes: N/A
+        customerId: 3
+
+    Orders:
+      description: "An array of Order objects."
+      type: array
+      items:
+        $ref: '#/.../Order'
+      example: [
+        {
+          "orderId": 1,
+          "datetimeOrderPlaced": 2022-03-10,
+          "datetimeOrderFulfilled": 2022-03-11,
+          "totalOrderPrice": 42.99,
+          "orderNotes": Expedited Shipping,
+          "customerId": 1,
+          "orderStatusCode": 2 
+        },
+        {
+          "orderId": 2,
+          "datetimeOrderPlaced": 2022-03-16,
+          "datetimeOrderFulfilled": 2022-03-17,
+          "totalOrderPrice": 9.99,
+          "orderNotes": Expedited Shipping,
+          "customerId": 1,
+          "orderStatusCode": 2
+        },
+        {
+          "orderId": 3,
+          "datetimeOrderPlaced": 2022-03-01,
+          "datetimeOrderFulfilled": 2022-03-02,
+          "totalOrderPrice": 75.99,
+          "orderNotes": N/A,
+          "customerId": 2,
+          "orderStatusCode": 1 
+        }
+      ]
+
+    Order:
+      type: object
+      properties:
+        orderId:
+          type: integer
+          description: "The order id"
+        datetimeOrderPlaced:
+          type: date
+          description: "The date the order was placed"
+        datetimeOrderFulfilled:
+          type: date
+          description: "The date the order was fulfilled"
+        totalOrderPrice:
+          type: double
+          description: "The total price of the order"
+        orderNotes:
+          type: string
+          description: "Notes about the order"
+        customerId:
+          type: integer
+          description: "The id of the customer who placed the order"
+        orderStatusCode:
+          type: integer
+          description: "The status code of the order"
+      required:
+        - orderId
+        - datetimeOrderPlaced
+        - datetimeOrderFulfilled
+        - totalOrderPrice
+        - customerId
+        - orderStatusCode
+      example:
+        orderId: 3
+        datetimeOrderPlaced: 2022-03-01
+        datetimeOrderFulfilled: 2022-03-02
+        totalOrderPrice: 75.99
+        orderNotes: N/A
+        customerId: 2
+        orderStatusCode: 1
+
+    PatchOrder:
+      type: object
+      properties:
+        orderId:
+          type: integer
+          description: "The order id"
+        datetimeOrderPlaced:
+          type: date
+          description: "The date the order was placed"
+        datetimeOrderFulfilled:
+          type: date
+          description: "The date the order was fulfilled"
+        totalOrderPrice:
+          type: double
+          description: "The total price of the order"
+        orderNotes:
+          type: string
+          description: "Notes about the order"
+        customerId:
+          type: integer
+          description: "The id of the customer who placed the order"
+        orderStatusCode:
+          type: integer
+          description: "The status code of the order"
+
+    Products:
+      description: "An array of Product objects."
+      type: array
+      items:
+        $ref: '#/.../Product'
+      example: [
+        {
+          
+        }
+      ]
