@@ -27,4 +27,4 @@ const Customer = connection.define('customer', {
     customerId: { type: DataTypes.INTEGER, allowNull: false, autoIncrement:true, primaryKey: true}
   });
   
-  module.exports = Customer;
+  module.exports ={ Customer };
