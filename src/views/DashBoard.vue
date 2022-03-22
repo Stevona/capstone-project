@@ -1,6 +1,5 @@
 <template id="DashBoard">
   <NavBar />
-  <b-alert show variant="danger">Page In progress</b-alert>
   <div class="hello">
     <h1>{{message}}</h1>
   </div>
