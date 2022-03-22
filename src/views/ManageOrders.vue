@@ -1,16 +1,12 @@
-<template>
+<template id="manageOrders">
+  <NavBar />
   <div class="hello">
-    <h1>Hello</h1>
+    <h1>{{message}}</h1>
   </div>
+  <FooterBar />
 </template>
 
-<script>
-export default {
-  name: 'HelloWorld',
-  props: {
-  }
-}
-</script>
+<script src="../js/manageOrders.js"></script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
