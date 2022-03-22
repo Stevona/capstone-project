@@ -1,16 +1,11 @@
-<template>
+<template id="DashBoard">
+  <b-alert show variant="danger">Page In progress</b-alert>
   <div class="hello">
-    <h1>Hello</h1>
+    <h1>{{message}}</h1>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'HelloWorld',
-  props: {
-  }
-}
-</script>
+<script src="../js/dashboard.js"></script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
