@@ -8,7 +8,20 @@ router.get('/', async(req, res) =>{
     let customers = await Customer.findAll();
     res.json(customers);
   } catch (error){
-    res.status(500).send('Customer fetching failed');
+    console.log(error);
+    res.status(404).send(error);
+  }
+});
+
+router.get('/:id', async(req, res) => {
+  try{
+    let customer = await Customer.findOne({
+      where: { customerId: req.params['id'] }
+    });
+    res.json(customer);
+  } catch(error) {
+    console.log(error);
+    res.status(404).send(error);
   }
 });
 
