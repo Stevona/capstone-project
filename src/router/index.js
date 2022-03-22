@@ -13,7 +13,7 @@ const routes = [
     component: dashboard
   },
   {
-    path: '/manageCurstomers',
+    path: '/manageCustomers',
     name: 'ManageCustomers',
     component: manageCurstomers
   },
