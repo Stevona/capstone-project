@@ -1,8 +1,9 @@
 <template id="editCustomer">
-  <b-alert show variant="danger">Page In progress</b-alert>
+  <NavBar />
   <div class="hello">
     <h1>{{message}}</h1>
   </div>
+  <FooterBar />
 </template>
 
 <script src="../js/editCustomer.js"></script>

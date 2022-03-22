@@ -1,8 +1,9 @@
 <template id="manageOrders">
-  <b-alert show variant="danger">Page In progress</b-alert>
+  <NavBar />
   <div class="hello">
     <h1>{{message}}</h1>
   </div>
+  <FooterBar />
 </template>
 
 <script src="../js/manageOrders.js"></script>
