@@ -10,7 +10,14 @@
     "watch": "nodemon ./bin/www",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "test": "mocha --recursive",
+    "test-DevSecOps": "mocha ./test/DevSecOps",
+    "test-BackEnd": "mocha ./test/BackEnd",
+    "test-DataBases": "mocha ./test/Databases",
+    "test-FrontEnd": "mocha ./test/FrontEnd",
+    "test-TestingAndDocs": "mocha ./test/TestingAndDocs",
+    "test-integration": "mocha ./test/testingIntegration.js"
   },
   "dependencies": {
     "axios": "^0.26.0",
@@ -36,7 +43,7 @@
     "eslint": "^8.10.0",
     "eslint-plugin-vue": "^8.0.3",
     "jsdoc": "^3.6.10",
-    "mocha": "^9.2.1",
+    "mocha": "^9.2.2",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
     "sinon": "^13.0.1"
