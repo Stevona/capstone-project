@@ -1,0 +1,336 @@
+openapi: 3.0.2
+
+info:
+  version: 1.0.0
+  title: Order Tracking API
+  description:
+    The purpose of this API is to provide support for CSRs to be able to
+    create, retrieve, update or delete information relating to customers,
+    orders and products.
+
+# NEED SERVER URL/INFORMATION
+servers: 
+  - url: 
+
+security:
+  - BasicAuth: []
+
+paths:
+  /customers:
+
+    get:
+      tags:
+        - Customers
+      summary: Return all the customers
+      description: Return all of the customers in our database
+      responses:
+        '200':
+          description: An array of customers in JSON format
+          content:
+            application/json:
+              schema:
+                # NEED EXACT PATH FOR REF
+                $ref: '#/.../Customers'
+    
+    post:
+      tags:
+        - Customers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+            # NEED EXACT PATH FOR REF
+              $ref: '#/.../Customer'
+      responses:
+        '201':
+          description: The request has succeeded and a new resource has been created
+
+  /customers/{id}:
+
+    get:
+      tags:
+        - Customers
+      summary: Return a single customer
+      description: Return a customer where customerId equals id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The customerId requested by user
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Customer info in JSON format
+          content:
+            application/json:
+              schema:
+                # NEED EXACT PATH FOR REF
+                $ref: '#/.../Customer'
+      
+    put:
+      tags:
+        - Customers
+      summary: Update a customer
+      description: A full replacement of customer data with a given id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The customerId requested by the user
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+            # NEED EXACT PATH FOR REF
+              $ref: '#/.../Customer'
+      responses:
+        '200':
+          description: Updated the specific customer completely
+
+    patch:
+      tags:
+        - Customers
+      summary: Update a customer
+      description: A partial replacement of customer data with a given id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: the customerId requested by the user
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+            # NEED EXACT PATH FOR REF
+              $ref: '#/.../PatchCustomer'
+      responses:
+        '200':
+          description: Updated a customer partially
+
+    delete:
+      tags:
+        - Customers
+      summary: Deletes a customer
+      description: Deletes a customer with a given id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The customerId requested by the user
+        schema:
+          type: string
+      responses:
+        '204':
+          description: The resource was deleted successfully
+
+  /orders:
+
+    get:
+      tags:
+        - Orders
+      summary: Return all of the orders
+      description: Return all of the orders in the database
+      responses:
+        '200':
+          description: An array of orders in JSON format
+          content:
+            application/json:
+              schema:
+              # NEED EXACT PATH FOR REF
+                $ref: '#/.../Orders'
+
+    post:
+      tags:
+        - Orders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+            # NEED EXACT PATH FOR REF
+              $ref: '#/.../Order'
+      responses:
+        '201':
+          description: The request has succeeded and a new resource has been created
+
+  /orders/{id}:
+
+    get:
+      tags:
+        - Orders
+      summary: Return an order
+      description: Return an order where orderId equals id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The orderId requested by the user
+        schema:
+          type: string
+        responses:
+          '200':
+            description: An order in JSON format
+            content:
+              application/json:
+                schema:
+                # NEED EXACT PATH FOR REF
+                  $ref: '#/.../Order'
+
+    put: 
+      tags:
+        - Orders
+      summary: Update an order
+      description: A full replacement of order data with a given id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The orderId requested by the user
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+            # NEED EXACT PATH FOR REF
+              $ref: '#/.../Order'
+      responses:
+        '200':
+          description: Updated the specific order completely
+
+    patch:
+      tags:
+        - Orders
+      summary: Update an order
+      description: A partial replacement of order data with a given id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The orderId requested by the user
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+            # NEED EXACT PATH FOR REF
+              $ref: '#/.../PatchOrder'
+      responses:
+        '200':
+          description: Updated an order partially
+
+    delete:
+      tags:
+        - Orders
+      summary: Deletes an order
+      description: Deletes an order with a given id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The orderId requested by the user
+        schema:
+          type: string
+      responses:
+        '204':
+          description: The resource was deleted successfully
+
+  /products:
+
+    get:
+      tags:
+        - Products
+      summary: Return all products
+      description: Return all of the products in the database
+      responses:
+        '200':
+          description: An array of products in JSON format
+          content:
+            application/json:
+              schema:
+              # NEED EXACT PATH FOR REF
+                $ref: '#/.../Products'
+
+  /products/{id}:
+
+    get:
+      tags:
+        - Products
+      summary: Return a product
+      description: Return a product where productId equals id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The product Id requested by the user
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Product info in JSON format
+          content:
+            application/json:
+              schema:
+              # NEED EXACT PATH FOR REF
+                $ref: '#/.../Product'
+
+    put:
+      tags:
+        - Products
+      summary: Update a product
+      description: A full replacement of product data with a given id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The productId requested by the user
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+            # NEED EXACT PATH FOR REF
+              $ref: '#/.../Product'
+      responses:
+        '200':
+          description: Updated the specific product completely
+
+    patch:
+      tags:
+        - Products
+      summary: Update a product
+      description: A partial replacement of product data with a given id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The productId requested by the user
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+            # NEED EXACT PATH FOR REF
+              $ref: '#/.../PatchProduct'
+      responses:
+        '200':
+          description: Updated a product partially
+
+components:
+  schemas:
+    

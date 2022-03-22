@@ -2,8 +2,8 @@
 
 The following is important information about the Capstone Project
 
-### Team Leaders 
----
+# Team Leaders 
+
 
 - Steven Portillo - Front End 
 - Maria Ringes - Testing
@@ -11,8 +11,7 @@ The following is important information about the Capstone Project
 - Peter Baker - DevSecOps
 - Jacob Whiteman - Database
 
-### Good Practices
----
+# Code Standards, Naming Conventions and Good Practices
 
 - Camel Case and communicate with other teams if you plan on doing any other formatting (EX. devsecopsVanguards)
 - Eslint
@@ -20,17 +19,36 @@ The following is important information about the Capstone Project
 - Commit often on both an individual and team level
 
 
-### Planning 
----
+# Project Structure
 
 - Github Projects 
+
+# Branching Structure
+
 - Reference the image below for specific branching practices
 
-<img src="https://res.cloudinary.com/duej1dvdm/image/upload/v1647873626/Branch_Layout.drawio_2_mtxxyl.png" alt="MarineGEO circle logo"/>
+# Branch Layout for teams
+<img src="https://res.cloudinary.com/duej1dvdm/image/upload/v1647884942/Branch_Layout.drawio_2_oolk6b.png" alt="Layout"/>
 
+# Who, What, Where, When and How Should We Branch
 
-### Capstone Project: Create an "Order Tracking" application
-## Application purpose
+<div align="center">
+   <img src="https://res.cloudinary.com/duej1dvdm/image/upload/v1647884936/Circle_zvz90i.png" alt="Circle Graph"/>
+</div>
+
+### File Structure 
+---
+
+### API structure
+---
+
+### Database Structure
+---
+
+### Testing Structure
+---
+
+## Application purpose: Create an "Order Tracking" application
 We want to increase the productivity of our customer service representatives (CSR). We're building a new app for them that can do the following:  
 * Customer
     * Create a customer
