@@ -4,8 +4,7 @@ Team leads are responsible for initating the move from team branches to the glob
 DevSecOps is responsible for initiating the move from the global testing branch to the main production branch.
 
 ## Visualize Code Structure!
-
-[68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f6475656a316476646d2f696d6167652f75706c6f61642f76313634373838343934322f4272616e63685f4c61796f75742e64726177696f5f325f6f6f6c6b36622e706e67](https://user-images.githubusercontent.com/99675872/159479635-57c800f1-c8a4-474a-8a1a-7310df6a93eb.png)
+![Branch Structure](https://user-images.githubusercontent.com/99675872/159479635-57c800f1-c8a4-474a-8a1a-7310df6a93eb.png)
 ![Git Flow - Page 2-2](https://user-images.githubusercontent.com/99675872/159478909-50982a6d-5224-4c0a-adcf-80b06906cc22.png)
 ![Git Flow - Flowchart](https://user-images.githubusercontent.com/99675872/159478917-26c55a7d-2722-41cc-8b91-852a81629245.png)
 
