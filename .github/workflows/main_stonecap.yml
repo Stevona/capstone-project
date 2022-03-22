@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'StoneCap'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7EA13805F5BB43BBABC19C22C01CB880 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_295E968E354E49DFBE8F634243D105FC }}
           package: .
