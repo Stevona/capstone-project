@@ -1,5 +1,1 @@
-devsecops: front-end
-devsecops: back-end
-devsecops: database
-devsecops: documentation
-devsecops: testing
+devsecops: ['front-end', 'back-end', 'database', 'documentation', 'testing']
