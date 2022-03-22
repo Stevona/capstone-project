@@ -1,4 +1,5 @@
-frontend: frontend/*
-backend: backend/*
+frontend: front-end/*
+backend: back-end/*
 database: database/*
 doc: documentation/*
+testing: testing/*
