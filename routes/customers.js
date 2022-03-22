@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-const { Customers } = require('../orm/tracking-model')
+const { Customers } = require('../orm/tracking-model');
 
 /* GET customers listing. */
-router.get('/api/customers', async(req, res) =>{
+router.get('/', async(req, res) =>{
   try{
     let customers = await Customers.findAll();
     res.json(customers);
