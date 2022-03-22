@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const connection = require('./db-connection');
 
-const Customers = connection.define('Customers', {
+const Customer = connection.define('customer', {
     firstName: {
       type: DataTypes.STRING,
       allowNull: false
@@ -27,4 +27,4 @@ const Customers = connection.define('Customers', {
     customerId: { type: DataTypes.INTEGER, allowNull: false, autoIncrement:true, primaryKey: true}
   });
   
-  module.exports = Customers;
+  module.exports = Customer;

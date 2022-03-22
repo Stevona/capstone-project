@@ -1,7 +1,7 @@
-const Customers = require('./Customers');
+const Customer = require('./Customer');
 /*
 
 relationships here-> belongsToMany(), hasMany(), belongsTo()
 
 */
-module.exports = { Customers };
+module.exports = { Customer };
