@@ -3,8 +3,11 @@ This design will allow teams to develop within their teams as they wish.
 Team leads are responsible for initating the move from team branches to the global testing branch.
 DevSecOps is responsible for initiating the move from the global testing branch to the main production branch.
 
-## Visualize Code Structure
-Add Images Here
+## Visualize Code Structure!
+![Branch Structure](https://user-images.githubusercontent.com/99675872/159479635-57c800f1-c8a4-474a-8a1a-7310df6a93eb.png)
+![Git Flow - Page 2-2](https://user-images.githubusercontent.com/99675872/159478909-50982a6d-5224-4c0a-adcf-80b06906cc22.png)
+![Git Flow - Flowchart](https://user-images.githubusercontent.com/99675872/159478917-26c55a7d-2722-41cc-8b91-852a81629245.png)
+
 
 ## Roles
 Each member of the EICPCohort5 will fall into one of the following categories:
@@ -31,19 +34,18 @@ Below lists the branches of EICPCohort5/capstone-project and who is responsible 
 3. Add upstream
     `git remote add upstream https://github.com/EICPCohort5/capstone-project`
 4. Pull most recent from upstream
-5. Checkout to personal branch
-    `git checkout -b "firstname-lastname"`
+5. Checkout to personal branch if team decides to utilize the approach of individual branches.
 6. Develop
 7. Add Files to Commit
     `git add .`
 8. Commit
     `git commit -m "Message for commit"`
-9. Merge with main
+9. Merge with main if having previously worked om a branch
     `git checkout main`
     `git merge branchname`
-10. Push main branch
+10. Push to remote main branch
     `git push`
-11. Create a pull request from <main> on your personal forked repo (username/capstone-project) to <teambranch> on EICPCohort5/capstone-project
+11. Create a pull request from `main` on your personal forked repo (username/capstone-project) to `teambranch` on EICPCohort5/capstone-project
 
 
 

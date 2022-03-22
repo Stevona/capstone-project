@@ -2,10 +2,9 @@
 
 The following is important information about the Capstone Project
 
-# Team Leaders 
+# Team Leaders
 
-
-- Steven Portillo - Front End 
+- Steven Portillo - Front End
 - Maria Ringes - Testing
 - Baltej Toor - Back End
 - Peter Baker - DevSecOps
@@ -18,16 +17,16 @@ The following is important information about the Capstone Project
 - Prettier
 - Commit often on both an individual and team level
 
-
 # Project Structure
 
-- Github Projects 
+- Github Projects
 
 # Branching Structure
 
 - Reference the image below for specific branching practices
 
 # Branch Layout for teams
+
 <img src="https://res.cloudinary.com/duej1dvdm/image/upload/v1647884942/Branch_Layout.drawio_2_oolk6b.png" alt="Layout"/>
 
 # Who, What, Where, When and How Should We Branch
@@ -36,84 +35,98 @@ The following is important information about the Capstone Project
    <img src="https://res.cloudinary.com/duej1dvdm/image/upload/v1647884936/Circle_zvz90i.png" alt="Circle Graph"/>
 </div>
 
-### File Structure 
+### File Structure
+
 ---
 
 ### API structure
+
 ---
 
 ### Database Structure
+
 ---
 
 ### Testing Structure
+
 ---
 
+### Important Links
+
+- [Prototype for Front-End interface](https://share.proto.io/PSVDX9/)
+
 ## Application purpose: Create an "Order Tracking" application
-We want to increase the productivity of our customer service representatives (CSR). We're building a new app for them that can do the following:  
-* Customer
-    * Create a customer
-    * Find an existing customer
-    * Edit a customer
-    * Remove a customer
-* Orders
-    * Create order
-    * Find an existing order
-    * Modify order
-        * Add/remove/edit products
-        * Update status: See below
-* Products
-    * Search products
-    * Add products to an order
-    * Remove products from an order
-    * Editor products in an order
+
+We want to increase the productivity of our customer service representatives (CSR). We're building a new app for them that can do the following:
+
+- Customer
+  - Create a customer
+  - Find an existing customer
+  - Edit a customer
+  - Remove a customer
+- Orders
+  - Create order
+  - Find an existing order
+  - Modify order
+    - Add/remove/edit products
+    - Update status: See below
+- Products
+  - Search products
+  - Add products to an order
+  - Remove products from an order
+  - Editor products in an order
 
 ### Order lifecycle
-* Customer calls in an order
-* Customer Service Representative (CSR) adds Customer if not existing
-* CSR edits Customer as needed
-* CSR creates an Order
-* Add Product(s)
-    - Check if available
-    - Add to the Order if so
-* CSR informs shipping to assemble and ship the Order
-* Shipping collects Products in Order
-* Conditional at any point prior to shipping: Customer calls in to modify existing Order
-* Order is shipped
-* Order arrives
-* Shipping agent informs CSR
-* Order is closed
+
+- Customer calls in an order
+- Customer Service Representative (CSR) adds Customer if not existing
+- CSR edits Customer as needed
+- CSR creates an Order
+- Add Product(s)
+  - Check if available
+  - Add to the Order if so
+- CSR informs shipping to assemble and ship the Order
+- Shipping collects Products in Order
+- Conditional at any point prior to shipping: Customer calls in to modify existing Order
+- Order is shipped
+- Order arrives
+- Shipping agent informs CSR
+- Order is closed
 
 ### Business constraints (Understand how these affect the Order lifecycle)
-* Max number of active orders per customer
-* Can't add a Product if none available
-* Can't modify an Order that has been shipped
-* Can't close out an Order without confirmation that Order arrived as expected
+
+- Max number of active orders per customer
+- Can't add a Product if none available
+- Can't modify an Order that has been shipped
+- Can't close out an Order without confirmation that Order arrived as expected
 
 ## Tech stack
-* Documentation
-    - API must be documented using [OpenAPI](https://swagger.io/specification/) specification. Additional Swagger tools can be used as desired.
-* Backend 
-    - Node.js 16
-    - ExpressJS 4
-    - Other libraries as you see fit
-* Frontend tech choices are left to your discretion
-    - Wireframing: [Figma](https://www.figma.com/) is recommended
-    - CSS: [Bootstrap](https://getbootstrap.com/) is recommended 
-    - JS
-        * You can use plain, vanilla JS to do everything if you want
-        * You can also use any library that you'd like
-        * Helpful libraries
-            * [JQuery](https://jquery.com/)
-            * [Axios](https://github.com/axios/axios)
-            * Feel free to use React, Vue, or Angular if you're feeling ambitious
-* Database: MySQL. Additional software for analytics is unconstrained.
-* GitHub Actions will be used for CI/CD pipelines in conjunction with Azure.
-* Authentication and authorization solutions are unconstrained.
-* Testing framework is left unconstrained, but either [Mocha](https://mochajs.org/) and/or [Jest](https://jestjs.io/) are recommended. Front-end team should consider libraries like [Testing Library](https://testing-library.com/docs/) for unit tests. Testing should examine libraries for integration tests. 
+
+- Documentation
+  - API must be documented using [OpenAPI](https://swagger.io/specification/) specification. Additional Swagger tools can be used as desired.
+- Backend
+  - Node.js 16
+  - ExpressJS 4
+  - Other libraries as you see fit
+- Frontend tech choices are left to your discretion
+  - Wireframing: [Figma](https://www.figma.com/) is recommended
+  - CSS: [Bootstrap](https://getbootstrap.com/) is recommended
+  - JS
+    - You can use plain, vanilla JS to do everything if you want
+    - You can also use any library that you'd like
+    - Helpful libraries
+      - [JQuery](https://jquery.com/)
+      - [Axios](https://github.com/axios/axios)
+      - Feel free to use React, Vue, or Angular if you're feeling ambitious
+- Database: MySQL. Additional software for analytics is unconstrained.
+- GitHub Actions will be used for CI/CD pipelines in conjunction with Azure.
+- Authentication and authorization solutions are unconstrained.
+- Testing framework is left unconstrained, but either [Mocha](https://mochajs.org/) and/or [Jest](https://jestjs.io/) are recommended. Front-end team should consider libraries like [Testing Library](https://testing-library.com/docs/) for unit tests. Testing should examine libraries for integration tests.
 
 ## Teams
 
 ### Front-end
+
 - Mary Wishart
 - Jun Hao Chia
 - Christopher Gritter
@@ -121,6 +134,7 @@ We want to increase the productivity of our customer service representatives (CS
 - Rahul Whig
 
 ### Back-end
+
 - Caroline Manghan
 - Bri Fahrenkopf
 - Katrina Wallace
@@ -128,6 +142,7 @@ We want to increase the productivity of our customer service representatives (CS
 - Daniel Kotlinski
 
 ### Database and Analytics
+
 - Jacob Whiteman
 - Joseph Travers
 - Seena Rose Mathew
@@ -135,6 +150,7 @@ We want to increase the productivity of our customer service representatives (CS
 - Wiktoria Fiolek
 
 ### DevSecOps
+
 - Adam Audet
 - Kaitlin Mullins
 - Peter Baker
@@ -142,70 +158,75 @@ We want to increase the productivity of our customer service representatives (CS
 - Ambioris Lora
 
 ### Testing and documentation
+
 - Alex Mazzarese
 - Christopher Zarba
 - Charlie Nathan
 - Abdulahad Qureshi
 - Maria Ringes
 
-
 ### Business objects
-* Customers
-    - customer_id (PK)
-    - first_name
-    - middle_name
-    - last_name
-    - phone
-    - email
-    - customer_notes
-    - address
-* Orders
-    - order_id (PK)
-    - customer_id (FK)
-    - order_status_code (FK) (e.g., **Draft/Open/Finalized/Preparing to ship/Ready for shipping/Shipped/Delivered/Closed**)
-    - datetime_order_placed
-    - total_order_price
-    - order_notes
-* Products
-    - product_id (PK)
-    - product_SKU
-    - product_price
-    - product_name
-    - product_quantity
-    - product_description
+
+- Customers
+  - customer_id (PK)
+  - first_name
+  - middle_name
+  - last_name
+  - phone
+  - email
+  - customer_notes
+  - address
+- Orders
+  - order_id (PK)
+  - customer_id (FK)
+  - order_status_code (FK) (e.g., **Draft/Open/Finalized/Preparing to ship/Ready for shipping/Shipped/Delivered/Closed**)
+  - datetime_order_placed
+  - total_order_price
+  - order_notes
+- Products
+  - product_id (PK)
+  - product_SKU
+  - product_price
+  - product_name
+  - product_quantity
+  - product_description
 
 The above listing of data fields is not necessarily comprehensive. You'll also observe that a real database schema is only hinted at. This is not a prescriptive data model, and it's a fact of software development that data models change over time; that's why there is an entire art of schema migrations. One thing clearly lacking from the above is a means by which to link together the customers, orders, and products.
 
 ## Application requirements
+
 ### CSRs need to be able to
-* Authenticate themselves via a login mechanism
-* CRUD for Orders including the ability to interactively add products from the Product catalog
-* There must be the ability to save an Order as a draft
-* Tie the order to a Customer
-* Browse the product catalog (as a CSR adds or removes products from an order, the product count needs to be updated)
-* Browse the customer database
-* Track and change the shipping status of the order
+
+- Authenticate themselves via a login mechanism
+- CRUD for Orders including the ability to interactively add products from the Product catalog
+- There must be the ability to save an Order as a draft
+- Tie the order to a Customer
+- Browse the product catalog (as a CSR adds or removes products from an order, the product count needs to be updated)
+- Browse the customer database
+- Track and change the shipping status of the order
 
 ## API starting point
-| Method | URLs | Actions |
-| :---   | :--- |    :--- |
-|  GET  |  api/customers  |  Get all customers  |
-|  GET  |  api/customers/:id  |  Get specific customer  |
-|  POST  |  api/customers  |  Create new customer  |
-|  PUT/PATCH  |  api/customers/:id  |  Modify existing customer  |
-|  DELETE  |  api/customers/:id  |  Remove customer (data compliance/right to be forgotten)  |
-|  GET  |  api/orders  |  Get all orders  |
-|  GET  |  api/orders/:id  |  Get specific order  |
-|  POST  |  api/orders  |  Create new order (think about how to differentiate between draft and live orders)  |
-|  PUT/PATCH  |  api/orders/:id  |  Modify existing order  |
-|  DELETE  |  api/orders/:id  |  Delete a draft order (shouldn't allow for deletion of live orders)  |
-|  GET  |  api/products  |  Get all products  |
-|  GET  |  api/products/:id  |  Get specific product  |
-|  PUT/PATCH  |  api/products/:id  | Modify product (e.g., inventory)  |
- 
-What about searching? Filtering? Versioning? Pagination? Limiting the result set? 
+
+| Method    | URLs              | Actions                                                                           |
+| :-------- | :---------------- | :-------------------------------------------------------------------------------- |
+| GET       | api/customers     | Get all customers                                                                 |
+| GET       | api/customers/:id | Get specific customer                                                             |
+| POST      | api/customers     | Create new customer                                                               |
+| PUT/PATCH | api/customers/:id | Modify existing customer                                                          |
+| DELETE    | api/customers/:id | Remove customer (data compliance/right to be forgotten)                           |
+| GET       | api/orders        | Get all orders                                                                    |
+| GET       | api/orders/:id    | Get specific order                                                                |
+| POST      | api/orders        | Create new order (think about how to differentiate between draft and live orders) |
+| PUT/PATCH | api/orders/:id    | Modify existing order                                                             |
+| DELETE    | api/orders/:id    | Delete a draft order (shouldn't allow for deletion of live orders)                |
+| GET       | api/products      | Get all products                                                                  |
+| GET       | api/products/:id  | Get specific product                                                              |
+| PUT/PATCH | api/products/:id  | Modify product (e.g., inventory)                                                  |
+
+What about searching? Filtering? Versioning? Pagination? Limiting the result set?
 
 ## First steps
+
 1. Discuss the architecture of the app amongst the team. Create a diagram that illustrates the flow data between various components.
 1. Review the suggested API design and Business Object schemas. Do they support all of the functionality that is required for the application? Can you visualize which API methods will need to be called, and how the Business Objects will change at each step of the Order Lifecycle?
 1. How will you coordinate amongst teams? Amongst yourselves? How can your PM see progress?
@@ -216,7 +237,7 @@ What about searching? Filtering? Versioning? Pagination? Limiting the result set
 
 ## Suggested milestones
 
-This is not comprehensive or exhaustive.  Nor is it in any particular order!
+This is not comprehensive or exhaustive. Nor is it in any particular order!
 
 - DevSecOps has set up a repo (under EICP5Cohort)
 - Front-end has a screen that talks to the back-end
