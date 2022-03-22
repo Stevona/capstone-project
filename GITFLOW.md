@@ -34,19 +34,18 @@ Below lists the branches of EICPCohort5/capstone-project and who is responsible 
 3. Add upstream
     `git remote add upstream https://github.com/EICPCohort5/capstone-project`
 4. Pull most recent from upstream
-5. Checkout to personal branch
-    `git checkout -b "firstname-lastname"`
+5. Checkout to personal branch if team decides to utilize the approach of individual branches.
 6. Develop
 7. Add Files to Commit
     `git add .`
 8. Commit
     `git commit -m "Message for commit"`
-9. Merge with main
+9. Merge with main if having previously worked om a branch
     `git checkout main`
     `git merge branchname`
-10. Push main branch
+10. Push to remote main branch
     `git push`
-11. Create a pull request from <main> on your personal forked repo (username/capstone-project) to <teambranch> on EICPCohort5/capstone-project
+11. Create a pull request from `main` on your personal forked repo (username/capstone-project) to `teambranch` on EICPCohort5/capstone-project
 
 
 
