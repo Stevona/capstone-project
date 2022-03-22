@@ -13,8 +13,8 @@
             Customers
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/customers">Add</a></li>
-            <li><a class="dropdown-item" href="/costumers">Edit</a></li>
+            <li><a class="dropdown-item" href="/addCustomers">Add</a></li>
+            <li><a class="dropdown-item" href="/manageCustomers">Edit</a></li>
           </ul>
         </li>
        
@@ -23,8 +23,8 @@
             Orders
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/orders">Add</a></li>
-            <li><a class="dropdown-item" href="/orders">Edit</a></li>
+            <li><a class="dropdown-item" href="/addOrders">Add</a></li>
+            <li><a class="dropdown-item" href="/manageOrders">Edit</a></li>
           </ul>
         </li>
       </ul>
