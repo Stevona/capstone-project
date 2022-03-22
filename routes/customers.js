@@ -12,4 +12,15 @@ router.get('/', async(req, res) =>{
   }
 });
 
+router.post('/', async(req,res)=>{
+  let protoCustomer = req.body;
+  try{
+    let model = await Customer.create(protoCustomer);
+    res.status(201).json(model);
+  } catch (error){
+    res.status(500).send('Customer posting failed');
+    console.log(error);
+  }
+});
+
 module.exports = router;
