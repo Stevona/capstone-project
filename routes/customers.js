@@ -8,11 +8,44 @@ router.get('/', async(req, res) =>{
     let customers = await Customer.findAll();
     res.status(200).json(customers);
   } catch (error){
-    res.status(500).send('Customer fetching failed');
     console.log(error);
+    res.status(404).send(error);
   }
 });
 
+router.get('/:id', async(req, res) => {
+  try{
+    let customer = await Customer.findOne({
+      where: { customerId: req.params['id'] }
+    });
+    res.json(customer);
+  } catch(error){
+    console.log(error);
+    res.status(404).send(error);
+  }
+});
+
+router.put('/:id', async(req, res) => {
+  try{
+    // TODO: customers PUT method
+  } catch(error){
+    console.log(error);
+    res.status(500).send(error);
+  }
+});
+
+router.delete('/:id', async(req, res) => {
+  try{
+    await Customer.destroy({
+      where: { customerId: req.params['id'] }
+    });
+    res.send(`Customer ${req.params['id']} successfully deleted`);
+  } catch(error){
+    console.log(error);
+    res.status(500).send(error);
+  }
+ });
+  
 /*POST a customer listing to /api/customer*/
 router.post('/', async(req,res)=>{
   let protoCustomer = req.body;
