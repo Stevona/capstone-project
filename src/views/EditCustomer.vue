@@ -39,7 +39,7 @@
   </div>
   <div class="col">
       <div class="form-group">
-        <label for="city">State/Province</label>
+        <label for="state">State/Province</label>
         <input type="state" class="form-control" id="state">
     </div>
   </div>
