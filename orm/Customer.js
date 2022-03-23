@@ -23,7 +23,7 @@ const Customer = connection.define('customer', {
     city: { type: DataTypes.STRING, allowNull: false},
     region: { type: DataTypes.STRING, allowNull: false},
     zip: { type: DataTypes.STRING, allowNull: false},
-    customerNotes: { type: DataTypes.STRING, allowNull: true},
+    customerNotes: { type: DataTypes.STRING},
     customerId: { type: DataTypes.INTEGER, allowNull: false, autoIncrement:true, primaryKey: true}
   });
   
