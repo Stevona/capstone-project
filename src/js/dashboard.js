@@ -5,13 +5,13 @@ export default defineComponent({
   name: "DashBoard",
   data() {
     return {
-      message: "",
+      name: "",
     };
   },
   methods: {
     
   },
   mounted() {
-    this.message = "DashBoard";
+    this.name = "TJX StoneCap iTrack Dashboard";
   },
 });
