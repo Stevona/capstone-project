@@ -9,8 +9,4 @@ describe('sample test cases for DevSecOps team', () => {
     it("passing test case", () => {
         assert(true);
     })
-
-    it("failing test case", () => {
-        throw new Error("the test failed");
-    })
 })
