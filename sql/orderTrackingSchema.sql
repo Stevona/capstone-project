@@ -74,7 +74,7 @@ create table OrderProducts (
     orderProductId int auto_increment not null ,
     quantity int not null, -- number of units purchased
     priceEach decimal(10,2) not null , -- price of each item
-    orderNotes varchar(200),
+    -- orderNotes varchar(200),
     orderId int not null ,
     productId int not null ,
     primary key (orderProductId),
