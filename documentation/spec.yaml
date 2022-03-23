@@ -304,42 +304,42 @@ components:
         $ref: '#/.../Customer'
       example: [
         {
-          "firstName": Phillip,
-          "middleName": Jason,
-          "lastName": Fry,
-          "phone": 8491237583,
-          "email": pjfry@gmail.com,
-          "address": 125 Main Street,
-          "city": New York,
-          "region": United States,
-          "zip": 10001,
-          "customerNotes": Prefers express delivery,
+          "firstName": "Phillip",
+          "middleName": "Jason",
+          "lastName": "Fry",
+          "phone": "8491237583",
+          "email": "pjfry@gmail.com",
+          "address": "125 Main Street",
+          "city": "New York",
+          "region": "United States",
+          "zip": "10001",
+          "customerNotes": "Prefers express delivery",
           "customerId": 1
         },
         {
-          "firstName": James,
-          "middleName": Paul,
-          "lastName": McCartney,
-          "phone": 1517282497,
-          "email": thebeatles@gmail.com,
-          "address": 15 Abbey Road,
-          "city": London,
-          "region": United Kingdom,
-          "zip": 5211,
-          "customerNotes": N/A,
+          "firstName": "James",
+          "middleName": "Paul",
+          "lastName": "McCartney",
+          "phone": "1517282497",
+          "email": "thebeatles@gmail.com",
+          "address": "15 Abbey Road",
+          "city": "London",
+          "region": "United Kingdom",
+          "zip": "5211",
+          "customerNotes": "N/A",
           "customerId": 2
         },
         {
-          "firstName": Sponge,
-          "middleName": Bob,
-          "lastName": SquarePants,
-          "phone": 1111111111,
-          "email": sbsquarep@gmail.com,
-          "address": 142 West Street,
-          "city": Montreal,
-          "region": Canada,
-          "zip": 514,
-          "customerNotes": N/A,
+          "firstName": "Sponge",
+          "middleName": "Bob",
+          "lastName": "SquarePants",
+          "phone": "1111111111",
+          "email": "sbsquarep@gmail.com",
+          "address": "142 West Street",
+          "city": "Montreal",
+          "region": "Canada",
+          "zip": "514",
+          "customerNotes": "N/A",
           "customerId": 3
         }
       ]
@@ -392,16 +392,16 @@ components:
         - zip
         - customerId
       example:
-        firstName: Sponge
-        middleName: Bob
-        lastName: SquarePants
-        phone: 1111111111
-        email: sbsquarep@gmail.com
-        address: 142 West Street
-        city: Montreal
-        region: Canada
-        zip: 514
-        customerNotes: N/A
+        firstName: "Sponge"
+        middleName: "Bob"
+        lastName: "SquarePants"
+        phone: "1111111111"
+        email: "sbsquarep@gmail.com"
+        address: "142 West Street"
+        city: "Montreal"
+        region: "Canada"
+        zip: "514"
+        customerNotes: "N/A"
         customerId: 3
 
     Orders:
@@ -412,17 +412,17 @@ components:
       example: [
         {
           "orderId": 1,
-          "datetimeOrderPlaced": 2022-03-10,
-          "datetimeOrderFulfilled": 2022-03-11,
+          "datetimeOrderPlaced": "2022-03-10",
+          "datetimeOrderFulfilled": "2022-03-11",
           "totalOrderPrice": 42.99,
-          "orderNotes": Expedited Shipping,
+          "orderNotes": "Expedited Shipping",
           "customerId": 1,
           "orderStatusCode": 2 
         },
         {
           "orderId": 2,
-          "datetimeOrderPlaced": 2022-03-16,
-          "datetimeOrderFulfilled": 2022-03-17,
+          "datetimeOrderPlaced": "2022-03-16",
+          "datetimeOrderFulfilled": "2022-03-17",
           "totalOrderPrice": 9.99,
           "orderNotes": Expedited Shipping,
           "customerId": 1,
@@ -430,8 +430,8 @@ components:
         },
         {
           "orderId": 3,
-          "datetimeOrderPlaced": 2022-03-01,
-          "datetimeOrderFulfilled": 2022-03-02,
+          "datetimeOrderPlaced": "2022-03-01",
+          "datetimeOrderFulfilled": "2022-03-02",
           "totalOrderPrice": 75.99,
           "orderNotes": N/A,
           "customerId": 2,
@@ -446,13 +446,16 @@ components:
           type: integer
           description: "The order id"
         datetimeOrderPlaced:
-          type: date
+          type: string
+          format: date
           description: "The date the order was placed"
         datetimeOrderFulfilled:
-          type: date
+          type: string
+          format: date
           description: "The date the order was fulfilled"
         totalOrderPrice:
-          type: double
+          type: number
+          format: double
           description: "The total price of the order"
         orderNotes:
           type: string
@@ -472,10 +475,10 @@ components:
         - orderStatusCode
       example:
         orderId: 3
-        datetimeOrderPlaced: 2022-03-01
-        datetimeOrderFulfilled: 2022-03-02
+        datetimeOrderPlaced: "2022-03-01"
+        datetimeOrderFulfilled: "2022-03-02"
         totalOrderPrice: 75.99
-        orderNotes: N/A
+        orderNotes: "N/A"
         customerId: 2
         orderStatusCode: 1
 
@@ -486,13 +489,16 @@ components:
           type: integer
           description: "The order id"
         datetimeOrderPlaced:
-          type: date
+          type: string
+          format: date
           description: "The date the order was placed"
         datetimeOrderFulfilled:
-          type: date
+          type: string
+          format: date
           description: "The date the order was fulfilled"
         totalOrderPrice:
-          type: double
+          type: number
+          format: double
           description: "The total price of the order"
         orderNotes:
           type: string
@@ -511,6 +517,72 @@ components:
         $ref: '#/.../Product'
       example: [
         {
-          
+          "productId": ,
+          "productSKU": ,
+          "productPrice": ,
+          "productName": ,
+          "productQuantity": ,
+          "productDescription": 
+        },
+        {
+          "productId": ,
+          "productSKU": ,
+          "productPrice": ,
+          "productName": ,
+          "productQuantity": ,
+          "productDescription": 
+        },
+        {
+          "productId": ,
+          "productSKU": ,
+          "productPrice": ,
+          "productName": ,
+          "productQuantity": ,
+          "productDescription": 
         }
       ]
+
+    Product:
+      type: object
+      properties:
+        productId:
+          type: integer
+          description: "The product Id"
+        productSKU:
+          type: string
+          description: "The product's SKU code"
+        productPrice:
+          type: number
+          format: double
+          description: "The listed price of the product"
+        productName:
+          type: string
+          description: "The name of the product"
+        productQuantity:
+          type: integer
+          description: "The quantity of this product"
+        productDescription:
+          type: string
+          description: "The description of the product"
+      required:
+        - productId
+        - productSKU
+        - productPrice
+        - productName
+        - productQuantity
+      example:
+        productId:
+        productSKU:
+        productPrice:
+        productName:
+        productQuantity:
+        productDescription:
+
+  parameters:
+    DraftOrders:
+
+    LimitByOrderPrice:
+
+    PageLimit:
+
+    PageOffset:    
