@@ -1,7 +1,7 @@
 <template id="addCustomer">
   <NavBar />
   <div class="hello">
-    <h1>{{message}}</h1>
+    <h1>{{ message }}</h1>
   </div>
   <FooterBar />
 </template>
