@@ -6,9 +6,68 @@ const { Customer } = require('../orm/tracking-model');
 router.get('/', async(req, res) =>{
   try{
     let customers = await Customer.findAll();
-    res.json(customers);
+    res.status(200).json(customers);
   } catch (error){
-    res.status(500).send('Customer fetching failed');
+    console.log(error);
+    res.status(500).send('Customer GET failed');
+  }
+});
+
+router.get('/:id', async(req, res) => {
+  try{
+    let customer = await Customer.findByPk(req.params.id);
+    if (customer) {
+      res.status(200).json(customer);
+    } else {
+      res.status(404).send(`Could not find customer with id ${req.params.id}`);
+    }
+  } catch(error){
+    console.log(error);
+    res.status(500).send('Customer GET failed');
+  }
+});
+
+/*POST a customer listing to /api/customer*/
+router.post('/', async(req,res)=>{
+  let protoCustomer = req.body;
+  try{
+    let model = await Customer.create(protoCustomer);
+    res.status(201).json(model);
+  } catch (error){
+    console.log(error);
+    res.status(500).send('Customer POST failed');
+  }
+});
+
+
+router.put('/:id', async(req, res) => {
+  let protoCustomer = req.body;
+  try{
+    let [customer, created] = await Customer.upsert(protoCustomer, {
+      where: { customerId: req.params['id'] }
+    });
+    if (created) {
+      // PUT to an endpoint with a non-existant :id will create a new customer
+      // with an ID following auto-incrementation rules
+      res.status(201).json(customer);
+    } else {
+      res.status(200).send('Customer record updated');
+    }
+  } catch(error){
+    console.log(error);
+    res.status(500).send(error);
+  }
+});
+
+router.delete('/:id', async(req, res) => {
+  try{
+    await Customer.destroy({
+      where: { customerId: req.params['id'] }
+    });
+    res.status(200).send(`Customer ${req.params['id']} successfully deleted`);
+  } catch(error){
+    console.log(error);
+    res.status(500).send(error);
   }
 });
 

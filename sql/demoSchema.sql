@@ -1,12 +1,12 @@
-drop schema if exists orderTracking;
+drop schema if exists demoDB;
 
 
 
-create schema orderTracking;
+create schema demoDB;
 
 
 
-use orderTracking;
+use demoDB;
 
 
 
@@ -91,3 +91,44 @@ create table Users (
     password varchar(255) not null,
     primary key(loginId)
 );
+
+
+--Insert statements to provide sample data
+
+
+INSERT INTO customers (firstName, middleName, lastName, phone, email, address, city, region, zip)
+VALUES
+    ('Callum','Paul','Ogle',0744566774,'callumogle@tjx_europe.com','133 York Road','Sittingbourne','Kent','N7 7AJ'),
+    ('Thierry','Daniel','Henry',1425817574,'ThierryHenry@arsenal.co.fr', '1 Premiere Route','Les Ulis','Essonne','91940'),
+    ('Gabriel','Teodoro','Martinelli',357517105,'GMartinelli@arsenal.co.br','1 Primeira Estrada','Guarulhos','Sao Paulo','02176010' );
+
+
+INSERT INTO orderstatuscodes (orderStatusCode) 
+VALUES 
+    ('Draft'),
+    ('Open'),
+    ('Finalized'),
+    ('Preparing to ship'),
+    ('Ready for shipping'),
+    ('Shipped'),
+    ('Delivered'),
+    ('Closed');
+
+
+INSERT INTO orders (datetimeOrderPlaced,datetimeOrderFulfilled,TotalOrderPrice,customerId,orderStatusCodeId)
+VALUES
+    ('2022-03-10','2022-03-13',1000,1,8),
+    ('2022-03-22','2022-03-22',10,2,2),
+    ('2022-02-02','2022-03-22',100000,3,8);
+
+
+INSERT INTO products (productSKU,productPrice,productName,productQuantity)
+VALUES
+    ('A11369420',12.50,'Irish Whiskey',10),('731ABC123',0.50,'Lime',100),('64Z00L4N3',.10,'Salt',10000);
+
+
+INSERT INTO orderproducts (quantity,priceEach,orderId,productId)
+VALUES
+    (10,1.12,1,1),
+    (100,0.5,2,2),
+    (10000,0.01,2,2);
