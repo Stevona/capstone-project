@@ -517,28 +517,28 @@ components:
         $ref: '#/.../Product'
       example: [
         {
-          "productId": ,
-          "productSKU": ,
-          "productPrice": ,
-          "productName": ,
-          "productQuantity": ,
-          "productDescription": 
+          "productId": 1,
+          "productSKU": "TS123456",
+          "productPrice": 19.99,
+          "productName": "Red T-Shirt",
+          "productQuantity": 1,
+          "productDescription": "A comfortable T-Shirt" 
         },
         {
-          "productId": ,
-          "productSKU": ,
-          "productPrice": ,
-          "productName": ,
-          "productQuantity": ,
-          "productDescription": 
+          "productId": 2,
+          "productSKU": "TS513426",
+          "productPrice": 39.99,
+          "productName": "Blue Winter Jacket",
+          "productQuantity": 2,
+          "productDescription": "A padded winter jacket" 
         },
         {
-          "productId": ,
-          "productSKU": ,
-          "productPrice": ,
-          "productName": ,
-          "productQuantity": ,
-          "productDescription": 
+          "productId": 3,
+          "productSKU": "TS153232",
+          "productPrice": 9.99,
+          "productName": "Fur Gloves",
+          "productQuantity": 5,
+          "productDescription": "Fur lined winter gloves" 
         }
       ]
 
@@ -571,12 +571,35 @@ components:
         - productName
         - productQuantity
       example:
+        productId: 3
+        productSKU: "TS153232"
+        productPrice: 9.99
+        productName: "Fur Gloves"
+        productQuantity: 5
+        productDescription: "Fur lined winter gloves"
+
+    PatchProduct:
+      type: object
+      properties:
         productId:
+          type: integer
+          description: "The product Id"
         productSKU:
+          type: string
+          description: "The product's SKU code"
         productPrice:
+          type: number
+          format: double
+          description: "The listed price of the product"
         productName:
+          type: string
+          description: "The name of the product"
         productQuantity:
+          type: integer
+          description: "The quantity of this product"
         productDescription:
+          type: string
+          description: "The description of the product"
 
   parameters:
     DraftOrders:
