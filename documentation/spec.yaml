@@ -8,9 +8,8 @@ info:
     create, retrieve, update or delete information relating to customers,
     orders and products.
 
-# NEED SERVER URL/INFORMATION
 servers: 
-  - url:
+  - url: https://officialstonecap.azurewebsites.net/
 
 security:
   - BasicAuth: []
