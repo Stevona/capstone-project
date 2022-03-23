@@ -27,6 +27,9 @@
         />
       </svg>
     </span>
+    <button class="btn btn-primary btn-sm" onclick="location.href='/addcustomer'">
+        Add Customer
+    </button>
   </div>
 
   <table class="table table-hover container mt-5">
@@ -36,7 +39,6 @@
         <th scope="col">Address</th>
         <th scope="col">Phone</th>
         <th scope="col">Recent Order ID</th>
-        <th scope="col">Select Customer</th>
       </tr>
     </thead>
     <tbody>
@@ -45,40 +47,21 @@
         <td>14 Road St.</td>
         <td>555444888</td>
         <td>23534</td>
-        <td>
-          <button type="button" class="btn btn-outline-primary"></button>
-        </td>
       </tr>
       <tr>
         <th scope="row">John Doe</th>
         <td>14 Road St.</td>
         <td>555444888</td>
         <td>23534</td>
-        <td>
-          <button type="button" class="btn btn-outline-primary"></button>
-        </td>
       </tr>
       <tr>
         <th scope="row">John Doe</th>
         <td>14 Road St.</td>
         <td>555444888</td>
         <td>23534</td>
-        <td>
-          <button type="button" class="btn btn-outline-primary"></button>
-        </td>
       </tr>
-      <th scope="row"></th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>
-        <button type="button" class="btn btn-outline-primary"></button>
-      </td>
     </tbody>
   </table>
-  <button class="btn btn-primary btn-sm" onclick="location.href='/addcustomer'">
-    Add Customer
-  </button>
 </template>
 
 <script src="../js/manageCustomers.js"></script>

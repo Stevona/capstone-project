@@ -27,6 +27,9 @@
         />
       </svg>
     </span>
+    <button class="btn btn-primary btn-sm" onclick="location.href='/addOrder'">
+      Add Order
+    </button>
   </div>
 
   <table class="table table-hover container mt-5">
@@ -37,7 +40,6 @@
         <th scope="col">Order Status Code</th>
         <th scope="col">Date</th>
         <th scope="col">Total Order Price</th>
-        <th scope="col">Select Order</th>
       </tr>
     </thead>
     <tbody>
@@ -47,9 +49,6 @@
         <td>In Progress</td>
         <td>2/22/22</td>
         <td>$420.69</td>
-        <td>
-          <button type="button" class="btn btn-outline-primary"></button>
-        </td>
       </tr>
       <tr>
         <th scope="row">24535</th>
@@ -57,9 +56,6 @@
         <td>In Progress</td>
         <td>2/22/22</td>
         <td>$420.69</td>
-        <td>
-          <button type="button" class="btn btn-outline-primary"></button>
-        </td>
       </tr>
       <tr>
         <th scope="row">24535</th>
@@ -67,24 +63,9 @@
         <td>In Progress</td>
         <td>2/22/22</td>
         <td>$420.69</td>
-        <td>
-          <button type="button" class="btn btn-outline-primary"></button>
-        </td>
       </tr>
-
-      <th scope="row"></th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>
-        <button type="button" class="btn btn-outline-primary"></button>
-      </td>
     </tbody>
   </table>
-  <button class="btn btn-primary btn-sm" onclick="location.href='/addOrder'">
-    Add Order
-  </button>
 </template>
 
 <script src="../js/manageOrders.js"></script>

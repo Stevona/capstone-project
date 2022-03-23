@@ -5,8 +5,8 @@
   </div>
   <FooterBar />
   
-  <form class = "container mb-5">
-  <div class ="row">
+  <form class="container mb-4">
+  <div class="row mb-3">
       <div class="col">
         <div class="form-group">
         <label for="FirstName">First Name</label>
@@ -26,11 +26,11 @@
         </div>
   </div>
   </div>
-  <div class="form-group">
+  <div class="form-group mb-3">
     <label for="address">Address</label>
     <input type="address" class="form-control" id="address">
   </div>
-  <div class="row">
+  <div class="row mb-3">
     <div class="col">
       <div class="form-group">
         <label for="city">City</label>
@@ -44,10 +44,10 @@
     </div>
   </div>
   <div class="col">
-    <div class="col-auto my-1">
-      
-      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-        <option selected>Country</option>
+    <div class="col-auto">
+    <label for="state">Country</label>
+      <select class="form-select" id="inlineFormCustomSelect">
+        <option value="1">N/A</option>
         <option value="1">Canada</option>
         <option value="2">United Kingdom</option>
         <option value="3">United States</option>
@@ -67,12 +67,14 @@
     </div>
   
 </form>
-<div>
-  <button type="draft" class="btn btn-primary mb-1">Save as Draft</button>
-</div>
-<div>
-<button type="submit" class="btn btn-primary">Submit</button>
-</div>
+<form class="row g-10 d-flex justify-content-center">
+  <div class="col-auto">
+    <button type="draft" class="btn btn-primary mb-1">Save as Draft</button>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
 </template>
 
 
