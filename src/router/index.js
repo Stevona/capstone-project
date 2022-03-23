@@ -29,7 +29,7 @@ const routes = [
     component: products
   },
   {
-    path: '/addOrder',
+    path: '/addOrders',
     name: 'AddOrder',
     component: addOrder
   },

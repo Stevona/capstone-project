@@ -4,6 +4,47 @@
     <h1>{{message}}</h1>
   </div>
   <FooterBar />
+  <form class="container mb-4">
+  <div class="row mb-3">
+      <div class="col">
+        <div class="form-group">
+        <label for="OrderID">OrderID</label>
+        <input type="OrderID" class="form-control" id="orderID" aria-describedby="emailHelp">
+      </div>
+    </div>
+  <div class ="col">
+      <div class="col-auto">
+    <label for="customerName">Customer Name</label>
+      <select class="form-select" id="inlineFormCustomSelect">
+        <option value="1">John Doe</option>
+        <option value="2">Guy Mann</option>
+        <option value="3">Easter Bunny</option>
+      </select>
+  </div>
+  </div>
+  <div class="col">
+  <div class="form-group mb-3">
+    <label for="datePlaced">Date</label>
+    <input type="datePlace" class="form-control" id="datePlaced">
+  </div>
+  </div>
+  </div>
+  <div class="form-group">
+        <label for="notes">Customer Notes</label>
+        <input type="notes" class="form-control" id="notes">
+    </div>
+</form>
+<form class="row g-10 d-flex justify-content-center">
+  <div class="col-auto">
+    <button type="draft" class="btn btn-primary mb-1">Save as Draft</button>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+  <div class="col-auto">
+    <button type="products" class="btn btn-primary">Add Products</button>
+  </div>
+</form>
 </template>
 
 <script src="../js/addOrder.js"></script>
