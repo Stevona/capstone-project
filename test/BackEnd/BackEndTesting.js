@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 let chai = require('chai');
 let chaiHttp = require('chai-http');
 let should = chai.should();
