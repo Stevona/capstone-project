@@ -35,7 +35,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="/addCustomer">Add</a></li>
-              <li><a class="dropdown-item" href="/manageCustomers">Edit</a></li>
+              <li><a class="dropdown-item" href="/manageCustomers">Manage Customers</a></li>
             </ul>
           </li>
 
@@ -52,7 +52,7 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="/addOrders">Add</a></li>
-              <li><a class="dropdown-item" href="/manageOrders">Edit</a></li>
+              <li><a class="dropdown-item" href="/manageOrders">Manage Orders</a></li>
             </ul>
           </li>
           <li>
