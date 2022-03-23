@@ -35,9 +35,7 @@
   <div class="col-auto">
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>
-  <div class="col-auto">
-    <button type="products" class="btn btn-primary">Add Products</button>
-  </div>
+  
 </form>
 
  <table class="table table-hover container mt-5">
@@ -70,6 +68,9 @@
       </tr>
     </tbody>
   </table>
+  <div class="col-auto">
+    <button type="products" class="btn btn-primary">Add Products</button>
+  </div>
 </template>
 
 <script src="../js/editOrder.js"></script>
