@@ -75,6 +75,40 @@
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>
 </form>
+
+<h3> Active Orders </h3>
+<div>
+    <table class="table table-hover container">
+    <thead>
+      <tr>
+        <th scope="col">Order ID</th>
+        <th scope="col">Order Status Code</th>
+        <th scope="col">Date</th>
+        <th scope="col">Total Order Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">24535</th>
+        <td>In Progress</td>
+        <td>2/22/22</td>
+        <td>$420.69</td>
+      </tr>
+      <tr>
+        <th scope="row">24535</th>
+        <td>In Progress</td>
+        <td>2/22/22</td>
+        <td>$420.69</td>
+      </tr>
+      <tr>
+        <th scope="row">24535</th>
+        <td>In Progress</td>
+        <td>2/22/22</td>
+        <td>$420.69</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
 </template>
 
 <script src="../js/editCustomer.js"></script>
