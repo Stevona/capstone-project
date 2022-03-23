@@ -6,14 +6,55 @@
   <FooterBar />
 
   <form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  <div class ="row">
+      <div class="col">
+        <div class="form-group">
+        <label for="FirstName">First Name</label>
+        <input type="firstName" class="form-control" id="firstName" aria-describedby="emailHelp">
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="middleName">Middle Name</label>
+        <input type="middleName" class="form-control" id="middleName">
+        </div>
+  </div>
+  <div class ="col">
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="lastName" class="form-control" id="lastName">
+        </div>
+  </div>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <label for="address">Address</label>
+    <input type="address" class="form-control" id="address">
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="city" class="form-control" id="city">
+    </div>
+  </div>
+  <div class="col">
+      <div class="form-group">
+        <label for="city">State/Province</label>
+        <input type="state" class="form-control" id="state">
+    </div>
+  </div>
+  <div class="col">
+      <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="country" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Country
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li><a class="dropdown-item" >Canada</a></li>
+    <li><a class="dropdown-item">United Kingdom</a></li>
+    <li><a class="dropdown-item">United States</a></li>
+  </div>
+</div>
+  </div>
   </div>
   <div class="form-group form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
