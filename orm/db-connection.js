@@ -8,7 +8,7 @@ const config = require('./db-config');
 const connection = new Sequelize(
   `mysql://${config.userName}:${config.password}@localhost:3306/${config.database}`,
   {
-     logging: false,
+    define:{ timestamps: false }
   }
 );
 
