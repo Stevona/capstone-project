@@ -44,23 +44,30 @@
     </div>
   </div>
   <div class="col">
-      <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="country" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Country
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li><a class="dropdown-item" >Canada</a></li>
-    <li><a class="dropdown-item">United Kingdom</a></li>
-    <li><a class="dropdown-item">United States</a></li>
+    <div class="col-auto my-1">
+      
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+        <option selected>Country</option>
+        <option value="1">Canada</option>
+        <option value="2">United Kingdom</option>
+        <option value="3">United States</option>
+      </select>
+    </div>
   </div>
-</div>
+  <div class="col">
+      <div class="form-group">
+        <label for="zip">Zip code</label>
+        <input type="zip" class="form-control" id="zip">
+    </div>
   </div>
   </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
+  <div class="form-group">
+        <label for="notes">Customer Notes</label>
+        <input type="notes" class="form-control" id="notes">
+    </div>
+  <button type="draft" class="btn btn-primary">Save as Draft</button>
   <button type="submit" class="btn btn-primary">Submit</button>
+  
 </form>
 </template>
 
