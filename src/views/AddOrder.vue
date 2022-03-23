@@ -37,7 +37,7 @@
   </div>
 </form>
 
- <table class="table table-hover container mt-5">
+ <table summary="Products table" class="table table-hover container mt-5">
     <thead>
       <tr>
         <th scope="col">Product SKU</th>

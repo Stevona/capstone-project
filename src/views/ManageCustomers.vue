@@ -32,7 +32,7 @@
     </button>
   </div>
 
-  <table class="table table-hover container mt-5">
+  <table summary="Manage Customers table" class="table table-hover container mt-5">
     <thead>
       <tr>
         <th scope="col">Name</th>

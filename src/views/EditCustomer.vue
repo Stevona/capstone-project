@@ -78,7 +78,7 @@
 
 <h3> Active Orders </h3>
 <div>
-    <table class="table table-hover container">
+    <table summary="Active Orders table" class="table table-hover container">
     <thead>
       <tr>
         <th scope="col">Order ID</th>
