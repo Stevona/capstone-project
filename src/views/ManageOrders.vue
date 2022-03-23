@@ -34,8 +34,10 @@
       <tr>
         <th scope="col">Order ID</th>
         <th scope="col">Customer ID</th>
-        <th scope="col">Order Status</th>
+        <th scope="col">Order Status Code</th>
         <th scope="col">Date</th>
+        <th scope="col">Total Order Price</th>
+        <th scope="col">Select Order</th>
       </tr>
     </thead>
     <tbody>
@@ -44,6 +46,7 @@
         <td>235562</td>
         <td>In Progress</td>
         <td>2/22/22</td>
+        <td>$420.69</td>
         <td>
           <button type="button" class="btn btn-outline-primary"></button>
         </td>
@@ -53,6 +56,7 @@
         <td>235562</td>
         <td>In Progress</td>
         <td>2/22/22</td>
+        <td>$420.69</td>
         <td>
           <button type="button" class="btn btn-outline-primary"></button>
         </td>
@@ -62,6 +66,7 @@
         <td>235562</td>
         <td>In Progress</td>
         <td>2/22/22</td>
+        <td>$420.69</td>
         <td>
           <button type="button" class="btn btn-outline-primary"></button>
         </td>
@@ -71,12 +76,15 @@
       <td></td>
       <td></td>
       <td></td>
+      <td></td>
       <td>
         <button type="button" class="btn btn-outline-primary"></button>
       </td>
     </tbody>
   </table>
-  <button type="button" class="btn btn-primary btn-sm">New Order</button>
+  <button class="btn btn-primary btn-sm" onclick="location.href='/addOrder'">
+    Add Order
+  </button>
 </template>
 
 <script src="../js/manageOrders.js"></script>

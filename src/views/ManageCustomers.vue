@@ -36,6 +36,7 @@
         <th scope="col">Address</th>
         <th scope="col">Phone</th>
         <th scope="col">Recent Order ID</th>
+        <th scope="col">Select Customer</th>
       </tr>
     </thead>
     <tbody>
@@ -75,7 +76,9 @@
       </td>
     </tbody>
   </table>
-  <button type="button" class="btn btn-primary btn-sm">New Customer</button>
+  <button class="btn btn-primary btn-sm" onclick="location.href='/addcustomer'">
+    Add Customer
+  </button>
 </template>
 
 <script src="../js/manageCustomers.js"></script>
