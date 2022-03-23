@@ -19,9 +19,30 @@ router.get('/:id', async(req, res) => {
       where: { customerId: req.params['id'] }
     });
     res.json(customer);
-  } catch(error) {
+  } catch(error){
     console.log(error);
     res.status(404).send(error);
+  }
+});
+
+router.put('/:id', async(req, res) => {
+  try{
+    // TODO: customers PUT method
+  } catch(error){
+    console.log(error);
+    res.status(500).send(error);
+  }
+});
+
+router.delete('/:id', async(req, res) => {
+  try{
+    await Customer.destroy({
+      where: { customerId: req.params['id'] }
+    });
+    res.send(`Customer ${req.params['id']} successfully deleted`);
+  } catch(error){
+    console.log(error);
+    res.status(500).send(error);
   }
 });
 
