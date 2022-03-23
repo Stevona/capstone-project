@@ -15,7 +15,7 @@
             Customers
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/addCustomers">Add</a></li>
+            <li><a class="dropdown-item" href="/addCustomer">Add</a></li>
             <li><a class="dropdown-item" href="/manageCustomers">Edit</a></li>
           </ul>
         </li>

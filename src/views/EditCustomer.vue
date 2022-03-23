@@ -5,7 +5,7 @@
   </div>
   <FooterBar />
 
-  <form>
+  <form class = "container mb-5">
   <div class ="row">
       <div class="col">
         <div class="form-group">
@@ -65,10 +65,14 @@
         <label for="notes">Customer Notes</label>
         <input type="notes" class="form-control" id="notes">
     </div>
-  <button type="draft" class="btn btn-primary">Save as Draft</button>
-  <button type="submit" class="btn btn-primary">Submit</button>
   
 </form>
+<div>
+  <button type="draft" class="btn btn-primary mb-1">Save as Draft</button>
+</div>
+<div>
+<button type="submit" class="btn btn-primary">Submit</button>
+</div>
 </template>
 
 <script src="../js/editCustomer.js"></script>
