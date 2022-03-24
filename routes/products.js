@@ -30,7 +30,8 @@ router.get('/:id', async(req, res) => {
 router.put('/:id', async(req, res) => {
   try{
     let protoProd = req.body;
-    const [products,conn] = await Product.upsert(protoProd,{ where: {productId: req.params['id']}
+    const [products,conn] = await Product.upsert(protoProd,
+      { where: {productId: req.params['id']}
     });
     if(conn){
       res.status(201).json(products);
