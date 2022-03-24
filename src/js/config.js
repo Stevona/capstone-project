@@ -1,0 +1,1 @@
+export const customerUrl = 'http://localhost:3000/api/customers';
