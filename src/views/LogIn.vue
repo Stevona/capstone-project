@@ -1,8 +1,7 @@
 <template>
 
  <div class="login-main">
-   <div class="row">
-        <div class="div-to-align">
+   <div class="row div-to-align d-flex justify-content-center align-items-center">
     <div class="div-wrapper d-flex bd-highlight justify-content-center align-items-center"> 
        
   <div class = "login-form">
@@ -28,7 +27,6 @@
      </div>
      <button type="submit" class="ql-btn">Log In</button>
     </form>
-    </div>
     </div>
     </div>
     </div>
@@ -89,11 +87,8 @@ h1 {
 }
 
 .div-to-align {
-    width: 75%;
-    padding: 250px 20px;
+    width: 100%;
+    height: 80%;
+    /* padding: 250px 20px; */
 }
-
-
-
-
 </style>
