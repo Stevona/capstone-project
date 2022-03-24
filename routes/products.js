@@ -27,16 +27,17 @@ router.get('/:id', async(req, res) => {
 });
 
 /* PUT to modify a single product given productId */
+
 router.put('/:id', async(req, res) => {
   try{
     let protoProd = req.body;
-    const [products,conn] = await Product.upsert(protoProd,
+    let [products,conn] = await Product.upsert(protoProd,
       { where: {productId: req.params['id']}
     });
     if(conn){
       res.status(201).json(products);
     }else{
-      res.status(200).send('Customer record updated');
+      res.status(200).json(products);
     }
   } catch(error){
     console.log(error);

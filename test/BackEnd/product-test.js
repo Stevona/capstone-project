@@ -12,8 +12,8 @@ chai.use(chaiHttp);
 describe('Product', ()=>{
     describe('/PUT product', () => {
         it('it should (PUT) UPDATE a product using productid', (done) => {
-            let testProduct = {
-                productId: 1,
+            let product ={
+                productId:1,
                 productSKU: "00000",
                 productPrice: 10.47,
                 productName: "Daniel Test",
@@ -22,14 +22,12 @@ describe('Product', ()=>{
             }
             chai.request(server)
                 .put('/api/products/1')
-                .send(testProduct)
+                .send(product)
                 .end((err, res) => {
                     res.should.have.status(200);
-                    res.body.should.be.a('object');
-                    res.text.should.be.eql('Customer record updated');
-                    //res.body.product.should.have.property('productId').eql(1);
+                    res.body.should.have.property('productId').eql(1);
                     done();
                 });
+            });
         });
-})
-});
+    });
