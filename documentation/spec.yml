@@ -283,29 +283,6 @@ paths:
           description: Updated the specific product completely
         '400':
           $ref: '#/components/responses/400Error'
-    patch:
-      tags:
-        - Products
-      summary: Update a product
-      description: A partial replacement of product data with a given id
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: The productId requested by the user
-          schema:
-            type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PatchProduct'
-      responses:
-        '200':
-          description: Updated a product partially
-        '400':
-          $ref: '#/components/responses/400Error'
 components:
   securitySchemes:
     basicAuth:
@@ -573,28 +550,6 @@ components:
         productName: Fur Gloves
         productQuantity: 5
         productDescription: Fur lined winter gloves
-    PatchProduct:
-      type: object
-      properties:
-        productId:
-          type: integer
-          description: The product Id
-        productSKU:
-          type: string
-          description: The product's SKU code
-        productPrice:
-          type: number
-          format: double
-          description: The listed price of the product
-        productName:
-          type: string
-          description: The name of the product
-        productQuantity:
-          type: integer
-          description: The quantity of this product
-        productDescription:
-          type: string
-          description: The description of the product
   parameters:
     LimitByFirstName:
       name: firstname
