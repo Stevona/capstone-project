@@ -123,8 +123,6 @@ h1 {
   background: url("../assets/flipped-dashboard-background.jpg") no-repeat center;
   background-size: cover;
   background-attachment: fixed;
-  
-  min-height: 100%;
   width: 100%;
   min-height: 100vh;
   /* height: 100%; */
