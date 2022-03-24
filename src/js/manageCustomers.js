@@ -11,8 +11,6 @@ export default defineComponent({
       searchString: null,
     };
   },
-  created() {
-  },
   computed: {
     resultCustomers() {
       if (this.searchString) {
