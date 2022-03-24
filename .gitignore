@@ -68,3 +68,6 @@ package-lock.json
 
 #db connection
 db-config.js
+
+#Frontend api url links
+config.js
