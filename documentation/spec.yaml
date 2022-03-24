@@ -346,8 +346,9 @@ components:
           "phone": "8491237583",
           "email": "pjfry@gmail.com",
           "address": "125 Main Street",
-          "city": "New York",
-          "region": "United States",
+          "city": "Brooklyn",
+          "region": "New York",
+          "country": "United States",
           "zip": "10001",
           "customerNotes": "Prefers express delivery",
           "customerId": 1
@@ -360,7 +361,8 @@ components:
           "email": "thebeatles@gmail.com",
           "address": "15 Abbey Road",
           "city": "London",
-          "region": "United Kingdom",
+          "region": "Greater London",
+          "country": "United Kingdom",
           "zip": "5211",
           "customerNotes": "N/A",
           "customerId": 2
@@ -373,7 +375,8 @@ components:
           "email": "sbsquarep@gmail.com",
           "address": "142 West Street",
           "city": "Montreal",
-          "region": "Canada",
+          "region": "Quebec",
+          "country": "Canada",
           "zip": "514",
           "customerNotes": "N/A",
           "customerId": 3
@@ -407,6 +410,9 @@ components:
         region:
           type: string
           description: "Region the customer is in"
+        country:
+          type: string
+          description: "Country the customer is in"
         zip:
           type: string
           description: "Zip code for customer's location"
@@ -425,6 +431,7 @@ components:
         - address
         - city
         - region
+        - country
         - zip
         - customerId
       example:
@@ -435,7 +442,8 @@ components:
         email: "sbsquarep@gmail.com"
         address: "142 West Street"
         city: "Montreal"
-        region: "Canada"
+        region: "Quebec"
+        country: "Canada"
         zip: "514"
         customerNotes: "N/A"
         customerId: 3
