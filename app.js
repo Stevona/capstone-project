@@ -5,8 +5,10 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var customersRouter = require('./routes/customers');
+var productsRouter = require('./routes/products');
 
 var app = express();
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -16,5 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/api/customers', customersRouter);
+app.use('/api/products', productsRouter);
 
 module.exports = app;

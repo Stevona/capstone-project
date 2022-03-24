@@ -51,7 +51,7 @@ router.put('/:id', async(req, res) => {
       // with an ID following auto-incrementation rules
       res.status(201).json(customer);
     } else {
-      res.status(200).send('Customer record updated');
+      res.status(200).json(customer);
     }
   } catch(error){
     console.log(error);

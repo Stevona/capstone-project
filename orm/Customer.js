@@ -31,4 +31,4 @@ const Customer = connection.define('Customer', {
     }
   });
   
-  module.exports = { Customer };
+  module.exports = Customer ;
