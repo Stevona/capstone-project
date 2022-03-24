@@ -94,14 +94,14 @@ create table Users (
 );
 
 
---Insert statements to provide sample data
+-- Insert statements to provide sample data
 
 
-INSERT INTO customers (firstName, middleName, lastName, phone, email, address, city, region, zip)
+INSERT INTO customers (firstName, middleName, lastName, phone, email, address, city, region, zip, country)
 VALUES
-    ('Callum','Paul','Ogle',0744566774,'callumogle@tjx_europe.com','133 York Road','Sittingbourne','Kent','N7 7AJ'),
-    ('Thierry','Daniel','Henry',1425817574,'ThierryHenry@arsenal.co.fr', '1 Premiere Route','Les Ulis','Essonne','91940'),
-    ('Gabriel','Teodoro','Martinelli',357517105,'GMartinelli@arsenal.co.br','1 Primeira Estrada','Guarulhos','Sao Paulo','02176010' );
+    ('Callum','Paul','Ogle',0744566774,'callumogle@tjx_europe.com','133 York Road','Sittingbourne','Kent','N7 7AJ', 'US'),
+    ('Thierry','Daniel','Henry',1425817574,'ThierryHenry@arsenal.co.fr', '1 Premiere Route','Les Ulis','Essonne','91940', 'CA'),
+    ('Gabriel','Teodoro','Martinelli',357517105,'GMartinelli@arsenal.co.br','1 Primeira Estrada','Guarulhos','Sao Paulo','02176010','UK');
 
 
 INSERT INTO orderstatuscodes (orderStatusCode) 
