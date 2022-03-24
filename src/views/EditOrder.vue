@@ -69,7 +69,7 @@
     </tbody>
   </table>
   <div class="col-auto">
-    <button type="products" class="btn btn-primary">Add Products</button>
+    <ProductS />
   </div>
 </template>
 
