@@ -8,9 +8,8 @@ info:
     create, retrieve, update or delete information relating to customers,
     orders and products.
 
-# NEED SERVER URL/INFORMATION
 servers: 
-  - url: 
+  - url: https://officialstonecap.azurewebsites.net/
 
 security:
   - BasicAuth: []
@@ -23,13 +22,17 @@ paths:
         - Customers
       summary: Return all the customers
       description: Return all of the customers in our database
+      parameters:
+        - $ref: '#/components/parameters/LimitByFirstName'
       responses:
         '200':
           description: An array of customers in JSON format
           content:
             application/json:
               schema:
-                $ref: '#/.../Customers'
+                $ref: '#/components/schemas/Customers'
+        '400':
+          $ref: '#/components/responses/400Error'
     
     post:
       tags:
@@ -39,10 +42,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/.../Customer'
+              $ref: '#/components/schemas/Customer'
       responses:
         '201':
           description: The request has succeeded and a new resource has been created
+        '400':
+          $ref: '#/components/responses/400Error'
 
   /customers/{id}:
 
@@ -64,7 +69,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/.../Customer'
+                $ref: '#/components/schemas/Customer'
+        '400':
+          $ref: '#/components/responses/400Error'
       
     put:
       tags:
@@ -83,10 +90,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/.../Customer'
+              $ref: '#/components/schemas/Customer'
       responses:
         '200':
           description: Updated the specific customer completely
+        '400':
+          $ref: '#/components/responses/400Error'
 
     delete:
       tags:
@@ -103,6 +112,8 @@ paths:
       responses:
         '204':
           description: The resource was deleted successfully
+        '400':
+          $ref: '#/components/responses/400Error'
 
   /orders:
 
@@ -111,13 +122,20 @@ paths:
         - Orders
       summary: Return all of the orders
       description: Return all of the orders in the database
+      parameters:
+        - $ref: '#/components/parameters/DraftOrders'
+        - $ref: '#/components/parameters/LimitByOrderPrice'
+        - $ref: '#/components/parameters/PageLimit'
+        - $ref: '#/components/parameters/PageOffset'
       responses:
         '200':
           description: An array of orders in JSON format
           content:
             application/json:
               schema:
-                $ref: '#/.../Orders'
+                $ref: '#/components/schemas/Orders'
+        '400':
+          $ref: '#/components/responses/400Error'
 
     post:
       tags:
@@ -127,10 +145,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/.../Order'
+              $ref: '#/components/schemas/Order'
       responses:
         '201':
           description: The request has succeeded and a new resource has been created
+        '400':
+          $ref: '#/components/responses/400Error'
 
   /orders/{id}:
 
@@ -152,7 +172,9 @@ paths:
             content:
               application/json:
                 schema:
-                  $ref: '#/.../Order'
+                  $ref: '#/components/schemas/Order'
+          '400':
+            $ref: '#/components/responses/400Error'
 
     put: 
       tags:
@@ -171,10 +193,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/.../Order'
+              $ref: '#/components/schemas/Order'
       responses:
         '200':
           description: Updated the specific order completely
+        '400':
+          $ref: '#/components/responses/400Error'
 
     patch:
       tags:
@@ -193,10 +217,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/.../PatchOrder'
+              $ref: '#/components/schemas/PatchOrder'
       responses:
         '200':
           description: Updated an order partially
+        '400':
+          $ref: '#/components/responses/400Error'
 
     delete:
       tags:
@@ -213,6 +239,8 @@ paths:
       responses:
         '204':
           description: The resource was deleted successfully
+        '400':
+          $ref: '#/components/responses/400Error'
 
   /products:
 
@@ -227,7 +255,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/.../Products'
+                $ref: '#/components/schemas/Products'
+        '400':
+          $ref: '#/components/responses/400Error'
 
   /products/{id}:
 
@@ -249,7 +279,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/.../Product'
+                $ref: '#/components/schemas/Product'
+        '400':
+          $ref: '#/components/responses/400Error'
 
     put:
       tags:
@@ -268,10 +300,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/.../Product'
+              $ref: '#/components/schemas/Product'
       responses:
         '200':
           description: Updated the specific product completely
+        '400':
+          $ref: '#/components/responses/400Error'
 
     patch:
       tags:
@@ -290,10 +324,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/.../PatchProduct'
+              $ref: '#/components/schemas/PatchProduct'
       responses:
         '200':
           description: Updated a product partially
+        '400':
+          $ref: '#/components/responses/400Error'
 
 components:
   schemas:
@@ -301,45 +337,45 @@ components:
       description: "An array of Customer objects."
       type: array
       items:
-        $ref: '#/.../Customer'
+        $ref: '#/components/schemas/Customer'
       example: [
         {
-          "firstName": Phillip,
-          "middleName": Jason,
-          "lastName": Fry,
-          "phone": 8491237583,
-          "email": pjfry@gmail.com,
-          "address": 125 Main Street,
-          "city": New York,
-          "region": United States,
-          "zip": 10001,
-          "customerNotes": Prefers express delivery,
+          "firstName": "Phillip",
+          "middleName": "Jason",
+          "lastName": "Fry",
+          "phone": "8491237583",
+          "email": "pjfry@gmail.com",
+          "address": "125 Main Street",
+          "city": "New York",
+          "region": "United States",
+          "zip": "10001",
+          "customerNotes": "Prefers express delivery",
           "customerId": 1
         },
         {
-          "firstName": James,
-          "middleName": Paul,
-          "lastName": McCartney,
-          "phone": 1517282497,
-          "email": thebeatles@gmail.com,
-          "address": 15 Abbey Road,
-          "city": London,
-          "region": United Kingdom,
-          "zip": 5211,
-          "customerNotes": N/A,
+          "firstName": "James",
+          "middleName": "Paul",
+          "lastName": "McCartney",
+          "phone": "1517282497",
+          "email": "thebeatles@gmail.com",
+          "address": "15 Abbey Road",
+          "city": "London",
+          "region": "United Kingdom",
+          "zip": "5211",
+          "customerNotes": "N/A",
           "customerId": 2
         },
         {
-          "firstName": Sponge,
-          "middleName": Bob,
-          "lastName": SquarePants,
-          "phone": 1111111111,
-          "email": sbsquarep@gmail.com,
-          "address": 142 West Street,
-          "city": Montreal,
-          "region": Canada,
-          "zip": 514,
-          "customerNotes": N/A,
+          "firstName": "Sponge",
+          "middleName": "Bob",
+          "lastName": "SquarePants",
+          "phone": "1111111111",
+          "email": "sbsquarep@gmail.com",
+          "address": "142 West Street",
+          "city": "Montreal",
+          "region": "Canada",
+          "zip": "514",
+          "customerNotes": "N/A",
           "customerId": 3
         }
       ]
@@ -392,37 +428,37 @@ components:
         - zip
         - customerId
       example:
-        firstName: Sponge
-        middleName: Bob
-        lastName: SquarePants
-        phone: 1111111111
-        email: sbsquarep@gmail.com
-        address: 142 West Street
-        city: Montreal
-        region: Canada
-        zip: 514
-        customerNotes: N/A
+        firstName: "Sponge"
+        middleName: "Bob"
+        lastName: "SquarePants"
+        phone: "1111111111"
+        email: "sbsquarep@gmail.com"
+        address: "142 West Street"
+        city: "Montreal"
+        region: "Canada"
+        zip: "514"
+        customerNotes: "N/A"
         customerId: 3
 
     Orders:
       description: "An array of Order objects."
       type: array
       items:
-        $ref: '#/.../Order'
+        $ref: '#/components/schemas/Order'
       example: [
         {
           "orderId": 1,
-          "datetimeOrderPlaced": 2022-03-10,
-          "datetimeOrderFulfilled": 2022-03-11,
+          "datetimeOrderPlaced": "2022-03-10",
+          "datetimeOrderFulfilled": "2022-03-11",
           "totalOrderPrice": 42.99,
-          "orderNotes": Expedited Shipping,
+          "orderNotes": "Expedited Shipping",
           "customerId": 1,
           "orderStatusCode": 2 
         },
         {
           "orderId": 2,
-          "datetimeOrderPlaced": 2022-03-16,
-          "datetimeOrderFulfilled": 2022-03-17,
+          "datetimeOrderPlaced": "2022-03-16",
+          "datetimeOrderFulfilled": "2022-03-17",
           "totalOrderPrice": 9.99,
           "orderNotes": Expedited Shipping,
           "customerId": 1,
@@ -430,8 +466,8 @@ components:
         },
         {
           "orderId": 3,
-          "datetimeOrderPlaced": 2022-03-01,
-          "datetimeOrderFulfilled": 2022-03-02,
+          "datetimeOrderPlaced": "2022-03-01",
+          "datetimeOrderFulfilled": "2022-03-02",
           "totalOrderPrice": 75.99,
           "orderNotes": N/A,
           "customerId": 2,
@@ -446,13 +482,16 @@ components:
           type: integer
           description: "The order id"
         datetimeOrderPlaced:
-          type: date
+          type: string
+          format: date
           description: "The date the order was placed"
         datetimeOrderFulfilled:
-          type: date
+          type: string
+          format: date
           description: "The date the order was fulfilled"
         totalOrderPrice:
-          type: double
+          type: number
+          format: double
           description: "The total price of the order"
         orderNotes:
           type: string
@@ -472,10 +511,10 @@ components:
         - orderStatusCode
       example:
         orderId: 3
-        datetimeOrderPlaced: 2022-03-01
-        datetimeOrderFulfilled: 2022-03-02
+        datetimeOrderPlaced: "2022-03-01"
+        datetimeOrderFulfilled: "2022-03-02"
         totalOrderPrice: 75.99
-        orderNotes: N/A
+        orderNotes: "N/A"
         customerId: 2
         orderStatusCode: 1
 
@@ -486,13 +525,16 @@ components:
           type: integer
           description: "The order id"
         datetimeOrderPlaced:
-          type: date
+          type: string
+          format: date
           description: "The date the order was placed"
         datetimeOrderFulfilled:
-          type: date
+          type: string
+          format: date
           description: "The date the order was fulfilled"
         totalOrderPrice:
-          type: double
+          type: number
+          format: double
           description: "The total price of the order"
         orderNotes:
           type: string
@@ -508,9 +550,136 @@ components:
       description: "An array of Product objects."
       type: array
       items:
-        $ref: '#/.../Product'
+        $ref: '#/components/schemas/Product'
       example: [
         {
-          
+          "productId": 1,
+          "productSKU": "TS123456",
+          "productPrice": 19.99,
+          "productName": "Red T-Shirt",
+          "productQuantity": 1,
+          "productDescription": "A comfortable T-Shirt" 
+        },
+        {
+          "productId": 2,
+          "productSKU": "TS513426",
+          "productPrice": 39.99,
+          "productName": "Blue Winter Jacket",
+          "productQuantity": 2,
+          "productDescription": "A padded winter jacket" 
+        },
+        {
+          "productId": 3,
+          "productSKU": "TS153232",
+          "productPrice": 9.99,
+          "productName": "Fur Gloves",
+          "productQuantity": 5,
+          "productDescription": "Fur lined winter gloves" 
         }
       ]
+
+    Product:
+      type: object
+      properties:
+        productId:
+          type: integer
+          description: "The product Id"
+        productSKU:
+          type: string
+          description: "The product's SKU code"
+        productPrice:
+          type: number
+          format: double
+          description: "The listed price of the product"
+        productName:
+          type: string
+          description: "The name of the product"
+        productQuantity:
+          type: integer
+          description: "The quantity of this product"
+        productDescription:
+          type: string
+          description: "The description of the product"
+      required:
+        - productId
+        - productSKU
+        - productPrice
+        - productName
+        - productQuantity
+      example:
+        productId: 3
+        productSKU: "TS153232"
+        productPrice: 9.99
+        productName: "Fur Gloves"
+        productQuantity: 5
+        productDescription: "Fur lined winter gloves"
+
+    PatchProduct:
+      type: object
+      properties:
+        productId:
+          type: integer
+          description: "The product Id"
+        productSKU:
+          type: string
+          description: "The product's SKU code"
+        productPrice:
+          type: number
+          format: double
+          description: "The listed price of the product"
+        productName:
+          type: string
+          description: "The name of the product"
+        productQuantity:
+          type: integer
+          description: "The quantity of this product"
+        productDescription:
+          type: string
+          description: "The description of the product"
+
+  parameters:
+    LimitByFirstName:
+      name: firstname
+      in: query
+      description: Limits the results to display only items that match the firstname property
+      schema:
+        type: string
+    
+    DraftOrders:
+      name: order_status_code
+      in: query
+      description: Displays results that have an order_status_code set to Draft
+      schema:
+        type: string
+
+    LimitByOrderPrice:
+      name: total_order_price
+      in: query
+      description: Displays results that have a total_order_price that is greater than a certain value
+      schema:
+        type: number
+
+    PageLimit:
+      name: limit
+      in: query
+      description: Limits the number of items displayed on a page
+      schema:
+        type: integer
+
+    PageOffset: 
+      name: offset 
+      in: query
+      description: Specifies the item from which the list will begin
+      schema:
+        type: integer
+
+  responses:
+    400Error:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
