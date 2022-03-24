@@ -10,6 +10,29 @@ let {Product} = require("../../orm/Product");
 chai.use(chaiHttp);
 
 describe('Product', ()=>{
+    describe('/GET product', ()=>{
+        it('it should GET all products', (done)=>{
+            chai.request(server)
+            .get('/api/products')
+            .end((err, res) =>{
+                res.should.have.status(200);
+                res.body.should.be.a('array');
+                res.body.length.should.be.eql(3)
+            done();
+            })
+        })
+        it('it should GET a single product given productId', (done)=>{
+            chai.request(server)
+            .get('/api/products/1')
+            .end((err, res) =>{
+                res.should.have.status(200);
+                res.body.should.have.property('productName').eql('Irish Whiskey');
+                res.body.should.have.property('productPrice').eql('12.50');
+                res.body.should.have.property('productQuantity').eql(10);
+            done();
+            })
+        })
+    })
     describe('/PUT product', () => {
         it('it should (PUT) UPDATE a product using productid', (done) => {
             let product ={
@@ -19,12 +42,13 @@ describe('Product', ()=>{
                 productName: "Daniel Test",
                 productQuantity: "1",
                 productDescription: "yum"
-            }
+                }
             chai.request(server)
                 .put('/api/products/1')
                 .send(product)
                 .end((err, res) => {
                     res.should.have.status(200);
+                    res.body.should.have.property('productName').eql('Daniel Test');
                     res.body.should.have.property('productId').eql(1);
                     done();
                 });
