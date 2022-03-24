@@ -5,6 +5,8 @@ import manageOrders from '@/views/ManageOrders'
 import products from '@/views/ProductS'
 import addCustomer from '@/views/AddCustomer'
 import addOrder from '@/views/AddOrder'
+import editCustomer from '@/views/EditCustomer'
+import editOrder from '@/views/EditOrder'
 
 const routes = [
   {
@@ -28,7 +30,7 @@ const routes = [
     component: products
   },
   {
-    path: '/addOrder',
+    path: '/addOrders',
     name: 'AddOrder',
     component: addOrder
   },
@@ -36,6 +38,16 @@ const routes = [
     path: '/addCustomer',
     name: 'AddCustomer',
     component: addCustomer
+  },
+  {
+    path: '/editCustomer',
+    name: 'EditCustomer',
+    component: editCustomer
+  },
+  {
+    path: '/editOrder',
+    name: 'EditOrder',
+    component: editOrder
   },
 ]
 
