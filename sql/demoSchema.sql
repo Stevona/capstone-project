@@ -21,6 +21,7 @@ create table Customers (
     city varchar(50) not null,
     region varchar(50) not null,
     zip varchar(50) not null,
+    country varchar(50) not null,
     customerNotes varchar(500),
     customerId int not null auto_increment,
     primary key(customerId)
