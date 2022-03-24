@@ -70,6 +70,4 @@ package-lock.json
 db-config.js
 orm/db-config
 
-#Frontend api url links
-config.js
 
