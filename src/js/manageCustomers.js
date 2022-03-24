@@ -8,10 +8,24 @@ export default defineComponent({
     return {
       message: "",
       customers: [],
+      searchString: null,
     };
   },
   created() {
-    this.getCustomers()
+  },
+  computed: {
+    resultCustomers() {
+      if (this.searchString) {
+        return this.customers.filter(customer => {
+          return this.searchString
+            .toLowerCase()
+            .split(" ")
+            .every(v => customer.firstName.toLowerCase().includes(v));
+        });
+      } else {
+        return this.customers;
+      }
+    }
   },
   methods: {
     async getCustomers () {
@@ -31,5 +45,6 @@ export default defineComponent({
   },
   mounted() {
     this.message = "manageCustomers";
+    this.getCustomers()
   },
 });

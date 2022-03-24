@@ -8,6 +8,7 @@
   <div class="input-group rounded container mt-5">
     <input
       type="search"
+      v-model="searchString"
       class="form-control rounded"
       placeholder="Search"
       aria-label="Search"
@@ -42,7 +43,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(customer, index) in customers" :key="index">
+      <tr v-for="(customer, index) in resultCustomers" :key="index">
         <th scope="row">
           <router-link :to="{ name: 'EditCustomer', params: { id: customer.customerId }}">{{customer.firstName}} {{customer.lastName}}</router-link>
         </th>
