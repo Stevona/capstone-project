@@ -29,6 +29,7 @@ describe('Product', ()=>{
                 res.body.should.have.property('productName').eql('Irish Whiskey');
                 res.body.should.have.property('productPrice').eql('12.50');
                 res.body.should.have.property('productQuantity').eql(10);
+                res.body.should.have.property('productSKU').eql('A11369420');
             done();
             })
         })
@@ -40,7 +41,7 @@ describe('Product', ()=>{
                 productSKU: "00000",
                 productPrice: 10.47,
                 productName: "Daniel Test",
-                productQuantity: "1",
+                productQuantity: 1,
                 productDescription: "yum"
                 }
             chai.request(server)
@@ -48,6 +49,9 @@ describe('Product', ()=>{
                 .send(product)
                 .end((err, res) => {
                     res.should.have.status(200);
+                    res.body.should.have.property('productPrice').eql(10.47);
+                    res.body.should.have.property('productQuantity').eql(1);
+                    res.body.should.have.property('productSKU').eql('00000');
                     res.body.should.have.property('productName').eql('Daniel Test');
                     res.body.should.have.property('productId').eql(1);
                     done();
