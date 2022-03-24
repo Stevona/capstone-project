@@ -1,71 +1,90 @@
 <template id="addCustomer">
   <NavBar />
+  <div v-if="success" class="alert alert-success">
+    <strong>Success!</strong> Customer has been created!
+  </div>
+  <div v-if="error" class="alert alert-danger">
+    <strong>Error!</strong> Something went wrong! Refresh page and try again.
+  </div>
   <div class="hello">
     <h1>{{ message }}</h1>
   </div>
   <FooterBar />
 
-  <form class="container mb-4">
+  <form class="container mb-4" v-on:submit.prevent="onSubmit">
     <div class="row mb-3">
       <div class="col">
         <div class="form-group">
-          <label for="FirstName">First Name</label>
+          <label for="FirstName">First Name *</label>
           <input
-            type="firstName"
+            type="text"
             class="form-control"
             id="firstName"
+            v-model="firstName"
             aria-describedby="emailHelp"
+            required
           />
         </div>
       </div>
       <div class="col">
         <div class="form-group">
           <label for="middleName">Middle Name</label>
-          <input type="middleName" class="form-control" id="middleName" />
+          <input
+            type="text"
+            class="form-control"
+            v-model="middleName"
+            id="middleName"
+            
+          />
         </div>
       </div>
       <div class="col">
         <div class="form-group">
-          <label for="lastName">Last Name</label>
-          <input type="lastName" class="form-control" id="lastName" />
+          <label for="lastName">Last Name *</label>
+          <input
+            v-model="lastName"
+            type="text"
+            class="form-control"
+            id="lastName"
+            required
+          />
         </div>
       </div>
       <div class="col">
         <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="phone" class="form-control" id="phone" />
+          <label for="phone">Phone Number *</label>
+          <input type="text"  v-model="phone" class="form-control" id="phone" required/>
         </div>
       </div>
       <div class="col">
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" />
+          <label for="email">Email *</label>
+          <input type="email" v-model="email" class="form-control" id="email" required/>
         </div>
       </div>
     </div>
     <div class="form-group mb-3">
-      <label for="address">Address</label>
-      <input type="address" class="form-control" id="address" />
+      <label for="address">Address *</label>
+      <input type="text"  v-model="address" class="form-control" id="address" required/>
     </div>
     <div class="row mb-3">
       <div class="col">
         <div class="form-group">
-          <label for="city">City</label>
-          <input type="city" class="form-control" id="city" />
+          <label for="city">City *</label>
+          <input type="text" v-model="city" class="form-control" id="city" required/>
         </div>
       </div>
 
       <div class="col">
         <div class="form-group">
-          <label for="region">Region/Province/State</label>
-          <input type="region" class="form-control" id="region" />
+          <label for="region">Region/Province/State *</label>
+          <input type="text" v-model="regionStateProv" class="form-control" id="region" required/>
         </div>
       </div>
       <div class="col">
         <div class="col-auto">
-          <label for="state">Country</label>
-          <select class="form-select" id="inlineFormCustomSelect">
-            <option value="N/A">N/A</option>
+          <label for="state">Country *</label>
+          <select v-model="country" class="form-select" id="inlineFormCustomSelect" required>
             <option value="Canada">Canada</option>
             <option value="United Kingdom">United Kingdom</option>
             <option value="United States">United States</option>
@@ -74,21 +93,22 @@
       </div>
       <div class="col">
         <div class="form-group">
-          <label for="zip">Zip code</label>
-          <input type="zip" class="form-control" id="zip" />
+          <label for="zip">Zip code *</label>
+          <input v-model="zip" type="text" class="form-control" id="zip" required/>
         </div>
       </div>
     </div>
     <div class="form-group">
       <label for="notes">Customer Notes</label>
-      <input type="notes" class="form-control" id="notes" />
+      <input v-model="customerNotes" type="text" class="form-control" id="notes" />
+    </div>
+    <div class="col-auto g-10 d-flex justify-content-center" style="padding-top: 2%;">
+      <input type="submit" v-on:click="submit()" class="btn btn-primary" />
     </div>
   </form>
-  <form class="row g-10 d-flex justify-content-center">
-    <div class="col-auto">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-  </form>
+  <div v-if="loading" class="overlay spinner-border text-danger" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
 </template>
 
 <script src="../js/addCustomer.js"></script>
