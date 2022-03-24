@@ -34,7 +34,7 @@
     </div>
     </div>
  </div>
- <FooterBar />
+<FooterBar />
 </template>
 
 <script>
@@ -43,7 +43,8 @@ export default {
 }
 </script>
 
-<style> 
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped> 
 h3 {
   margin: auto;
 }
@@ -90,10 +91,7 @@ h1 {
 .div-to-align {
     width: 75%;
     padding: 250px 20px;
- 
-    /* .... */
 }
- 
 
 
 
