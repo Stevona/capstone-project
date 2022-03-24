@@ -1,10 +1,4 @@
 <template id="ProductS">
-  <NavBar />
-  <div class="hello">
-    <h1>{{ message }}</h1>
-  </div>
-  <FooterBar />
-
   <!-- Button trigger modal -->
   <button
     type="button"
