@@ -16,10 +16,13 @@ router.get('/', async(req, res) =>{
 /* GET product of specific productId*/
 router.get('/:id', async(req, res) => {
   try{
-    let products = await Product.findOne({
-      where: { productId: req.params['id'] }
-    });
-    res.json(products);
+    let product = await Product.findByPk(req.params.id);
+    if (product) {
+      res.status(200).json(product);
+    } else {
+      res.status(404).send(`Could not find product with id ${req.params.id}`);
+    }
+    res.json(product);
   } catch(error){
     console.log(error);
     res.status(404).send(error);
@@ -29,15 +32,16 @@ router.get('/:id', async(req, res) => {
 /* PUT to modify a single product given productId */
 
 router.put('/:id', async(req, res) => {
+  let protoProduct = req.body;
   try{
-    let protoProd = req.body;
-    let [products,conn] = await Product.upsert(protoProd,
-      { where: {productId: req.params['id']}
+    let updates = await Product.update(protoProduct, {
+      where: { productId: req.params['id'] }
     });
-    if(conn){
-      res.status(201).json(products);
-    }else{
-      res.status(200).json(products);
+    if (updates) {
+      let product = await Product.findByPk(req.params.id);
+      res.status(200).json(product);
+    } else {
+      res.status(404).send(`Not found: could not update product with id ${req.params.id}`);
     }
   } catch(error){
     console.log(error);
