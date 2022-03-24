@@ -1,17 +1,17 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  el: "#dashboard",
-  name: "DashBoard",
+  el: "#login",
+  name: "LogIn",
   data() {
     return {
-      name: "",
+      message: "",
     };
   },
   methods: {
     
   },
   mounted() {
-    this.name = "TJX StoneCap Dashboard";
+    this.message = "login";
   },
 });
