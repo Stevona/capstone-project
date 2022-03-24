@@ -43,7 +43,9 @@
     </thead>
     <tbody>
       <tr v-for="(customer, index) in customers" :key="index">
-        <th scope="row">{{customer.firstName}} {{customer.lastName}}</th>
+        <th scope="row">
+          <router-link :to="{ name: 'EditCustomer', params: { id: customer.customerId }}">{{customer.firstName}} {{customer.lastName}}</router-link>
+        </th>
         <td>{{customer.address}}, {{customer.city}}, {{customer.region}} {{customer.zip}}</td>
         <td>{{customer.phone}}</td>
         <td>{{customer.email}}</td>
