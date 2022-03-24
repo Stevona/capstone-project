@@ -12,6 +12,6 @@ export default defineComponent({
     
   },
   mounted() {
-    this.name = "TJX StoneCap iTrack Dashboard";
+    this.name = "TJX StoneCap Dashboard";
   },
 });

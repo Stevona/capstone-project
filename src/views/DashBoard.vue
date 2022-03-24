@@ -6,13 +6,13 @@
         <div class="d-flex flex-row flex-wrap justify-content-between pt-5">
           <div class="d-flex flex-column flex-wrap">
             <div class="m-3">
-              <h3>Recent Orders</h3>
+              <h2>Recent Orders</h2>
             </div>
           </div>
 
           <div class="d-flex flex-column flex-wrap">
             <div class="m-3">
-              <h3>Quick Links</h3>
+              <h2>Quick Links</h2>
             </div>
             <div class="d-flex flex-column">
               <div class="d-flex">
@@ -44,32 +44,36 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
+h2 {
   margin: auto;
+  filter: drop-shadow(1px 1px white);
 }
 
 .ql-btn {
-  border: 2px solid #79091c;
-  background-color: #9b0c23;
+  /* border: 2px solid #79091c; */
+  background: #D10061;
   height:125px;
   width:125px;
   color: white;
   cursor:pointer;
+  /* filter: drop-shadow(1px 1px white) */
 }
 
 .ql-btn:hover {
-  background-color: #a0273b;
+  transform: scale(1.1);
+  
 }
 h1 {
   font-weight: bolder;
   color: black;
-  text-shadow: 2px 2px #fdfdfd;
+  filter: drop-shadow(1px 1px white)
 }
 .dashboard-main {
-  background-image: url("../assets/dashboard-background.png");
+  background-image: url("../assets/flipped-dashboard-background.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  
 
   /* background-color: #d3ccbd; */
   height: 100%;
