@@ -49,7 +49,7 @@ describe('Product', ()=>{
                 .send(product)
                 .end((err, res) => {
                     res.should.have.status(200);
-                    res.body.should.have.property('productPrice').eql(10.47);
+                    res.body.should.have.property('productPrice').eql('10.47');
                     res.body.should.have.property('productQuantity').eql(1);
                     res.body.should.have.property('productSKU').eql('00000');
                     res.body.should.have.property('productName').eql('Daniel Test');
