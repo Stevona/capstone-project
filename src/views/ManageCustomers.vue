@@ -31,34 +31,23 @@
         Add Customer
     </button>
   </div>
-
   <table summary="Manage Customers table" class="table table-hover container mt-5">
     <thead>
       <tr>
         <th scope="col">Name</th>
         <th scope="col">Address</th>
         <th scope="col">Phone</th>
+        <th scope="col">Email</th>
         <th scope="col">Recent Order ID</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">John Doe</th>
-        <td>14 Road St.</td>
-        <td>555444888</td>
-        <td>23534</td>
-      </tr>
-      <tr>
-        <th scope="row">John Doe</th>
-        <td>14 Road St.</td>
-        <td>555444888</td>
-        <td>23534</td>
-      </tr>
-      <tr>
-        <th scope="row">John Doe</th>
-        <td>14 Road St.</td>
-        <td>555444888</td>
-        <td>23534</td>
+      <tr v-for="(customer, index) in customers" :key="index">
+        <th scope="row">{{customer.firstName}} {{customer.lastName}}</th>
+        <td>{{customer.address}}, {{customer.city}}, {{customer.region}} {{customer.zip}}</td>
+        <td>{{customer.phone}}</td>
+        <td>{{customer.email}}</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
