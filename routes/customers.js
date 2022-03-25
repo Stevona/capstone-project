@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const { Customer } = require('../orm/tracking-model');
 
+
 /* GET customers listing. */
 router.get('/', async(req, res) =>{
   try{
@@ -28,7 +29,16 @@ router.get('/:id', async(req, res) => {
 });
 
 /*POST a customer listing to /api/customer*/
-router.post('/', async(req,res)=>{
+router.post('/',
+
+body('firstName', 'middleName', 'lastName', 'country').isAlpha(),
+body('address', 'city', 'region').isAlphanumeric(),
+body('email').isEmail().normalizeEmail(),
+body('zip').isPostalCode('US', 'CA', 'GB'),
+body('phone').isMobilePhone('any'),
+
+
+async(req,res)=>{
   let protoCustomer = req.body;
   try{
     let model = await Customer.create(protoCustomer);
@@ -40,7 +50,15 @@ router.post('/', async(req,res)=>{
 });
 
 
-router.put('/:id', async(req, res) => {
+router.put('/:id', 
+
+body('firstName', 'middleName', 'lastName', 'country').isAlpha(),
+body('address', 'city', 'region').isAlphanumeric(),
+body('email').isEmail().normalizeEmail(),
+body('zip').isPostalCode('US', 'CA', 'GB'),
+body('phone').isMobilePhone('any'),
+
+async(req, res) => {
   let protoCustomer = req.body;
   try{
     let updates = await Customer.update(protoCustomer, {
