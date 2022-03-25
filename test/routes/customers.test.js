@@ -4,6 +4,7 @@ let chaiHttp = require('chai-http');
 let should = chai.should();
 let server = require('../../app');
 let {Customer} = require("../../orm/Customer");
+let {Product} = require("../../orm/Product");
 
 chai.use(chaiHttp);
 
@@ -41,7 +42,8 @@ describe('Customer', () => {
                 address: "116 Martin St",
                 city: "Lowell",
                 region: "Massachusetts",
-                zip: "01854"
+                zip: "01854",
+                country: 'US'
             }
           chai.request(server)
               .post('/api/customers')
@@ -64,7 +66,8 @@ describe('Customer', () => {
                 address: "116 Martin St",
                 city: "Lowell",
                 region: "Massachusetts",
-                zip: "01854"
+                zip: "01854",
+                country: 'US'
             }
           chai.request(server)
               .post('/api/customers')
@@ -90,38 +93,15 @@ describe('Customer', () => {
                 city: "Lowell",
                 region: "Massachusetts",
                 zip: "01854",
-                customerId: 5
+                country: 'US',
+                customerId: 3
             }
             chai.request(server)
-                .put('/api/customers/5')
+                .put('/api/customers/3')
                 .send(testCustomer)
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
-                    res.text.should.be.eql('Customer record updated');
-                    done();
-                });
-        });
-        
-        it('it should (PUT) CREATE a new customer', (done) => {
-            let testCustomer = {
-                firstName: "Brianna-PUT-CREATE",
-                middleName: "Lynn",
-                lastName: "Fahrenkopf",
-                phone: "6367512114",
-                email: "test@tjx.com",
-                address: "116 Martin St",
-                city: "Lowell",
-                region: "Massachusetts",
-                zip: "01854"
-            }
-            chai.request(server)
-                .put('/api/customers/10')
-                .send(testCustomer)
-                .end((err, res) => {
-                    res.should.have.status(201);
-                    res.body.should.be.a('object');
-                    res.body.should.have.property('firstName');
                     done();
                 });
         });
@@ -143,3 +123,26 @@ describe('Customer', () => {
 });
 
 });
+
+describe('Product', ()=>{
+    describe('/PUT product', () => {
+        it('it should (PUT) UPDATE a product using productid', (done) => {
+            let product ={
+                productId:1,
+                productSKU: "00000",
+                productPrice: 10.47,
+                productName: "Daniel Test",
+                productQuantity: "1",
+                productDescription: "yum"
+            }
+            chai.request(server)
+                .put('/api/products/1')
+                .send(product)
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    res.body.should.have.property('productId').eql(1);
+                    done();
+                });
+            });
+        });
+    });

@@ -54,6 +54,7 @@ The following is important information about the Capstone Project
 ### Important Links
 
 - [Prototype for Front-End interface](https://share.proto.io/PSVDX9/)
+- [Order Tracking API - OpenAPI](https://app.swaggerhub.com/apis/TJX7/Order_Tracking_API/1.0.0-oas3)
 
 ## Application purpose: Create an "Order Tracking" application
 
