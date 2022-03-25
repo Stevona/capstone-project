@@ -6,6 +6,7 @@
     "start": "concurrently \"node ./bin/www\" \"vue-cli-service serve\"",
     "watch": "nodemon ./bin/www",
     "serve": "vue-cli-service serve",
+    "test": "mocha test/src/js/manageCustomers.test.js",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
