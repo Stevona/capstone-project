@@ -7,14 +7,7 @@
     "watch": "nodemon ./bin/www",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "test": "mocha --recursive",
-    "test-DevSecOps": "mocha ./test/DevSecOps",
-    "test-BackEnd": "mocha ./test/BackEnd",
-    "test-DataBases": "mocha ./test/Databases",
-    "test-FrontEnd": "mocha ./test/FrontEnd",
-    "test-TestingAndDocs": "mocha ./test/TestingAndDocs",
-    "test-integration": "mocha ./test/testingIntegration.js"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.4",

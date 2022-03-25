@@ -7,6 +7,7 @@ import addCustomer from '@/views/AddCustomer'
 import addOrder from '@/views/AddOrder'
 import editCustomer from '@/views/EditCustomer'
 import editOrder from '@/views/EditOrder'
+import login from '@/views/LogIn'
 
 const routes = [
   {
@@ -40,7 +41,7 @@ const routes = [
     component: addCustomer
   },
   {
-    path: '/editCustomer',
+    path: '/editCustomer/:id',
     name: 'EditCustomer',
     component: editCustomer
   },
@@ -49,6 +50,11 @@ const routes = [
     name: 'EditOrder',
     component: editOrder
   },
+  {
+    path: '/login',
+    name: 'LogIn',
+    component: login
+  }
 ]
 
 export default new createRouter ({
