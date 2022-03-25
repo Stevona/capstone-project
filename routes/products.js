@@ -20,7 +20,7 @@ router.get('/:id', async(req, res) => {
     if (product) {
       res.status(200).json(product);
     } else {
-      res.status(404).send(`Could not find product with id ${req.params.id}`);
+      res.status(404).send(`Could not find product with specified id`);
     }
     res.json(product);
   } catch(error){
@@ -44,7 +44,7 @@ router.put('/:id', async(req, res) => {
         res.status(200).json(productUpdate);
       }
      } else {
-      res.status(404).send(`Not found: could not update product with id ${req.params.id}`);
+      res.status(404).send(`Not found: could not update product with specified id`);
     }
   } catch(error){
     console.log(error);
