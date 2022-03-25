@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npm install -g concurrently && concurrently \"node ./bin/www\" \"vue-cli-service serve\"",
+    "start": "node ./bin/www && vue-cli-service serve",
     "watch": "nodemon ./bin/www",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
