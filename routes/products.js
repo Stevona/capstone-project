@@ -34,13 +34,16 @@ router.get('/:id', async(req, res) => {
 router.put('/:id', async(req, res) => {
   let protoProduct = req.body;
   try{
-    let updates = await Product.update(protoProduct, {
-      where: { productId: req.params['id'] }
-    });
-    if (updates) {
-      let product = await Product.findByPk(req.params.id);
-      res.status(200).json(product);
-    } else {
+    let product = await Product.findByPk(req.params.id);
+    if (product) {
+      let updates = await Product.update(protoProduct, {
+        where: { productId: req.params['id'] }
+      });
+      if (updates) {
+        let productUpdate = await Product.findByPk(req.params.id);
+        res.status(200).json(productUpdate);
+      }
+     } else {
       res.status(404).send(`Not found: could not update product with id ${req.params.id}`);
     }
   } catch(error){

@@ -43,15 +43,18 @@ router.post('/', async(req,res)=>{
 router.put('/:id', async(req, res) => {
   let protoCustomer = req.body;
   try{
+    let customer = await Customer.findByPk(req.params.id);
+    if (customer){
     let updates = await Customer.update(protoCustomer, {
       where: { customerId: req.params['id'] }
     });
     if (updates) {
-      let customer = await Customer.findByPk(req.params.id);
-      res.status(200).json(customer);
+      let customerUpdate = await Customer.findByPk(req.params.id);
+      res.status(200).json(customerUpdate);
     } else {
       res.status(404).send(`Not found: could not update customer with id ${req.params.id}`);
     }
+  } 
   } catch(error){
     console.log(error);
     res.status(500).send(error);
