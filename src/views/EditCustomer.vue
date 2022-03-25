@@ -71,7 +71,7 @@
       <div class="col">
         <div class="col-auto">
           <label for="state">Country</label>
-          <select  class="form-select" id="inlineFormCustomSelect">
+          <select  v-model="customer.country" class="form-select" id="inlineFormCustomSelect">
             <option value="N/A">N/A</option>
             <option value="Canada">Canada</option>
             <option value="United Kingdom">United Kingdom</option>
