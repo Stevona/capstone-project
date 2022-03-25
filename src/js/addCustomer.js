@@ -54,6 +54,7 @@ export default defineComponent({
             address: this.address,
             city: this.city,
             region: this.regionStateProv,
+            country: this.country,
             zip: this.zip,
             customerNotes: this.customerNotes
           })
