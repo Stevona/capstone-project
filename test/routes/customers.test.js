@@ -2,6 +2,7 @@
 /* eslint-disable no-undef */
 let chai = require('chai');
 let chaiHttp = require('chai-http');
+const { response } = require('../../app');
 let should = chai.should();
 let server = require('../../app');
 let {Customer} = require("../../orm/Customer");
@@ -50,9 +51,9 @@ describe('Customer', () => {
               .post('/api/customers')
               .send(testCustomer)
               .end((err, res) => {
-                    res.should.have.status(500);
+                    res.should.have.status(400);
                     res.body.should.be.a('object');
-                    res.text.should.be.eql('Customer POST failed');
+                    res.body.errors[0].msg.should.be.eql('Must be a valid email');
                 done();
               });
         });
@@ -85,7 +86,7 @@ describe('Customer', () => {
     describe('/PUT customer', () => {
         it('it should (PUT) UPDATE a specific customer', (done) => {
             let testCustomer = {
-                firstName: "Brianna-PUT-UPDATE",
+                firstName: "BriannaPUTUPDATE",
                 middleName: "Lynn",
                 lastName: "Fahrenkopf",
                 phone: "6367512114",
