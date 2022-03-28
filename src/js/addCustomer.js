@@ -1,6 +1,5 @@
 /* eslint-disable */
 import { defineComponent } from "vue";
-import {customerUrl} from "./config";
 
 export default defineComponent({
   el: "#addCustomer",
