@@ -38,7 +38,7 @@ describe('Product', ()=>{
             .get('/api/products/5')
             .end((err, res) =>{
                 res.should.have.status(404);
-                res.text.should.be.eql('Could not find product with id 5')
+                res.text.should.be.eql('Could not find product with specified id')
             done();
             })
         })
@@ -80,7 +80,7 @@ describe('Product', ()=>{
                 .send(product)
                 .end((err, res) => {
                     res.should.have.status(404);
-                    res.text.should.be.eql('Not found: could not update product with id 100')
+                    res.text.should.be.eql('Not found: could not update product with specified id')
                     done();
                 });
             });
