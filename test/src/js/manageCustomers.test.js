@@ -9,15 +9,12 @@ chai.use(chaiHttp);
 var expect = require('chai').expect;
 //Puppeteer
 const puppeteer = require('puppeteer');
-let server = require('../../../app');
 
 
-describe('Manage Customers Page', function(){
+describe('Manage Customers Page - UT', function(){
     let browser;
     let page;
-    let server;
 
-    //Utilize puppeteer to launch the browser and create two new pages
     before(async function(){
         browser = await puppeteer.launch();
     })
@@ -40,50 +37,6 @@ describe('Manage Customers Page', function(){
     })
 
     /*
-    TEST TYPE: Integration Test (Front End and API)
-    DEVELOPER: Maria Ringes
-    DATE: Mar 25 3:00p.m. EST
-    PURPOSE: Ensure the first name of the first customer in the API matches the first name of the first customer on the manageCustomer rendered table
-    */
-    it("IT: First name of first customer in API matches on front end", async function(){
-        //Access first customer in the front end manageCustomer table
-        page = await browser.newPage();
-        pagetwo = await browser.newPage();
-        await page.goto('http://localhost:8080/manageCustomers');
-        const firstName =  await page.$eval('#app > table > tbody > tr:nth-child(1) > th > a', ele => ele.textContent);
-
-        //Access first name of the first customer on API
-        await pagetwo.goto('http://localhost:3000/api/customers/1');
-        const APIJson = await pagetwo.$eval('body > pre', ele => ele.textContent);
-        const cleanAPIJson = JSON.parse(APIJson);
-
-        //Ensure the first name of the first customer on the table matches with the first customer on the API
-        expect(firstName).to.include(cleanAPIJson.firstName);
-    })
-
-    /*
-    TEST TYPE: Integration Test (Front End and API)
-    DEVELOPER: Maria Ringes
-    DATE: Mar 25 3:15p.m. EST
-    PURPOSE: Ensure the last name of the first customer in the API matches the last name of the first customer on the manageCustomer rendered table
-    */
-    it("IT: Last name of first customer in API matches on front end", async function(){
-        //Access first customer in the front end manageCustomer table
-        page = await browser.newPage();
-        pagetwo = await browser.newPage();
-        await page.goto('http://localhost:8080/manageCustomers');
-        const lastName =  await page.$eval('#app > table > tbody > tr:nth-child(1) > th > a', ele => ele.textContent);
-
-        //Access first name of the first customer on API
-        await pagetwo.goto('http://localhost:3000/api/customers/1');
-        const APIJson = await pagetwo.$eval('body > pre', ele => ele.textContent);
-        const cleanAPIJson = JSON.parse(APIJson);
-
-        //Ensure the first name of the first customer on the table matches with the first customer on the API
-        expect(lastName).to.include(cleanAPIJson.lastName);
-    })
-
-    /*
     TEST TYPE: Unit Test Backend
     DEVELOPER: Maria Ringes
     DATE: Mar 25 3:30p.m. EST
@@ -95,7 +48,7 @@ describe('Manage Customers Page', function(){
 
         //Access first customer on API
         await page.goto('http://localhost:3000/api/customers/1');
-        const APIJson = await pagetwo.$eval('body > pre', ele => ele.textContent);
+        const APIJson = await page.$eval('body > pre', ele => ele.textContent);
         const cleanAPIJson = JSON.parse(APIJson);
 
         //Change phone string from API to integer
