@@ -1,5 +1,5 @@
+/* eslint-disable */
 import { defineComponent } from "vue";
-import {customerUrl} from "./config";
 
 export default defineComponent({
   el: "#addCustomer",
@@ -24,22 +24,62 @@ export default defineComponent({
     };
   },
   methods: {
+    validateEmail() {
+      if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
+        return false;
+      }
+      else{
+        alert("Please Enter a Valid Email")
+        return true
+      }
+  },
+    hasNumberName() {
+      if(/\d/.test(this.firstName)){
+        alert("First Name has Numbers!")
+        return true;
+      }
+      else if(/\d/.test(this.middleName)){
+        alert("Middle Name has Numbers!")
+        return true;
+      }
+      else if(/\d/.test(this.lastName)){
+        alert("Last Name has Numbers!")
+        return true;
+      }
+      else{
+        return false;
+      }
+  },
+    
+    validatePhone() {
+      if (/\D/.test(this.phone)) {
+        alert("Please Enter a Valid Phone Number")
+        return true;
+      }
+      else{
+        return false
+      }
+  },
+
     async submit () {
       if(this.firstName == "" ||
+      this.middleName == "" ||
       this.lastName == "" ||
+      this.hasNumberName() ||
       this.phone == "" ||
-      this.email == "" ||
+      this.validatePhone() ||
+      this.validateEmail() ||
       this.address == "" ||
       this.city == "" ||
       this.regionStateProv == "" ||
       this.country == "" ||
       this.zip == "") {
-        alert("One or more Fields Required")
+        alert("Input Validation Failed")
         return;
       }
       this.loading = true
       try {
-        const response = await fetch(customerUrl, {
+        const response = await fetch(process.url.API_URL + 'customers', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',

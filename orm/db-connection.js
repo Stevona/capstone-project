@@ -1,7 +1,7 @@
 //use sequelize to access mysql database
 const { Sequelize } = require('sequelize');
 
-const connString = process.env.MYSQLCONNSTR_firstTest;
+const connString = process.env.MYSQLCONNSTR_officialstonecapDatabase;
 
 // protocol://user:password@server:port/databaseName
 const connection = new Sequelize(
