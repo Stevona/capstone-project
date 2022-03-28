@@ -43,7 +43,7 @@ const routes = [
     }
   },
   {
-    path: '/addOrders',
+    path: '/addOrder',
     name: 'AddOrder',
     component: addOrder,
     meta: {
