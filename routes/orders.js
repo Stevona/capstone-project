@@ -1,58 +1,58 @@
 var express = require('express');
 var router = express.Router();
-const { Customer } = require('../orm/tracking-model');
+const { Order } = require('../orm/tracking-model');
 
-/* GET customers listing. */
+/* GET Order listing. */
 router.get('/', async(req, res) =>{
   try{
-    let customers = await Customer.findAll();
-    res.status(200).json(customers);
+    let orders = await Order.findAll();
+    res.status(200).json(orders);
   } catch (error){
     console.log(error);
-    res.status(500).send('Customer GET failed');
+    res.status(500).send('Order GET failed');
   }
 });
 
 router.get('/:id', async(req, res) => {
   try{
-    let customer = await Customer.findByPk(req.params.id);
-    if (customer) {
-      res.status(200).json(customer);
+    let orders = await Order.findByPk(req.params.id);
+    if (orders) {
+      res.status(200).json(orders);
     } else {
-      res.status(404).send(`Could not find customer with specified id`);
+      res.status(404).send(`Could not find order with specified id`);
     }
   } catch(error){
     console.log(error);
-    res.status(500).send('Customer GET failed');
+    res.status(500).send('Order GET failed');
   }
 });
 
-/*POST a customer listing to /api/customer*/
+/*POST a order listing to /api/order*/
 router.post('/', async(req,res)=>{
-  let protoCustomer = req.body;
+  let protoOrder = req.body;
   try{
-    let model = await Customer.create(protoCustomer);
+    let model = await Order.create(protoOrder);
     res.status(201).json(model);
   } catch (error){
     console.log(error);
-    res.status(500).send('Customer POST failed');
+    res.status(500).send('Order POST failed');
   }
 });
 
 
 router.put('/:id', async(req, res) => {
-  let protoCustomer = req.body;
+  let protoOrder = req.body;
   try{
-    let customer = await Customer.findByPk(req.params.id);
-    if (customer){
-    let updates = await Customer.update(protoCustomer, {
-      where: { customerId: req.params['id'] }
+    let orders = await Order.findByPk(req.params.id);
+    if (orders){
+    let updates = await Order.update(protoOrder, {
+      where: { orderId: req.params['id'] }
     });
     if (updates) {
-      let customerUpdate = await Customer.findByPk(req.params.id);
-      res.status(200).json(customerUpdate);
+      let orderUpdate = await Order.findByPk(req.params.id);
+      res.status(200).json(orderUpdate);
     } else {
-      res.status(404).send(`Not found: could not update customer with specified id`);
+      res.status(404).send(`Not found: could not update order with specified id`);
     }
   } 
   } catch(error){
@@ -63,10 +63,10 @@ router.put('/:id', async(req, res) => {
 
 router.delete('/:id', async(req, res) => {
   try{
-    await Customer.destroy({
-      where: { customerId: req.params['id'] }
+    await Order.destroy({
+      where: { orderId: req.params['id'] }
     });
-    res.status(200).send(`Customer successfully deleted`);
+    res.status(200).send(`Order successfully deleted`);
   } catch(error){
     console.log(error);
     res.status(500).send(error);
