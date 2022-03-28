@@ -2,6 +2,8 @@
 var mocha = require('mocha');
 var describe = mocha.describe;
 var it = mocha.it;
+var before = mocha.before
+var after = mocha.after
 //Chai
 let chai = require('chai');
 let chaiHttp = require('chai-http');
@@ -35,6 +37,7 @@ describe('Add Customers Page - UT', function(){
         2. Ensure alert says 'Customer has been created'
     */
         it("UT-FE: Adding a customer shows success alert", async function(){
+            
             page = await browser.newPage();
             await page.goto('http://localhost:8080/addCustomer');
             await page.type('#firstName', 'Maria');

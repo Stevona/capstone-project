@@ -6,8 +6,8 @@
     "start": "node ./bin/www && vue-cli-service serve",
     "watch": "nodemon ./bin/www",
     "serve": "vue-cli-service serve",
-    "test": "mocha test/ --recursive",
-    "test-it": "mocha test",
+    "test": "mocha test/ --recursive --timeout 30000",
+    "test-it": "mocha test --timeout 30000",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
@@ -20,8 +20,10 @@
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "mocha-cli": "^1.0.1",
     "morgan": "~1.9.1",
     "mysql2": "^2.3.3",
+    "puppeteer": "^13.5.1",
     "sequelize": "^6.17.0",
     "vue": "^3.2.31",
     "vue-router": "^4.0.13"
