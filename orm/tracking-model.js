@@ -5,7 +5,7 @@ const Order = require('./Order');
 const OrderStatusCode = require('./OrderStatusCode');
 const OrderProduct = require('./OrderProduct');
 
-Order.belongsTo(Customer, {
+/* Order.belongsTo(Customer, {
     foreignKey: 'customerId'
 });
 
@@ -30,7 +30,7 @@ Order.hasOne(OrderStatusCode, {
 
 OrderStatusCode.belongsToMany(Order, {
     foreignKey: 'orderStatusCodeId'
-});
+}); */
 
 
 connection
