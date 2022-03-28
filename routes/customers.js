@@ -75,6 +75,10 @@ body('phone', 'Must be a valid phone number').isMobilePhone('any'),
 
 async(req, res) => {
   let protoCustomer = req.body;
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   try{
     let customer = await Customer.findByPk(req.params.id);
     if (customer){
