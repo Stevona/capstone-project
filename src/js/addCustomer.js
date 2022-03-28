@@ -53,7 +53,6 @@ export default defineComponent({
             email: this.email,
             address: this.address,
             city: this.city,
-            country: this.country,
             region: this.regionStateProv,
             country: this.country,
             zip: this.zip,
