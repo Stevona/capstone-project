@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const { Customer } = require('../orm/tracking-model');
-const { body } = require('express-validator');
+const { body, validationResult } = require('express-validator');
 
 
 /* GET customers listing. */
@@ -32,15 +32,24 @@ router.get('/:id', async(req, res) => {
 /*POST a customer listing to /api/customer*/
 router.post('/',
 
-body('firstName', 'middleName', 'lastName', 'country').isAlpha(),
-body('address', 'city', 'region').isAlphanumeric(),
-body('email').isEmail().normalizeEmail(),
-body('zip').isPostalCode('US', 'CA', 'GB'),
-body('phone').isMobilePhone('any'),
+body('firstName', 'First name must be alphabetical').isAlpha(),
+body('middleName', 'Middle name must be alphabetical').isAlpha(),
+body('lastName', 'Last name must be alphabetical').isAlpha(),
+body('country','Country must be alphabetical').isAlpha(),
+body('address', 'Address must be alphanumeric').isAlphanumeric('en-US', {ignore: " "}),
+body('city', 'City must be alphanumeric').isAlphanumeric(),
+body('region', 'Region must be alphanumeric').isAlphanumeric(),
+body('email', 'Must be a valid email').isEmail().normalizeEmail(),
+body('zip', 'Must be a valid postal code').isPostalCode('US', 'CA', 'GB'),
+body('phone', 'Must be a valid phone number').isMobilePhone('any'),
 
 
 async(req,res)=>{
   let protoCustomer = req.body;
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   try{
     let model = await Customer.create(protoCustomer);
     res.status(201).json(model);
