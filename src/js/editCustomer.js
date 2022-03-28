@@ -19,7 +19,7 @@ export default defineComponent({
   methods: {
     async getCustomer () {
       try {
-        const response = await fetch(process.url.API_URL + 'customers/' + `/${this.customerId}`, {
+        const response = await fetch(process.env.API_URL + 'customers/' + `/${this.customerId}`, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
@@ -34,7 +34,7 @@ export default defineComponent({
     async submit () {
       this.loading = true
       try {
-        const response = await fetch(process.url.API_URL + 'customers/' + `/${this.customerId}`, {
+        const response = await fetch(process.env.API_URL + 'customers/' + `/${this.customerId}`, {
           method: 'PUT',
           headers: {
             'Accept': 'application/json',

@@ -27,7 +27,7 @@ export default defineComponent({
   methods: {
     async getCustomers () {
       try {
-        const response = await fetch(process.url.API_URL + 'customers', {
+        const response = await fetch(process.env.API_URL + 'customers', {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
