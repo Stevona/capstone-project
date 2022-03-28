@@ -53,7 +53,7 @@
       <div class="col">
         <div class="form-group">
           <label for="phone">Phone Number *</label>
-          <input type="text"  v-model="phone" class="form-control" id="phone" required/>
+          <input type="tel"  v-model="phone" class="form-control" id="phone" required/>
         </div>
       </div>
       <div class="col">
