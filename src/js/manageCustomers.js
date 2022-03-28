@@ -1,5 +1,4 @@
 import { defineComponent } from "vue";
-import {customerUrl} from "./config";
 
 export default defineComponent({
   el: "#manageCustomers",
@@ -28,7 +27,7 @@ export default defineComponent({
   methods: {
     async getCustomers () {
       try {
-        const response = await fetch(customerUrl, {
+        const response = await fetch(process.url.API_URL + 'customers', {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
