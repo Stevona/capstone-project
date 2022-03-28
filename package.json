@@ -7,6 +7,7 @@
     "watch": "nodemon ./bin/www",
     "serve": "vue-cli-service serve",
     "test": "mocha test/ --recursive",
+    "test-it": "mocha test",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },

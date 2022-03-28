@@ -38,7 +38,6 @@ describe('Add Customers Page - IT', function(){
             **Include pagination? Test should fail
     */
     it("IT: Adding a customer increases length of table on manageCustomers page by 1", async function(){
-        let customerCount = -1;
 
         //Get customer count
         managePageBefore = await browser.newPage();
