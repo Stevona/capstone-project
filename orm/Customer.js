@@ -31,5 +31,17 @@ const Customer = connection.define('Customer', {
       primaryKey: true 
     }
   });
+
+  connection
+    .sync({
+        //logging: console.log,
+        //force: true
+    })
+    .then(() => {
+        console.log("Connected to database")
+    })
+    .catch(err => {
+        console.error(`Unable to connect to db ${err}`)
+    })
   
   module.exports = Customer ;

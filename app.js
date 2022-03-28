@@ -2,8 +2,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var history = require('connect-history-api-fallback');
 
-var indexRouter = require('./routes/index');
+// Commented old code to test solution - Remove this if solution works on cloud
+// var indexRouter = require('./routes/index');
+
 var customersRouter = require('./routes/customers');
 var productsRouter = require('./routes/products');
 
@@ -21,9 +24,17 @@ app.use(function (req, res, next) {
 });
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-app.use('/', indexRouter);
 app.use('/api/customers', customersRouter);
 app.use('/api/products', productsRouter);
+app.use(history({
+    verbose: true
+}));
+// Commented our code to test solution - Remove this if solution works on cloud
+// app.use('/', indexRouter);
+
+app.use(express.static(path.join(__dirname, 'dist')));
+app.get('/', function (req,res) {
+    res.sendFile(path + "index.html");
+});
 
 module.exports = app;
