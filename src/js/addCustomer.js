@@ -63,7 +63,6 @@ export default defineComponent({
 
     async submit () {
       if(this.firstName == "" ||
-      this.middleName == "" ||
       this.lastName == "" ||
       this.hasNumberName() ||
       this.phone == "" ||
