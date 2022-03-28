@@ -40,13 +40,13 @@
       <div class="col">
         <div class="form-group">
           <label for="phone">Phone Number</label>
-          <input v-model="customer.phone" type="phone" class="form-control" id="phone" />
+          <input v-model="customer.phone" type="tel" class="form-control" id="phone" />
         </div>
       </div>
       <div class="col">
         <div class="form-group">
           <label for="email">Email</label>
-          <input v-model="customer.email" type="text" class="form-control" id="email" />
+          <input v-model="customer.email" type="email" class="form-control" id="email" />
         </div>
       </div>
     </div>
