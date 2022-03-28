@@ -54,6 +54,6 @@ export default defineComponent({
     },
   },
   mounted() {
-    this.message = "editCustomer";
+    this.message = "Edit Customer";
   },
 });

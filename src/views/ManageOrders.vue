@@ -28,7 +28,7 @@
       </svg>
     </span>
     <button class="btn btn-primary btn-sm" onclick="location.href='/addOrder'">
-      Add Order
+      Create Order
     </button>
   </div>
 

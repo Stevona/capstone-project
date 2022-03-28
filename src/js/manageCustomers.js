@@ -42,7 +42,7 @@ export default defineComponent({
     },
   },
   mounted() {
-    this.message = "manageCustomers";
+    this.message = "Manage Customers";
     this.getCustomers()
   },
 });

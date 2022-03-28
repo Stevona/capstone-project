@@ -114,11 +114,7 @@ h2 {
   transform: scale(1.1);
   
 }
-h1 {
-  font-weight: bolder;
-  color: black;
-  filter: drop-shadow(1px 1px white)
-}
+
 .dashboard-main {
   background: url("../assets/flipped-dashboard-background.jpg") no-repeat center;
   background-size: cover;

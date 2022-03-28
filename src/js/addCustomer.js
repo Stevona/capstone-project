@@ -121,6 +121,6 @@ export default defineComponent({
     },
   },
   mounted() {
-    this.message = "Add Customer";
+    this.message = "Create new Customer";
   },
 });
