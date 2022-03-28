@@ -10,7 +10,7 @@ export default {
   watch: {
     // eslint-disable-next-line
 		'$route' (to, from) {
-			document.title = to.meta.title || 'Other Title'
+			document.title = to.meta.title || 'StoneCap'
 		}
 	}
 }
