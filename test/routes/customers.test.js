@@ -115,7 +115,7 @@ describe('Customer', () => {
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
-                    res.text.should.be.eql('Customer 4 successfully deleted');
+                    res.text.should.be.eql('Customer successfully deleted');
                 done();
                 });
         });
