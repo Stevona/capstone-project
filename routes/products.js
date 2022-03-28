@@ -33,11 +33,13 @@ router.get('/:id', async(req, res) => {
 /* PUT to modify a single product given productId */
 
 router.put('/:id', 
-body('productSKU').isNumeric(),
-body('productPrice').isCurrency({
+body('productSKU', 'Product SKU must be alphanumeric').isAlphanumeric(),
+body('productPrice', 'Price format is invalid').isCurrency({
   allow_negatives: false, 
   thousands_separator: ''
 }),
+body('productName', 'Product name must be alphanumeric').isAlphanumeric('en-US', {ignore: " "}),
+body('productQuantity', 'Product quantity must be numeric').isNumeric(),
 async(req, res) => {
   let protoProduct = req.body;
   const errors = validationResult(req);
