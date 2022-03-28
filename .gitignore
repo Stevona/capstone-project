@@ -68,3 +68,11 @@ package-lock.json
 
 #db connection
 db-config.js
+orm/db-config
+
+#Frontend api url links
+config.js
+
+#VueJS Build Folder
+dist/
+

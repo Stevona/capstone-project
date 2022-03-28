@@ -20,7 +20,7 @@ router.get('/:id', async(req, res) => {
     if (customer) {
       res.status(200).json(customer);
     } else {
-      res.status(404).send(`Could not find customer with id ${req.params.id}`);
+      res.status(404).send(`Could not find customer with specified id`);
     }
   } catch(error){
     console.log(error);
@@ -61,15 +61,18 @@ body('phone').isMobilePhone('any'),
 async(req, res) => {
   let protoCustomer = req.body;
   try{
+    let customer = await Customer.findByPk(req.params.id);
+    if (customer){
     let updates = await Customer.update(protoCustomer, {
       where: { customerId: req.params['id'] }
     });
     if (updates) {
-      let customer = await Customer.findByPk(req.params.id);
-      res.status(200).json(customer);
+      let customerUpdate = await Customer.findByPk(req.params.id);
+      res.status(200).json(customerUpdate);
     } else {
-      res.status(404).send(`Not found: could not update customer with id ${req.params.id}`);
+      res.status(404).send(`Not found: could not update customer with specified id`);
     }
+  } 
   } catch(error){
     console.log(error);
     res.status(500).send(error);
@@ -81,7 +84,7 @@ router.delete('/:id', async(req, res) => {
     await Customer.destroy({
       where: { customerId: req.params['id'] }
     });
-    res.status(200).send(`Customer ${req.params['id']} successfully deleted`);
+    res.status(200).send(`Customer successfully deleted`);
   } catch(error){
     console.log(error);
     res.status(500).send(error);
