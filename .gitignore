@@ -68,6 +68,3 @@ package-lock.json
 
 #db connection
 db-config.js
-orm/db-config
-
-

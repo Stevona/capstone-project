@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 let chai = require('chai');
 let chaiHttp = require('chai-http');
@@ -123,26 +124,3 @@ describe('Customer', () => {
 });
 
 });
-
-describe('Product', ()=>{
-    describe('/PUT product', () => {
-        it('it should (PUT) UPDATE a product using productid', (done) => {
-            let product ={
-                productId:1,
-                productSKU: "00000",
-                productPrice: 10.47,
-                productName: "Daniel Test",
-                productQuantity: "1",
-                productDescription: "yum"
-            }
-            chai.request(server)
-                .put('/api/products/1')
-                .send(product)
-                .end((err, res) => {
-                    res.should.have.status(200);
-                    res.body.should.have.property('productId').eql(1);
-                    done();
-                });
-            });
-        });
-    });
