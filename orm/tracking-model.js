@@ -42,4 +42,4 @@ connection
         console.error("Unable to connect to the database: ", error);
     });
 
-module.exports = { Customer, Product };
+module.exports = { Customer, Product, Order};
