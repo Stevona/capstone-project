@@ -6,7 +6,13 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  watch: {
+    // eslint-disable-next-line
+		'$route' (to, from) {
+			document.title = to.meta.title || 'Other Title'
+		}
+	}
 }
 </script>
 
