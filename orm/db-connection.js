@@ -16,6 +16,9 @@ const connection = new Sequelize(
 const connection = new Sequelize(process.env.DATABASE_NAME, process.env.USER_NAME, process.env.PASSWORD, {
   host: process.env.HOST,
   dialect: 'mysql',
+  define : {
+    timestamps : false
+  }
 })
 
 
