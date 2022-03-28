@@ -23,7 +23,7 @@ const routes = [
     name: 'ManageCustomers',
     component: manageCurstomers,
     meta: {
-      title: "Manage Customer"
+      title: "Manage Customers"
     }
   },
   {
@@ -31,7 +31,7 @@ const routes = [
     name: 'ManageOrders',
     component: manageOrders,
     meta: {
-      title: "Manager Order"
+      title: "Manage Orders"
     }
   },
   {
