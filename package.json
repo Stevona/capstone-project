@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "vue-cli-service serve",
+    "start": "node ./bin/www",
+    "dev": "vue-cli-service build && node ./bin/www",
     "watch": "nodemon ./bin/www",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -13,6 +14,7 @@
     "@popperjs/core": "^2.11.4",
     "axios": "^0.26.0",
     "bootstrap": "^5.1.3",
+    "connect-history-api-fallback": "^1.6.0",
     "cookie-parser": "~1.4.4",
     "core-js": "^3.8.3",
     "debug": "~2.6.9",

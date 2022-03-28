@@ -31,5 +31,5 @@ const Customer = connection.define('Customer', {
       primaryKey: true 
     }
   });
-  
+
   module.exports = Customer ;
