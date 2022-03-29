@@ -9,6 +9,7 @@ import editCustomer from '@/views/EditCustomer'
 import editOrder from '@/views/EditOrder'
 import login from '@/views/LogIn'
 import detailCustomer from '@/views/DetailCustomer'
+import detailOrder from '@/views/DetailOrder'
 
 const routes = [
   {
@@ -84,11 +85,19 @@ const routes = [
     }
   },
   {
-    path: '/detailcustomer/:id',
-    name: "DetailCustomer",
+    path: '/detailCustomer/:id',
+    name: 'DetailCustomer',
     component: detailCustomer,
     meta:{
       title: "Customer Details"
+    }
+  },
+  {
+    path: '/detailOrder',
+    name: 'DetailOrder',
+    component: detailOrder,
+    meta:{
+      title: "Order Details"
     }
   }
 ]

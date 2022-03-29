@@ -69,10 +69,10 @@
         </div>
       </div>
       <div class="col">
-        <div class="form-group">
+       <div class="form-group">
           <label for="state">Country</label>
           <input v-model="customer.country" readonly class="form-control-plaintext" id="country" />
-        </div>
+        </div> 
       </div>
       <div class="col">
         <div class="form-group">
