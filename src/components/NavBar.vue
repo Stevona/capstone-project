@@ -29,7 +29,7 @@
                 Orders
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/addOrders">Create New Order</a></li>
+                <li><a class="dropdown-item" href="/addOrder">Create New Order</a></li>
                 <li><a class="dropdown-item" href="/manageOrders">Manage Orders</a></li>
               </ul>
             </li>
