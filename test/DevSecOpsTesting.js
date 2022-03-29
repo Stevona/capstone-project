@@ -1,12 +1,12 @@
-var mocha = require('mocha')
-var describe = mocha.describe
-var it = mocha.it
-var assert = require('chai').assert
+// var mocha = require('mocha')
+// var describe = mocha.describe
+// var it = mocha.it
+// var assert = require('chai').assert
 
-//below is a sample test case
-describe('sample test cases for DevSecOps team', () => {
+// //below is a sample test case
+// describe('sample test cases for DevSecOps team', () => {
 
-    it("passing test case", () => {
-        assert(true);
-    })
-})
+//     it("passing test case", () => {
+//         assert(true);
+//     })
+// })
