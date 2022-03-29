@@ -23,13 +23,13 @@ describe('Product', ()=>{
         })
         it('it should GET a single product given productId', (done)=>{
             chai.request(server)
-            .get('/api/products/1')
+            .get('/api/products/2')
             .end((err, res) =>{
                 res.should.have.status(200);
-                res.body.should.have.property('productName').eql('Irish Whiskey');
-                res.body.should.have.property('productPrice').eql('12.50');
-                res.body.should.have.property('productQuantity').eql(10);
-                res.body.should.have.property('productSKU').eql('A11369420');
+                res.body.should.have.property('productName').eql('Lime');
+                res.body.should.have.property('productPrice').eql('0.50');
+                res.body.should.have.property('productQuantity').eql(100);
+                res.body.should.have.property('productSKU').eql('731ABC123');
             done();
             })
         })
@@ -38,12 +38,93 @@ describe('Product', ()=>{
             .get('/api/products/5')
             .end((err, res) =>{
                 res.should.have.status(404);
-                res.text.should.be.eql('Could not find product with id 5')
+                res.text.should.be.eql('Could not find product with specified id')
             done();
             })
         })
     })
     describe('/PUT product', () => {
+
+        it('it should not PUT a product if productSKU validation fails', (done) => {
+            let product ={
+                productId:1,
+                productSKU: "-1441292",
+                productPrice: 10.47,
+                productName: "Daniel Test",
+                productQuantity: 1,
+                productDescription: "yum"
+                }
+          chai.request(server)
+              .put('/api/products/1')
+              .send(product)
+              .end((err, res) => {
+                    res.should.have.status(400);
+                    res.body.should.be.a('object');
+                    res.body.errors[0].msg.should.be.eql('Product SKU must be alphanumeric');
+                done();
+              });
+        });
+
+        it('it should not PUT a product if product price validation fails', (done) => {
+            let product ={
+                productId:1,
+                productSKU: "00000",
+                productPrice: 1400.222,
+                productName: "Daniel Test",
+                productQuantity: 1,
+                productDescription: "yum"
+                }
+          chai.request(server)
+              .put('/api/products/1')
+              .send(product)
+              .end((err, res) => {
+                    res.should.have.status(400);
+                    res.body.should.be.a('object');
+                    res.body.errors[0].msg.should.be.eql('Price format is invalid');
+                done();
+              });
+        });
+
+        it('it should not PUT a product if product name validation fails', (done) => {
+            let product ={
+                productId:1,
+                productSKU: "00000",
+                productPrice: 10.47,
+                productName: "Daniel-!@$@@#@Test",
+                productQuantity: 1,
+                productDescription: "yum"
+                }
+          chai.request(server)
+              .put('/api/products/1')
+              .send(product)
+              .end((err, res) => {
+                    res.should.have.status(400);
+                    res.body.should.be.a('object');
+                    res.body.errors[0].msg.should.be.eql('Product name must be alphanumeric');
+                done();
+              });
+        });
+
+        it('it should not PUT a product if product quantity is not a number', (done) => {
+            let product ={
+                productId:1,
+                productSKU: "00000",
+                productPrice: 10.47,
+                productName: "Daniel Test",
+                productQuantity: "a",
+                productDescription: "yum"
+                }
+          chai.request(server)
+              .put('/api/products/1')
+              .send(product)
+              .end((err, res) => {
+                    res.should.have.status(400);
+                    res.body.should.be.a('object');
+                    res.body.errors[0].msg.should.be.eql('Product quantity must be numeric');
+                done();
+              });
+        });
+
         it('it should (PUT) UPDATE a product using productid', (done) => {
             let product ={
                 productId:1,
@@ -80,7 +161,7 @@ describe('Product', ()=>{
                 .send(product)
                 .end((err, res) => {
                     res.should.have.status(404);
-                    res.text.should.be.eql('Not found: could not update product with id 100')
+                    res.text.should.be.eql('Not found: could not update product with specified id')
                     done();
                 });
             });
