@@ -35,6 +35,7 @@
         <th scope="col">Order ID</th>
         <th scope="col">Customer ID</th>
         <th scope="col">Order Status Code</th>
+        <th scope="col"> </th>
         <th scope="col">Date Ordered</th>
         <th scope="col">Total Order Price</th>
       </tr>
