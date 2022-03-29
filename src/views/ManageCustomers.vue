@@ -29,7 +29,7 @@
       </svg>
     </span>
     <button class="btn btn-primary btn-sm" onclick="location.href='/addcustomer'">
-        Add Customer
+        Create Customer
     </button>
   </div>
   <table summary="Manage Customers table" class="table table-hover container mt-5">
