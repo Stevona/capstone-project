@@ -59,11 +59,13 @@ app.get('/', function (req,res) {
     res.sendFile(path + "index.html");
 });
 
+const secret = 'secretsecret';
+
 app.post('/login', async(req, res) => {
     const name = req.body.name;
     const password = req.body.password;
 
-    let isAuth = false;
+    let isUser = false;
 
     try{
         let user = await User.findOne({
@@ -73,13 +75,13 @@ app.post('/login', async(req, res) => {
         });
         if (user) {
             console.log(`User ${user.userName} found`);
-            isAuth = await bcrypt.compare(password, user.password);
-            if (isAuth) {
+            isUser = await bcrypt.compare(password, user.password);
+            if (isUser) {
                 console.log('User authenticated');
                 res.status(200).send('User authenticated');
             } else {
-                console.log('User is not authenticated');
-                res.status(200).send('User is not authenticated');
+                console.log('User not authenticated');
+                res.status(200).send('User not authenticated');
             }
         } else {
             console.log(`User not found`);
