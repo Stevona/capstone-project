@@ -1,6 +1,5 @@
 /* eslint-disable */
 import { defineComponent } from "vue";
-import {customerUrl} from "./config";
 
 export default defineComponent({
   el: "#addCustomer",
@@ -80,7 +79,7 @@ export default defineComponent({
       }
       this.loading = true
       try {
-        const response = await fetch(customerUrl, {
+        const response = await fetch(process.env.API_URL + 'customers', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -109,6 +108,7 @@ export default defineComponent({
           this.email = ""
           this.address = ""
           this.city = ""
+          this.country = ""
           this.regionStateProv = ""
           this.zip = ""
           this.customerNotes = ""
