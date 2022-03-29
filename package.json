@@ -8,8 +8,7 @@
     "watch": "nodemon ./bin/www",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "test": "mocha --extension ./test --recursive"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.4",
