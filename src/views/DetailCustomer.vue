@@ -22,69 +22,68 @@
             id="firstName"
             aria-describedby="emailHelp"
             readonly class="form-control-plaintext"
-            value="customer.firstName"
           />
         </div>
       </div>
       <div class="col">
         <div class="form-group">
           <label for="middleName">Middle Name</label>
-          <input  v-model="customer.middleName" type="text" class="form-control-plaintext" id="middleName" value="customer.middelName"/>
+          <input  v-model="customer.middleName" type="text" class="form-control-plaintext" id="middleName"/>
         </div>
       </div>
       <div class="col">
         <div class="form-group">
           <label for="lastName">Last Name</label>
-          <input v-model="customer.lastName" type="text" readonly class="form-control-plaintext" id="lastName" value="customer.lastName"/>
+          <input v-model="customer.lastName" type="text" readonly class="form-control-plaintext" id="lastName"/>
         </div>
       </div>
       <div class="col">
         <div class="form-group">
           <label for="phone">Phone Number</label>
-          <input v-model="customer.phone" type="tel" readonly class="form-control-plaintext" id="phone" value="customer.phone"/>
+          <input v-model="customer.phone" type="tel" readonly class="form-control-plaintext" id="phone"/>
         </div>
       </div>
       <div class="col">
         <div class="form-group">
           <label for="email">Email</label>
-          <input v-model="customer.email" type="email" readonly class="form-control-plaintext" id="email" value="customer.email" />
+          <input v-model="customer.email" type="email" readonly class="form-control-plaintext" id="email" />
         </div>
       </div>
     </div>
     <div class="form-group mb-3">
       <label for="address">Address</label>
-      <input v-model="customer.address" type="text" readonly class="form-control-plaintext" id="address" value="customer.address"/>
+      <input v-model="customer.address" type="text" readonly class="form-control-plaintext" id="address" />
     </div>
     <div class="row mb-3">
       <div class="col">
         <div class="form-group">
           <label for="city">City</label>
-          <input v-model="customer.city" type="text" readonly class="form-control-plaintext" id="city" value="customer.city" />
+          <input v-model="customer.city" type="text" readonly class="form-control-plaintext" id="city"/>
         </div>
       </div>
 
       <div class="col">
         <div class="form-group">
           <label for="region">Region/Province/State</label>
-          <input v-model="customer.region" type="text" readonly class="form-control-plaintext" id="region" value="customer.region"/>
+          <input v-model="customer.region" type="text" readonly class="form-control-plaintext" id="region"/>
         </div>
       </div>
       <div class="col">
         <div class="form-group">
           <label for="state">Country</label>
-          <input v-model="customer.country" readonly class="form-control-plaintext" id="country" value="customer.country"/>
+          <input v-model="customer.country" readonly class="form-control-plaintext" id="country" />
         </div>
       </div>
       <div class="col">
         <div class="form-group">
           <label for="zip">Zip code</label>
-          <input v-model="customer.zip" type="text" readonly class="form-control-plaintext" id="zip" value="customer.zip" />
+          <input v-model="customer.zip" type="text" readonly class="form-control-plaintext" id="zip"/>
         </div>
       </div>
     </div>
     <div class="form-group">
       <label for="notes">Customer Notes</label>
-      <input v-model="customer.customerNotes" type="text" readonly class="form-control-plaintext" id="notes" value="customer.customerNotes"/>
+      <input v-model="customer.customerNotes" type="text" readonly class="form-control-plaintext" id="notes" />
     </div>
      <div class="col-auto g-10 d-flex justify-content-center" style="padding-top: 2%;">
          <button class="btn btn-primary" type="submit">
