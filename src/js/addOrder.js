@@ -12,6 +12,6 @@ export default defineComponent({
     
   },
   mounted() {
-    this.message = "addOrder";
+    this.message = "Create new Order";
   },
 });
