@@ -2,8 +2,8 @@ const connection = require('./db-connection');
 const Customer = require('./Customer');
 const Product = require('./Product');
 const Order = require('./Order');
-const OrderStatusCode = require('./OrderStatusCode');
-const OrderProduct = require('./OrderProduct');
+// const OrderStatusCode = require('./OrderStatusCode');
+// const OrderProduct = require('./OrderProduct');
 
 /* Order.belongsTo(Customer, {
     foreignKey: 'customerId'
@@ -42,4 +42,4 @@ connection
         console.error("Unable to connect to the database: ", error);
     });
 
-module.exports = { Customer, Product };
+module.exports = { Customer, Product, Order};

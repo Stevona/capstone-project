@@ -13,47 +13,74 @@ const routes = [
   {
     path: '/',
     name: 'DashBoard',
-    component: dashboard
+    component: dashboard,
+    meta: {
+      title: "Dashboard"
+    }
   },
   {
     path: '/manageCustomers',
     name: 'ManageCustomers',
-    component: manageCurstomers
+    component: manageCurstomers,
+    meta: {
+      title: "Manage Customers"
+    }
   },
   {
     path: '/manageOrders',
     name: 'ManageOrders',
-    component: manageOrders
+    component: manageOrders,
+    meta: {
+      title: "Manage Orders"
+    }
   },
   {
     path: '/products',
     name: 'Products',
-    component: products
+    component: products,
+    meta: {
+      title: "Products"
+    }
   },
   {
-    path: '/addOrders',
+    path: '/addOrder',
     name: 'AddOrder',
-    component: addOrder
+    component: addOrder,
+    meta: {
+      title: "Create Order"
+    }
   },
   {
     path: '/addCustomer',
     name: 'AddCustomer',
-    component: addCustomer
+    component: addCustomer,
+    meta: {
+      title: "Create Customer"
+    }
   },
   {
     path: '/editCustomer/:id',
     name: 'EditCustomer',
-    component: editCustomer
+    component: editCustomer,
+    meta: {
+      title: "Edit Customer"
+    }
   },
   {
     path: '/editOrder',
     name: 'EditOrder',
-    component: editOrder
+    component: editOrder,
+    meta: {
+      title: "Edit Order"
+    }
   },
   {
     path: '/login',
     name: 'LogIn',
-    component: login
+    component: login,
+    meta: {
+      title: "Login"
+    }
   }
 ]
 
