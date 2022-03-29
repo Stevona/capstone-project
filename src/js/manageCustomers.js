@@ -27,7 +27,7 @@ export default defineComponent({
   methods: {
     async getCustomers () {
       try {
-        const response = await fetch(process.env.API_URL + 'customers', {
+        const response = await fetch('/api/customers', {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
@@ -41,7 +41,7 @@ export default defineComponent({
     },
   },
   mounted() {
-    this.message = "manageCustomers";
+    this.message = "Manage Customers";
     this.getCustomers()
   },
 });

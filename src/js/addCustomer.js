@@ -63,7 +63,6 @@ export default defineComponent({
 
     async submit () {
       if(this.firstName == "" ||
-      this.middleName == "" ||
       this.lastName == "" ||
       this.hasNumberName() ||
       this.phone == "" ||
@@ -79,7 +78,7 @@ export default defineComponent({
       }
       this.loading = true
       try {
-        const response = await fetch(process.env.API_URL + 'customers', {
+        const response = await fetch('/api/customers', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -121,6 +120,6 @@ export default defineComponent({
     },
   },
   mounted() {
-    this.message = "Add Customer";
+    this.message = "Create new Customer";
   },
 });

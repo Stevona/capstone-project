@@ -6,7 +6,13 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  watch: {
+    // eslint-disable-next-line
+		'$route' (to, from) {
+			document.title = to.meta.title || 'StoneCap'
+		}
+	}
 }
 </script>
 
@@ -17,5 +23,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+h1 {
+  font-weight: bolder;
+  color: black;
+  filter: drop-shadow(1px 1px white)
 }
 </style>

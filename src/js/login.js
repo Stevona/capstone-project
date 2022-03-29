@@ -12,6 +12,6 @@ export default defineComponent({
     
   },
   mounted() {
-    this.message = "login";
+    this.message = "Login";
   },
 });
