@@ -29,7 +29,7 @@
       <div class="col">
         <div class="form-group">
           <label for="middleName">Middle Name</label>
-          <input  v-model="customer.middleName" type="text" readonly class="form-control-plaintext" id="middleName" value="customer.middelName" />
+          <input  v-model="customer.middleName" type="text" class="form-control-plaintext" id="middleName" value="customer.middelName"/>
         </div>
       </div>
       <div class="col">
@@ -70,14 +70,9 @@
         </div>
       </div>
       <div class="col">
-        <div class="col-auto">
+        <div class="form-group">
           <label for="state">Country</label>
-          <select  v-model="customer.country" readonly class="form-select" id="inlineFormCustomSelect" value="customer.country" disabled>
-            <option value="N/A">N/A</option>
-            <option value="Canada">Canada</option>
-            <option value="United Kingdom">United Kingdom</option>
-            <option value="United States">United States</option>
-          </select>
+          <input v-model="customer.country" readonly class="form-control-plaintext" id="country" value="customer.country"/>
         </div>
       </div>
       <div class="col">
