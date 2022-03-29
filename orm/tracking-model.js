@@ -5,60 +5,14 @@ const Order = require('./Order');
 const OrderStatusCode = require('./OrderStatusCode');
 const OrderProduct = require('./OrderProduct');
 
-// Order.belongsTo(Customer, {
-//     foreignKey: 'customerId'
-// });
-
-// // // TODO: Check relationship
-// Customer.hasMany(Order, {
-//     foreignKey: 'customerId'
-// });
-
-// Product.belongsToMany(Order, {
-//     through: { model: OrderProduct },
-//     foreignKey: 'productId'
-// });
-
-
-
-// OrderStatusCode.belongsToMany(Order, {
-//     foreignKey: 'orderStatusCodeId'
-// }); 
-
-Product.hasMany(OrderProduct,{ foreignKey : 'productId'});
-
-Order.belongsToMany(Product, {
-    through: { model: OrderProduct },
-    foreignKey: 'orderId'
-});
-
-Order.belongsTo(Customer, {foreignKey: 'customerId'});
-
-Order.hasOne(OrderStatusCode, {
-    foreignKey: 'orderStatusCodeId'
-});
-
-OrderStatusCode.belongsTo(Order, {foreignKey: 'orderStatusCodeId'});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Product.belongsToMany(Order, {through:OrderProduct});
+OrderProduct.hasMany(Product, {foreignKey: 'productId'});
+Order.belongsToMany(Product,{through: OrderProduct});
+OrderProduct.hasMany(Order, {foreignKey: 'orderId'});
+Order.belongsTo(Customer, {foreignKey:'customerId'});
+Customer.hasMany(Order, {foreignKey: 'customerId'});
+OrderStatusCode.belongsTo(Order,{foreignKey: 'orderStatusCodeId'});
+Order.hasOne(OrderStatusCode, {foreignKey: 'orderStatusCodeId'});
 
 
 connection
