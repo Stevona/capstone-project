@@ -1,4 +1,4 @@
-<template id="editCustomer">
+<template id="detailCustomer">
   <NavBar />
   <div v-if="success" class="alert alert-success">
     <strong>Success!</strong> Customer has been updated!
@@ -17,7 +17,7 @@
         <div class="form-group">
           <label for="FirstName">First Name</label>
           <input
-            
+            v-model="customer.firstName"
             type="text"
             id="firstName"
             aria-describedby="emailHelp"
@@ -29,50 +29,50 @@
       <div class="col">
         <div class="form-group">
           <label for="middleName">Middle Name</label>
-          <input  type="text" readonly class="form-control-plaintext" id="middleName" />
+          <input  v-model="customer.middleName" type="text" readonly class="form-control-plaintext" id="middleName" value="customer.middelName" />
         </div>
       </div>
       <div class="col">
         <div class="form-group">
           <label for="lastName">Last Name</label>
-          <input v-model="customer.lastName" type="text" class="form-control" id="lastName" />
+          <input v-model="customer.lastName" type="text" readonly class="form-control-plaintext" id="lastName" value="customer.lastName"/>
         </div>
       </div>
       <div class="col">
         <div class="form-group">
           <label for="phone">Phone Number</label>
-          <input v-model="customer.phone" type="tel" class="form-control" id="phone" />
+          <input v-model="customer.phone" type="tel" readonly class="form-control-plaintext" id="phone" value="customer.phone"/>
         </div>
       </div>
       <div class="col">
         <div class="form-group">
           <label for="email">Email</label>
-          <input v-model="customer.email" type="email" class="form-control" id="email" />
+          <input v-model="customer.email" type="email" readonly class="form-control-plaintext" id="email" value="customer.email" />
         </div>
       </div>
     </div>
     <div class="form-group mb-3">
       <label for="address">Address</label>
-      <input v-model="customer.address" type="text" class="form-control" id="address" />
+      <input v-model="customer.address" type="text" readonly class="form-control-plaintext" id="address" value="customer.address"/>
     </div>
     <div class="row mb-3">
       <div class="col">
         <div class="form-group">
           <label for="city">City</label>
-          <input v-model="customer.city" type="text" class="form-control" id="city" />
+          <input v-model="customer.city" type="text" readonly class="form-control-plaintext" id="city" value="customer.city" />
         </div>
       </div>
 
       <div class="col">
         <div class="form-group">
           <label for="region">Region/Province/State</label>
-          <input v-model="customer.region" type="text" class="form-control" id="region" />
+          <input v-model="customer.region" type="text" readonly class="form-control-plaintext" id="region" value="customer.region"/>
         </div>
       </div>
       <div class="col">
         <div class="col-auto">
           <label for="state">Country</label>
-          <select  v-model="customer.country" class="form-select" id="inlineFormCustomSelect">
+          <select  v-model="customer.country" readonly class="form-select" id="inlineFormCustomSelect" value="customer.country" disabled>
             <option value="N/A">N/A</option>
             <option value="Canada">Canada</option>
             <option value="United Kingdom">United Kingdom</option>
@@ -83,16 +83,18 @@
       <div class="col">
         <div class="form-group">
           <label for="zip">Zip code</label>
-          <input v-model="customer.zip" type="text" class="form-control" id="zip" />
+          <input v-model="customer.zip" type="text" readonly class="form-control-plaintext" id="zip" value="customer.zip" />
         </div>
       </div>
     </div>
     <div class="form-group">
       <label for="notes">Customer Notes</label>
-      <input v-model="customer.customerNotes" type="text" class="form-control" id="notes" />
+      <input v-model="customer.customerNotes" type="text" readonly class="form-control-plaintext" id="notes" value="customer.customerNotes"/>
     </div>
      <div class="col-auto g-10 d-flex justify-content-center" style="padding-top: 2%;">
-      <input type="submit" v-on:click="submit()" class="btn btn-primary" />
+         <button class="btn btn-primary" type="submit">
+      <router-link :to="{ name: 'EditCustomer', params: { id: customer.customerId }}">Edit Customer</router-link>
+         </button>
     </div>
   </form>
   <div v-if="loading" class="overlay spinner-border text-danger" role="status">
@@ -134,7 +136,7 @@
   </div>
 </template>
 
-<script src="../js/editCustomer.js"></script>
+<script src="../js/detailCustomer.js"></script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
@@ -150,6 +152,6 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: white;
 }
 </style>

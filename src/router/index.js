@@ -84,7 +84,7 @@ const routes = [
     }
   },
   {
-    path: '/detailcustomer',
+    path: '/detailcustomer/:id',
     name: "DetailCustomer",
     component: detailCustomer,
     meta:{
