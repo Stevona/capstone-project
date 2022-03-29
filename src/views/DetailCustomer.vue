@@ -86,7 +86,7 @@
       <input v-model="customer.customerNotes" type="text" readonly class="form-control-plaintext" id="notes" />
     </div>
      <div class="col-auto g-10 d-flex justify-content-center" style="padding-top: 2%;">
-         <button class="btn btn-primary" type="submit">
+         <button class="btn btn-primary" type="submit" id="editCustomerButton">
       <router-link :to="{ name: 'EditCustomer', params: { id: customer.customerId }}">Edit Customer</router-link>
          </button>
     </div>
