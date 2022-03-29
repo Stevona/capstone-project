@@ -60,6 +60,7 @@ app.get('/', function (req,res) {
 });
 
 const secret = 'secretsecret';
+const tokenLife = '1h';
 
 app.post('/login', async(req, res) => {
     const name = req.body.name;
@@ -78,13 +79,17 @@ app.post('/login', async(req, res) => {
             isUser = await bcrypt.compare(password, user.password);
             if (isUser) {
                 console.log('User authenticated');
-                res.status(200).send('User authenticated');
+                const token = jwt.sign({ user }, secret, {
+                    expiresIn: tokenLife
+                });
+                res.status(200).json({
+                    login: true,
+                    token: token
+                })
             } else {
-                console.log('User not authenticated');
-                res.status(200).send('User not authenticated');
+                res.status(200).send('Unauthenticated user');
             }
         } else {
-            console.log(`User not found`);
             res.status(404).send('User not found');
         }
     } catch(error){
