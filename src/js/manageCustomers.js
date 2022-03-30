@@ -8,6 +8,7 @@ export default defineComponent({
       message: "",
       customers: [],
       searchString: null,
+      searchBy: "firstName",
     };
   },
   computed: {
@@ -17,7 +18,7 @@ export default defineComponent({
           return this.searchString
             .toLowerCase()
             .split(" ")
-            .every(v => customer.firstName.toLowerCase().includes(v));
+            .every(v => customer[this.searchBy].toLowerCase().includes(v));
         });
       } else {
         return this.customers;
@@ -32,6 +33,7 @@ export default defineComponent({
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer '+localStorage.getItem('user'),
           },
         })
         this.customers = await response.json()

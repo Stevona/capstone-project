@@ -20,11 +20,12 @@ export default defineComponent({
   methods: {
     async getCustomer () {
       try {
-        const response = await fetch('/api/customers/' + `/${this.customerId}`, {
+        const response = await fetch('/api/customers/' + `${this.customerId}`, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer '+ localStorage.getItem('user'),
           },
         })
         this.customer = await response.json()
@@ -85,11 +86,12 @@ export default defineComponent({
       }
       this.loading = true
       try {
-        const response = await fetch('/api/customers/' + `/${this.customerId}`, {
+        const response = await fetch('/api/customers/' + `${this.customerId}`, {
           method: 'PUT',
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer '+ localStorage.getItem('user'),
           },
           body: JSON.stringify(this.customer)
         })

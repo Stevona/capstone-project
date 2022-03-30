@@ -10,6 +10,18 @@ import "bootstrap";
 
 const app = createApp(App)
 app.use(router)
+router.beforeEach((to, from, next) => {
+    // redirect to login page if not logged in and trying to access a restricted page
+    const publicPages = ['/login'];
+    const authRequired = !publicPages.includes(to.path);
+    const loggedIn = localStorage.getItem('user');
+  
+    if (authRequired && !loggedIn) {
+      return next('/login');
+    }
+  
+    next();
+})
 app.component('NavBar', NavBar)
 app.component('FooterBar', FooterBar)
 app.component('ProductS', ProductS)

@@ -83,6 +83,7 @@ export default defineComponent({
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
+            'Authorization': 'Bearer '+ localStorage.getItem('user'),
           },
           body: JSON.stringify({
             firstName: this.firstName,
