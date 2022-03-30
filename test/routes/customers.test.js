@@ -7,15 +7,31 @@ let should = chai.should();
 let server = require('../../app');
 let {Customer} = require("../../orm/Customer");
 let {Product} = require("../../orm/Product");
+const jwt = require('jsonwebtoken');
 
 chai.use(chaiHttp);
 
 describe('Customer', () => {
 
+    let testUser = {
+        name: "john",
+        password: "test"
+    }
+    const testSecret = 'secretsecret';
+    const wrongTestSecret = 'wrongsecretsecret';
+    const testTokenLife = '1h';
+    const testToken = jwt.sign({ testUser }, testSecret, {
+        expiresIn: testTokenLife
+    });
+    const invalidTestToken = jwt.sign({ testUser }, wrongTestSecret, {
+        expiresIn: testTokenLife
+    });
+    
     describe('/GET customer', () => {
         it('it should GET all the customers', (done) => {
           chai.request(server)
               .get('/api/customers')
+              .set("Authorization", "Bearer " + testToken)
               .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('array');
@@ -23,9 +39,21 @@ describe('Customer', () => {
               });
         });
 
+        it('it should not GET all the customers if user is unauthenticated', (done) => {
+            chai.request(server)
+                .get('/api/customers')
+                .set("Authorization", "Bearer " + invalidTestToken)
+                .end((err, res) => {
+                      res.should.have.status(401);
+                      res.text.should.be.eql('Unauthenticated user');
+                  done();
+                });
+          });
+
         it('it should GET a specific customer', (done) => {
             chai.request(server)
                 .get('/api/customers/1')
+                .set("Authorization", "Bearer " + testToken)
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
@@ -50,6 +78,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .post('/api/customers')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -74,6 +103,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .post('/api/customers')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(201);
@@ -98,6 +128,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .post('/api/customers')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -122,6 +153,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .post('/api/customers')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -146,6 +178,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .post('/api/customers')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -170,6 +203,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .post('/api/customers')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -194,6 +228,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .post('/api/customers')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -218,6 +253,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .post('/api/customers')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -243,6 +279,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .post('/api/customers')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -268,6 +305,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .post('/api/customers')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -292,6 +330,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .post('/api/customers')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -316,6 +355,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .post('/api/customers')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(201);
@@ -344,6 +384,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .put('/api/customers/3')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -368,6 +409,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .put('/api/customers/3')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(200);
@@ -392,6 +434,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .put('/api/customers/3')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -416,6 +459,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .put('/api/customers/3')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -440,6 +484,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .put('/api/customers/3')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -464,6 +509,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .put('/api/customers/3')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -488,6 +534,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .put('/api/customers/3')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -512,6 +559,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .put('/api/customers/3')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -537,6 +585,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .put('/api/customers/3')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -562,6 +611,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .put('/api/customers/3')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -586,6 +636,7 @@ describe('Customer', () => {
             }
           chai.request(server)
               .put('/api/customers/3')
+              .set("Authorization", "Bearer " + testToken)
               .send(testCustomer)
               .end((err, res) => {
                     res.should.have.status(400);
@@ -612,6 +663,7 @@ describe('Customer', () => {
             }
             chai.request(server)
                 .put('/api/customers/3')
+                .set("Authorization", "Bearer " + testToken)
                 .send(testCustomer)
                 .end((err, res) => {
                     res.should.have.status(200);
@@ -625,6 +677,7 @@ describe('Customer', () => {
         it('it should DELETE specific customer', (done) => {
             chai.request(server)
                 .delete('/api/customers/4')
+                .set("Authorization", "Bearer " + testToken)
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');

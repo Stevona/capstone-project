@@ -3,9 +3,30 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var history = require('connect-history-api-fallback');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
+const { DataTypes } = require('sequelize');
+const connection = require('./orm/db-connection');
 
 // Commented old code to test solution - Remove this if solution works on cloud
 // var indexRouter = require('./routes/index');
+
+const User = connection.define('User', {
+    loginId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true
+    },
+    userName: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }
+});
 
 var customersRouter = require('./routes/customers');
 var productsRouter = require('./routes/products');
@@ -37,6 +58,45 @@ app.use(history({
 app.use(express.static(path.join(__dirname, 'dist')));
 app.get('/', function (req,res) {
     res.sendFile(path + "index.html");
+});
+
+const secret = process.env.JWT_SECRET;
+const tokenLife = process.env.JWT_TOKENLIFE;
+
+app.post('/login', async(req, res) => {
+    const name = req.body.name;
+    const password = req.body.password;
+
+    let isUser = false;
+
+    try{
+        let user = await User.findOne({
+            where: {
+                userName: name
+            }
+        });
+        if (user) {
+            console.log(`User ${user.userName} found`);
+            isUser = await bcrypt.compare(password, user.password);
+            if (isUser) {
+                console.log('User authenticated');
+                const token = jwt.sign({ user }, secret, {
+                    expiresIn: tokenLife
+                });
+                res.status(200).json({
+                    login: true,
+                    token: token
+                })
+            } else {
+                res.status(200).send('Unauthenticated user');
+            }
+        } else {
+            res.status(404).send('User not found');
+        }
+    } catch(error){
+        console.log(error);
+        res.status(500).send('Failure checking user credentials');
+    }
 });
 
 module.exports = app;
