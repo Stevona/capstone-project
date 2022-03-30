@@ -30,7 +30,7 @@ const User = connection.define('User', {
 
 var customersRouter = require('./routes/customers');
 var productsRouter = require('./routes/products');
-const bcryptjs = require('bcryptjs');
+var ordersRouter = require('./routes/orders');
 
 var app = express();
 
@@ -48,6 +48,7 @@ app.use(function (req, res, next) {
 
 app.use('/api/customers', customersRouter);
 app.use('/api/products', productsRouter);
+app.use('/api/orders', ordersRouter);
 app.use(history({
     verbose: true
 }));
