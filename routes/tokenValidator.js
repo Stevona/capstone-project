@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const secret = 'secretsecret';
+const secret = process.env.JWT_SECRET;
 
 async function checkToken(token) {
   if (token) {

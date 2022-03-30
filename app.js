@@ -60,8 +60,8 @@ app.get('/', function (req,res) {
     res.sendFile(path + "index.html");
 });
 
-const secret = 'secretsecret';
-const tokenLife = '1h';
+const secret = process.env.JWT_SECRET;
+const tokenLife = process.env.JWT_TOKENLIFE;
 
 app.post('/login', async(req, res) => {
     const name = req.body.name;
