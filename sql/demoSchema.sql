@@ -133,3 +133,8 @@ VALUES
     (10,1.12,1,1),
     (100,0.5,2,2),
     (10000,0.01,2,2);
+
+INSERT INTO users (loginId, userName, password)
+VALUES
+	(1, 'john', '$2a$05$hMirMXfKftfoZJwg/ry4euMXpyygPsMgzbwTU03dzk2OBEOKb54wy'),
+    (2, 'paxton', '$2a$05$VAMxaYdNUFVnG8.jNLa8s.GyeQe6jRn8phDbOBde7yw3fnRYJYCE6');

@@ -13,6 +13,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.4",
     "axios": "^0.26.0",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^5.1.3",
     "connect-history-api-fallback": "^1.6.0",
     "cookie-parser": "~1.4.4",
@@ -21,6 +22,7 @@
     "express": "~4.16.1",
     "express-validator": "^6.14.0",
     "http-errors": "~1.6.3",
+    "jsonwebtoken": "^8.5.1",
     "mocha-cli": "^1.0.1",
     "morgan": "~1.9.1",
     "mysql2": "^2.3.3",
