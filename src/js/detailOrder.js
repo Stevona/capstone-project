@@ -19,7 +19,7 @@ export default defineComponent({
   methods: {
     async getOrder () {
       try {
-        const response = await fetch('/api/orders/' + `/${this.orderId}`, {
+        const response = await fetch('/api/orders/' + `${this.orderId}`, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
