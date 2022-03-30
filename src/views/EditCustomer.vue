@@ -93,6 +93,11 @@
      <div class="col-auto g-10 d-flex justify-content-center" style="padding-top: 2%;">
       <input type="submit" v-on:click="submit()" class="btn btn-primary" />
     </div>
+    <div class="col-auto g-10 d-flex justify-content-center" style="padding-top: 2%;">
+         <button class="btn btn-primary" type="submit" id="backButton">
+      <router-link :to="{ name: 'DetailCustomer', params: { id: customer.customerId }}">Cancel</router-link>
+         </button>
+    </div>
   </form>
   <div v-if="loading" class="overlay spinner-border text-danger" role="status">
     <span class="visually-hidden">Loading...</span>
