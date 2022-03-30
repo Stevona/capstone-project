@@ -40,7 +40,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="https://www.youtube.com/watch?v=xvFZjo5PgG0">John Paxton</a></li>
-                <li><a class="dropdown-item" href="/login">Log off</a></li>
+                <li><a class="dropdown-item" v-on:click="logoff()" href="/login">Log off</a></li>
               </ul>
             </li>
           </ul>
@@ -49,6 +49,19 @@
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  el:"#navBar",
+  name: "navBar",
+  methods: {
+    logoff: function() {
+      localStorage.removeItem('user');
+      window.location.href = '/login';
+    }
+  },
+}
+</script>
 
 <style scoped>
 nav {
