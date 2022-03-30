@@ -91,7 +91,7 @@
       <input v-model="customer.customerNotes" type="text" class="form-control" id="notes" />
     </div>
      <div class="col-auto g-10 d-flex justify-content-center" style="padding-top: 2%;">
-      <router-link style="padding-right:5%" :to="{ name: 'DetailCustomer', params: { id: customer.customerId }}">
+      <router-link style="padding-right:5%" :to="{ name: 'DetailCustomer', params: { id: customerId }}">
         <button class="btn btn-primary mr-2" id="backButton">
           Back to Detail Page
         </button>
@@ -123,5 +123,9 @@ li {
 }
 a {
   color: #42b983;
+}
+label {
+  font-weight: bold;
+  text-decoration: underline;
 }
 </style>

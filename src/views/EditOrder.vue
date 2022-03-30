@@ -95,4 +95,8 @@ li {
 a {
   color: #42b983;
 }
+label {
+  font-weight: bold;
+  text-decoration: underline;
+}
 </style>
