@@ -5,15 +5,32 @@ let chaiHttp = require('chai-http');
 let should = chai.should();
 let server = require('../../app');
 let {Order} = require("../../orm/Order");
+const jwt = require('jsonwebtoken');
 
 chai.use(chaiHttp);
 
 describe('Order', () => {
 
+    let testUser = {
+        name: "john",
+        password: "test"
+    }
+
+    const testSecret = 'secretsecret';
+    const wrongTestSecret = 'wrongsecretsecret';
+    const testTokenLife = '1h';
+    const testToken = jwt.sign({ testUser }, testSecret, {
+        expiresIn: testTokenLife
+    });
+    const invalidTestToken = jwt.sign({ testUser }, wrongTestSecret, {
+        expiresIn: testTokenLife
+    });
+
     describe('/GET order', () => {
         it('it should GET all orders', (done) => {
           chai.request(server)
               .get('/api/orders')
+              .set("Authorization", "Bearer " + testToken)
               .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('array');
@@ -22,9 +39,21 @@ describe('Order', () => {
               });
         });
 
+        it('it should not GET all orders if user is unauthenticated', (done) => {
+            chai.request(server)
+                .get('/api/orders')
+                .set("Authorization", "Bearer " + invalidTestToken)
+                .end((err, res) => {
+                    res.should.have.status(401);
+                    res.text.should.be.eql('Unauthenticated user');
+                  done();
+                });
+          });
+
         it('it should GET a single order given orderId', (done)=>{
             chai.request(server)
             .get('/api/orders/1')
+            .set("Authorization", "Bearer " + testToken)
             .end((err, res) =>{
                 res.should.have.status(200);
                 res.body.should.have.property('orderId').eql(1);
@@ -37,6 +66,7 @@ describe('Order', () => {
         it('GET/Id should send back an error code 404', (done)=>{
             chai.request(server)
             .get('/api/orders/5')
+            .set("Authorization", "Bearer " + testToken)
             .end((err, res) =>{
                 res.should.have.status(404);
                 res.text.should.be.eql('Could not find order with specified id')
@@ -55,6 +85,7 @@ describe('Order', () => {
             }
           chai.request(server)
               .post('/api/orders')
+              .set("Authorization", "Bearer " + testToken)
               .send(testOrder)
               .end((err, res) => {
                     res.should.have.status(500);
@@ -73,6 +104,7 @@ describe('Order', () => {
             }
           chai.request(server)
               .post('/api/orders')
+              .set("Authorization", "Bearer " + testToken)
               .send(testOrder)
               .end((err, res) => {
                     res.should.have.status(201);
@@ -99,6 +131,7 @@ describe('Order', () => {
             }
           chai.request(server)
               .put('/api/orders/2')
+              .set("Authorization", "Bearer " + testToken)
               .send(testOrder)
               .end((err, res) => {
                     res.should.have.status(200);
@@ -121,6 +154,7 @@ describe('Order', () => {
                 }
             chai.request(server)
                 .put('/api/orders/100')
+                .set("Authorization", "Bearer " + testToken)
                 .send(testOrder)
                 .end((err, res) => {
                     res.should.have.status(404);
@@ -134,6 +168,7 @@ describe('Order', () => {
         it('it should DELETE an order given an orderId', (done) => {
             chai.request(server)
                 .delete('/api/orders/3')
+                .set("Authorization", "Bearer " + testToken)
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
