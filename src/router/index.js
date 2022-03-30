@@ -93,7 +93,7 @@ const routes = [
     }
   },
   {
-    path: '/detailOrder',
+    path: '/detailOrder/:id',
     name: 'DetailOrder',
     component: detailOrder,
     meta:{

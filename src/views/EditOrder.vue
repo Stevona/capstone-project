@@ -35,7 +35,11 @@
   <div class="col-auto">
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>
-  
+  <div class="col-auto g-10 d-flex justify-content-center" style="padding-top: 2%;">
+         <button class="btn btn-primary" type="submit" id="backButton">
+      <router-link :to="{ name: 'DetailOrder', params: { id: order.orderId }}">Back</router-link>
+         </button>
+    </div>
 </form>
 
  <table summary="Products table" class="table table-hover container mt-5">
