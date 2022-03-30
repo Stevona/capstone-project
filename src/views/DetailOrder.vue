@@ -9,7 +9,7 @@
   <div class ="col">
       <div class="form-group">
           <label for="state">Customer Name</label>
-          <!-- <input v-model="customer.firstName" readonly class="form-control-plaintext" id="country" /> -->
+          <!-- <-- <input v-model="customer.firstName" readonly class="form-control-plaintext" id="customerName" /> --> 
         </div> 
   </div>
   <div class="col">
@@ -81,6 +81,6 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: white;
 }
 </style>
