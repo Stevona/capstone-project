@@ -18,7 +18,7 @@ export default defineComponent({
           return this.searchString
             .toLowerCase()
             .split(" ")
-            .every(v => order[this.searchBy].toLowerCase().includes(v));
+            .every(v => order[this.searchBy].includes(v));
         });
       } else {
         return this.orders;

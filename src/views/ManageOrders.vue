@@ -17,8 +17,9 @@
     <span class="input-group-text border-0" id="search-dropdown">
        <select name="searchBy" id="searchBy" v-model="searchBy" class="form-select" aria-label="Default select example">
          <option value="orderId">Order ID</option>
-         <option value="customerId">Customer ID</option>
-         <option value="orderStatuscodeID">Order Status Code</option>
+         <option value="Customer.firstName">Customer First Name</option>
+         <option value="Customer.lastName">Customer Last Name</option>
+         <option value="OrderStatusCode.orderStatusCode">Order Status Code</option>
          <option value="datetimeOrderPlaced">Date Ordered</option>
          <option value="totalOrderPrice">Total Order Price</option>
       </select>
@@ -33,9 +34,8 @@
     <thead>
       <tr>
         <th scope="col">Order ID</th>
-        <th scope="col">Customer ID</th>
+        <th scope="col">Customer</th>
         <th scope="col">Order Status Code</th>
-        <th scope="col"> </th>
         <th scope="col">Date Ordered</th>
         <th scope="col">Total Order Price</th>
       </tr>
@@ -45,9 +45,10 @@
         <th scope="row">
           <router-link :to="{ name: 'DetailOrder', params: { id: order.orderId }}">{{order.customerId}}</router-link>
         </th>
-        <td>{{order.orderId}}</td>
-        <td>{{order.customerId}}</td>
-        <td>{{order.orderStatuscodeID}}</td>
+        <th scope="row">
+          <router-link :to="{ name: 'DetailCustomer', params: { id: order.Customer.customerId }}">{{order.Customer.firstName}} {{order.Customer.lastName}}</router-link>
+        </th>
+        <td>{{order.OrderStatusCode.orderStatusCode}}</td>
         <td>{{order.datetimeOrderPlaced}}</td>
         <td>{{order.totalOrderPrice}}</td>
       </tr>
