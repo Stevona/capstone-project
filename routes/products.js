@@ -31,7 +31,6 @@ router.get('/:id', async(req, res) => {
       } else {
         res.status(404).send(`Could not find product with specified id`);
       }
-      res.json(product);
     } catch(error){
       console.log(error);
       res.status(404).send(error);

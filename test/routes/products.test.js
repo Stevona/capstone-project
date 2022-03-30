@@ -16,6 +16,7 @@ describe('Product', ()=>{
         name: "john",
         password: "test"
     }
+
     const testSecret = 'secretsecret';
     const wrongTestSecret = 'wrongsecretsecret';
     const testTokenLife = '1h';
@@ -36,8 +37,8 @@ describe('Product', ()=>{
                 res.body.should.be.a('array');
                 res.body.length.should.be.eql(3)
             done();
-            })
-        })
+            });
+        });
         it('it should not GET all products if user is unauthenticated', (done)=>{
             chai.request(server)
             .get('/api/products')
@@ -46,8 +47,8 @@ describe('Product', ()=>{
                 res.should.have.status(401);
                 res.text.should.be.eql('Unauthenticated user');
             done();
-            })
-        })
+            });
+        });
         it('it should GET a single product given productId', (done)=>{
             chai.request(server)
             .get('/api/products/2')
@@ -59,8 +60,8 @@ describe('Product', ()=>{
                 res.body.should.have.property('productQuantity').eql(100);
                 res.body.should.have.property('productSKU').eql('731ABC123');
             done();
-            })
-        })
+            });
+        });
         it('GET/Id should send back an error code 404', (done)=>{
             chai.request(server)
             .get('/api/products/5')
@@ -69,9 +70,9 @@ describe('Product', ()=>{
                 res.should.have.status(404);
                 res.text.should.be.eql('Could not find product with specified id')
             done();
-            })
-        })
-    })
+            });
+        });
+    });
     describe('/PUT product', () => {
 
         it('it should not PUT a product if productSKU validation fails', (done) => {
