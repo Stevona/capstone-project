@@ -25,13 +25,11 @@
     </div>
 </form>
 <form class="row g-10 d-flex justify-content-center">
-  <div class="col-auto">
-    <button type="draft" class="btn btn-primary mb-1">Save as Draft</button>
-  </div>
-  <div class="col-auto">
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </div>
-  
+  <div class="col-auto g-10 d-flex justify-content-center" style="padding-top: 2%;">
+         <button class="btn btn-primary" type="submit" id="editOrderButton">
+      <router-link :to="{ name: 'EditOrder', params: { id: order.orderId }}">Edit Order</router-link>
+         </button>
+    </div>
 </form>
 
  <table summary="Products table" class="table table-hover container mt-5">
@@ -64,9 +62,7 @@
       </tr>
     </tbody>
   </table>
-  <div class="col-auto">
-    <ProductS />
-  </div>
+
 </template>
 
 <script src="../js/detailOrder.js"></script>
