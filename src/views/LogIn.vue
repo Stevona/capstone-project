@@ -6,16 +6,16 @@
       <div class = "login-form rounded-3 pt-3 pb-3 d-flex justify-content-center align-items-center flex-column">
         <img class="logo" src="../assets/stonecap.png" alt="">
         <div class="d-inline-flex p-2 bd-highlight">
-          <form class="container">
+          <form class="container" v-on:submit.prevent="onSubmit">
             <div class="form-group">
               <label for="username">Username</label>
-              <input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Username">
+              <input v-model="username" type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Username">
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <input v-model="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
-            <div class="form-group form-check">
+            <!-- <div class="form-group form-check">
               <div class="d-flex flex-row bd-highlight">
                 <div  class="p-2 bd-highlight mr-2">
                   <label class="form-check-label" for="exampleCheck1">Remember Me</label>
@@ -24,8 +24,11 @@
                   <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 </div>
               </div>
+            </div>  -->
+            <button v-on:click="login()" type="submit" class="ql-btn mt-3">Log In</button>
+            <div v-if="loading" class="overlay spinner-border text-danger" role="status">
+              <span class="visually-hidden">Loading...</span>
             </div>
-            <button type="submit" class="ql-btn">Log In</button>
           </form>
         </div>
       </div>
@@ -35,11 +38,7 @@
 <FooterBar />
 </template>
 
-<script>
-export default {
-
-}
-</script>
+<script src="../js/login.js"></script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped> 
