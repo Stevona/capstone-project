@@ -20,6 +20,7 @@
     "core-js": "^3.8.3",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "express-validator": "^6.14.0",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^8.5.1",
     "mocha-cli": "^1.0.1",
