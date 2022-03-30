@@ -1,11 +1,5 @@
 <template id="detailCustomer">
   <NavBar />
-  <div v-if="success" class="alert alert-success">
-    <strong>Success!</strong> Customer has been updated!
-  </div>
-  <div v-if="error" class="alert alert-danger">
-    <strong>Error!</strong> Something went wrong! Refresh page and try again.
-  </div>
 
   <div class="hello">
     <h1>{{ message }}</h1>
@@ -147,5 +141,9 @@ li {
 }
 a {
   color: white;
+}
+label {
+  font-weight: bold;
+  text-decoration: underline;
 }
 </style>
