@@ -59,7 +59,7 @@ describe('App', () => {
                 });
         });
 
-        it('it should not authenticate if the request is invalid', (done) => {
+        it('it should not authenticate if the request is invalid/errors', (done) => {
             let testUser = {
                 name: "john"
             }
