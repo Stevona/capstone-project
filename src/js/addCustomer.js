@@ -78,7 +78,7 @@ export default defineComponent({
       }
       this.loading = true
       try {
-        const response = await fetch('/api/customers', {
+        const response = await fetch('api/customers', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
