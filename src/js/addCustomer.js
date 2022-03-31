@@ -77,6 +77,9 @@ export default defineComponent({
         return;
       }
       this.loading = true
+      if(this.middleName == "") {
+        this.middleName = null
+      }
       try {
         const response = await fetch('/api/customers', {
           method: 'POST',
