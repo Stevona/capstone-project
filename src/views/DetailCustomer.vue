@@ -1,10 +1,14 @@
 <template id="detailCustomer">
-  <NavBar />
+  <FooterBar />
 
+
+  <div class="bg">
+  <NavBar />
+  <div class="bg-light border border-1 rounded container body-container">
   <div class="hello">
     <h1>{{ message }}</h1>
   </div>
-  <FooterBar />
+
   <form class="container mb-4" v-on:submit.prevent="onSubmit">
     <div class="row mb-3">
       <div class="col">
@@ -122,6 +126,10 @@
       </tbody>
     </table>
   </div>
+
+  </div>
+  </div>
+
 </template>
 
 <script src="../js/detailCustomer.js"></script>

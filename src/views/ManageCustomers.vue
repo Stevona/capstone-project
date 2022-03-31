@@ -1,7 +1,7 @@
 <template id="manageCustomers">
+  <FooterBar />
   <div class="bg">
   <NavBar />
-  <FooterBar />
 
 <div class="bg-light border border-1 rounded container body-container">
   <div class="hello">
@@ -60,17 +60,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.body-container {
-  min-height: 90vh;
-}
-.bg {
-  background: url("../assets/body_bg.jpg") no-repeat center;
-  background-size: cover;
-  background-attachment: fixed;
-  width: 100%;
-  min-height: 100vh;
-  padding: 0;
-}
 .bottomMargin {
   margin-block: 10rem;
 }

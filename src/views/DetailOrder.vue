@@ -1,9 +1,13 @@
 <template id="detailOrder">
+  <FooterBar />
+  <div class="bg">
   <NavBar />
+
+  <div class="bg-light border border-1 rounded container body-container">
   <div class="hello">
     <h1>{{message}}</h1>
   </div>
-  <FooterBar />
+
   <form class="container mb-4">
   <div class="row mb-3">
   <div class ="col">
@@ -62,6 +66,10 @@
       </tr>
     </tbody>
   </table>
+
+  </div>
+  </div>
+
 
 </template>
 
