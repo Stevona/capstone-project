@@ -89,7 +89,7 @@ li {
   margin: 0 10px;
 }
 a {
-  color: white;
+  color: #9b0c23;
 }
 
 label {
