@@ -91,12 +91,12 @@
       <input v-model="customer.customerNotes" type="text" class="form-control" id="notes" />
     </div>
      <div class="col-auto g-10 d-flex justify-content-center" style="padding-top: 2%;">
+      <router-link style="padding-right:5%" :to="{ name: 'DetailCustomer', params: { id: customerId }}">
+        <button class="btn btn-primary mr-2" id="backButton">
+          Back to Detail Page
+        </button>
+      </router-link>
       <input type="submit" v-on:click="submit()" class="btn btn-primary" />
-    </div>
-    <div class="col-auto g-10 d-flex justify-content-center" style="padding-top: 2%;">
-         <button class="btn btn-primary" type="submit" id="backButton">
-      <router-link :to="{ name: 'DetailCustomer', params: { id: customer.customerId }}">Cancel</router-link>
-         </button>
     </div>
   </form>
   <div v-if="loading" class="overlay spinner-border text-danger" role="status">
@@ -123,5 +123,9 @@ li {
 }
 a {
   color: #42b983;
+}
+label {
+  font-weight: bold;
+  text-decoration: underline;
 }
 </style>
