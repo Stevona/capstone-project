@@ -27,6 +27,7 @@ export default {
 h1 {
   font-weight: bolder;
   color: black;
-  filter: drop-shadow(1px 1px white)
+  filter: drop-shadow(1px 1px white);
+  margin: 1rem;
 }
 </style>
