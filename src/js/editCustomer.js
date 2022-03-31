@@ -39,7 +39,7 @@ export default defineComponent({
       }
     },
     validateEmail() {
-      if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.customer.email)) {
+      if (/^\w+([\.-_]?\w+)*@\w+([\.-_]?\w+)*(\.\w{2,3})+$/.test(this.customer.email)) {
         return false;
       }
       else{
