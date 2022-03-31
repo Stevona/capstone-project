@@ -20,8 +20,8 @@ Order.belongsToMany(Product, {
 Order.belongsTo(Customer, {foreignKey:'customerId'});
 Customer.hasMany(Order, {foreignKey: 'customerId'});
 
-OrderStatusCode.belongsTo(Order,{foreignKey: 'orderStatusCodeId'});
-Order.hasOne(OrderStatusCode, {foreignKey: 'orderStatusCodeId'});
+OrderStatusCode.hasMany(Order,{foreignKey: 'orderStatusCodeId'});
+Order.belongsTo(OrderStatusCode, {foreignKey: 'orderStatusCodeId'});
 
 
 connection
