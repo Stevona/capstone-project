@@ -69,7 +69,7 @@ const routes = [
     }
   },
   {
-    path: '/editOrder',
+    path: '/editOrder/:id',
     name: 'EditOrder',
     component: editOrder,
     meta: {

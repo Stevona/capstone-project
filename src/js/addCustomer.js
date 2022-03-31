@@ -114,8 +114,14 @@ export default defineComponent({
           this.customerNotes = ""
         }
       } catch(error) {
+        if(error.toString().includes('Unexpected token')) {
+          localStorage.removeItem('user')
+          alert('Please Relogin session has expired')
+          window.location.href = '/login';
+        } else {
+          this.error = true;
+        }
         console.log(error)
-        this.error = true;
       }
       this.loading = false;
     },
