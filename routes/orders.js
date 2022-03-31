@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { Order } = require('../orm/tracking-model');
+const { Order, Customer, Product, OrderStatusCode } = require('../orm/tracking-model');
 const tokenValidator = require('./tokenValidator');
 
 /* GET Order listing. */
@@ -9,7 +9,9 @@ router.get('/', async(req, res) =>{
     const isValidToken = await tokenValidator.checkToken(req.headers.authorization.split(' ')[1]);
     if (isValidToken) {
       try{
-        let orders = await Order.findAll();
+        let orders = await Order.findAll({
+          include: [ Customer, OrderStatusCode ]
+        });
         res.status(200).json(orders);
       } catch (error){
         console.log(error);
@@ -28,9 +30,11 @@ router.get('/:id', async(req, res) => {
     const isValidToken = await tokenValidator.checkToken(req.headers.authorization.split(' ')[1]);
     if (isValidToken) {
       try{
-        let orders = await Order.findByPk(req.params.id);
-        if (orders) {
-          res.status(200).json(orders);
+        let order = await Order.findByPk(req.params.id, {
+          include: [ Customer, Product, OrderStatusCode ]
+        });
+        if (order) {
+          res.status(200).json(order);
         } else {
           res.status(404).send(`Could not find order with specified id`);
         }
