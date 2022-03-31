@@ -36,7 +36,6 @@ router.get('/:id', async(req, res) => {
           }]
         });
         if (customer) {
-          console.log(customer.Orders[0].OrderStatusCode.orderStatusCode)
           res.status(200).json(customer);
         } else {
           res.status(404).send(`Could not find customer with specified id`);
