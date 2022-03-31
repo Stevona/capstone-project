@@ -29,7 +29,7 @@
     </button>
   </div>
 
-  <table summary="Manage Orders table" class="table table-hover container mt-5 pb-5">
+  <table summary="Manage Orders table" class="table table-hover container mt-5 bottomMargin">
     <thead>
       <tr>
         <th scope="col">Order ID</th>
@@ -59,6 +59,9 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.bottomMargin {
+  margin-block: 10rem;
+}
 h3 {
   margin: 40px 0 0;
 }
