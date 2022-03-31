@@ -12,6 +12,7 @@ export default defineComponent({
       success: false,
       error: false,
       loading: false,
+      hasOrder: false,
     };
   },
   created() {
@@ -21,7 +22,7 @@ export default defineComponent({
   methods: {
     async getCustomer () {
       try {
-        const response = await fetch('api/customers/' + `${this.customerId}`, {
+        const response = await fetch('/api/customers/' + `${this.customerId}`, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
@@ -31,6 +32,10 @@ export default defineComponent({
           
         })
         this.customer = await response.json()
+        console.log(this.customer)
+        if(this.customer.Orders.length >= 1) {
+          this.hasOrder = true
+        }
       } catch(error) {
         if(error.toString().includes('Unexpected token')) {
           localStorage.removeItem('user')
@@ -43,6 +48,5 @@ export default defineComponent({
 },
   mounted() {
     this.message = "Customer Details";
-    this.getOrders()
   },
 });

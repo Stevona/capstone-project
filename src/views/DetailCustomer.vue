@@ -104,8 +104,8 @@
           <th scope="col">Total Order Price</th>
         </tr>
       </thead>
-      <tbody  v-if="customer.orders.length >= 1">
-        <tr v-for="(order, index) in customer.order" :key="index">
+      <tbody v-if="hasOrder">
+        <tr v-for="(order, index) in customer.Orders" :key="index">
           <th scope="row">
              <router-link :to="{ name: 'DetailOrder', params: { id: order.orderId, firstName: customer.firstName, lastName: customer.lastName }}">{{order.orderId}}</router-link>
             </th>
