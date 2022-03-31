@@ -26,6 +26,7 @@
           <div class="input-group rounded container">
             <input
               type="search"
+              v-model="searchString"
               class="form-control rounded"
               placeholder="Search"
               aria-label="Search"
@@ -37,13 +38,14 @@
             class="btn-close"
             data-bs-dismiss="modal"
             aria-label="Close"
+            v-on:click="updateOrder()"
           ></button>
         </div>
         <div class="modal-body">
           <div
             class="row row-cols-1 row-cols-md-4 g-4 scrollbar"
           >
-            <div class="col">
+            <div class="col" v-for="(product, index) in resultProducts" :key="index">
               <div class="card">
                 <img
                   src="../assets/stonecap.png"
@@ -51,310 +53,39 @@
                   alt="..."
                 />
                 <div class="card-body">
-                  <h5 class="card-title">Product</h5>
+                  <h5 class="card-title">{{product.productName}}</h5>
                   <p class="card-text">
-                    This is where the text for a product description goes.
+                    {{product.productDescription}}
                   </p>
-                  <button type="button" class="btn btn-primary mb-3">
+                  <p class="card-text" style="font-size: 14px">
+                    Price: ${{product.productPrice}}
+                  </p>
+                  <p class="card-text" style="font-size: 14px">
+                    Quantity Avaliable: ${{product.productQuantity}}
+                  </p>
+                  <p class="card-text" style="font-size: 14px">
+                    Product SKU: {{product.productSKU}}
+                  </p>
+                  <button v-if="!product.inOrders" type="button" class="btn btn-primary mb-3" v-on:click="addProductToOrder(product)">
                     Add to Order
                   </button>
-                  <div class="form-group mb-3 d-flex justify-content-center">
-                    <label for="quantity" class="mt-1 ">Quantity:</label>
-                    <input type="number" name="quantity" value="1" min="1" class="form-control " style="width: 35%!important;" />
+                  <div v-if="product.inOrders">
+                    <div class="form-group mb-3 d-flex justify-content-center">
+                      <label for="quantity" class="mt-1">Quantity:</label>
+                      <input type="number" name="quantity" v-model="product.quantityAdded"  min="1" class="form-control " style="width: 35%!important;" />
+                    </div>
+                    <button v-on:click="removeProductFromOrder(product)" type="button" class="btn btn-danger" >
+                      Remove From Order
+                    </button>
                   </div>
-                  <button type="button" class="btn btn-danger">
-                    Remove From Order
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="../assets/stonecap.png"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Product</h5>
-                  <p class="card-text">
-                    This is where the text for a product description goes.
-                  </p>
-                  <button type="button" class="btn btn-primary mb-3">
-                    Add to Order
-                  </button>
-                  <div class="form-group mb-3 d-flex justify-content-center">
-                    <label for="quantity" class="mt-1 ">Quantity:</label>
-                    <input type="number" name="quantity" value="1" min="1" class="form-control " style="width: 35%!important;" />
-                  </div>
-                  <button type="button" class="btn btn-danger">
-                    Remove From Order
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="../assets/stonecap.png"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Product</h5>
-                  <p class="card-text">
-                    This is where the text for a product description goes.
-                  </p>
-                  <button type="button" class="btn btn-primary mb-3">
-                    Add to Order
-                  </button>
-                  <div class="form-group mb-3 d-flex justify-content-center">
-                    <label for="quantity" class="mt-1 ">Quantity:</label>
-                    <input type="number" name="quantity" value="1" min="1" class="form-control " style="width: 35%!important;" />
-                  </div>
-                  <button type="button" class="btn btn-danger">
-                    Remove From Order
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="../assets/stonecap.png"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Product</h5>
-                  <p class="card-text">
-                    This is where the text for a product description goes.
-                  </p>
-                  <button type="button" class="btn btn-primary mb-3">
-                    Add to Order
-                  </button>
-                  <div class="form-group mb-3 d-flex justify-content-center">
-                    <label for="quantity" class="mt-1 ">Quantity:</label>
-                    <input type="number" name="quantity" value="1" min="1" class="form-control " style="width: 35%!important;" />
-                  </div>
-                  <button type="button" class="btn btn-danger">
-                    Remove From Order
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="../assets/stonecap.png"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Product</h5>
-                  <p class="card-text">
-                    This is where the text for a product description goes.
-                  </p>
-                  <button type="button" class="btn btn-primary mb-3">
-                    Add to Order
-                  </button>
-                  <div class="form-group mb-3 d-flex justify-content-center">
-                    <label for="quantity" class="mt-1 ">Quantity:</label>
-                    <input type="number" name="quantity" value="1" min="1" class="form-control " style="width: 35%!important;" />
-                  </div>
-                  <button type="button" class="btn btn-danger">
-                    Remove From Order
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="../assets/stonecap.png"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Product</h5>
-                  <p class="card-text">
-                    This is where the text for a product description goes.
-                  </p>
-                  <button type="button" class="btn btn-primary mb-3">
-                    Add to Order
-                  </button>
-                  <div class="form-group mb-3 d-flex justify-content-center">
-                    <label for="quantity" class="mt-1 ">Quantity:</label>
-                    <input type="number" name="quantity" value="1" min="1" class="form-control " style="width: 35%!important;" />
-                  </div>
-                  <button type="button" class="btn btn-danger">
-                    Remove From Order
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="../assets/stonecap.png"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Product</h5>
-                  <p class="card-text">
-                    This is where the text for a product description goes.
-                  </p>
-                  <button type="button" class="btn btn-primary mb-3">
-                    Add to Order
-                  </button>
-                  <div class="form-group mb-3 d-flex justify-content-center">
-                    <label for="quantity" class="mt-1 ">Quantity:</label>
-                    <input type="number" name="quantity" value="1" min="1" class="form-control " style="width: 35%!important;" />
-                  </div>
-                  <button type="button" class="btn btn-danger">
-                    Remove From Order
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="../assets/stonecap.png"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Product</h5>
-                  <p class="card-text">
-                    This is where the text for a product description goes.
-                  </p>
-                  <button type="button" class="btn btn-primary mb-3">
-                    Add to Order
-                  </button>
-                  <div class="form-group mb-3 d-flex justify-content-center">
-                    <label for="quantity" class="mt-1 ">Quantity:</label>
-                    <input type="number" name="quantity" value="1" min="1" class="form-control " style="width: 35%!important;" />
-                  </div>
-                  <button type="button" class="btn btn-danger">
-                    Remove From Order
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="../assets/stonecap.png"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Product</h5>
-                  <p class="card-text">
-                    This is where the text for a product description goes.
-                  </p>
-                  <button type="button" class="btn btn-primary mb-3">
-                    Add to Order
-                  </button>
-                  <div class="form-group mb-3 d-flex justify-content-center">
-                    <label for="quantity" class="mt-1 ">Quantity:</label>
-                    <input type="number" name="quantity" value="1" min="1" class="form-control " style="width: 35%!important;" />
-                  </div>
-                  <button type="button" class="btn btn-danger">
-                    Remove From Order
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="../assets/stonecap.png"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Product</h5>
-                  <p class="card-text">
-                    This is where the text for a product description goes.
-                  </p>
-                  <button type="button" class="btn btn-primary mb-3">
-                    Add to Order
-                  </button>
-                  <div class="form-group mb-3 d-flex justify-content-center">
-                    <label for="quantity" class="mt-1 ">Quantity:</label>
-                    <input type="number" name="quantity" value="1" min="1" class="form-control " style="width: 35%!important;" />
-                  </div>
-                  <button type="button" class="btn btn-danger">
-                    Remove From Order
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="../assets/stonecap.png"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Product</h5>
-                  <p class="card-text">
-                    This is where the text for a product description goes.
-                  </p>
-                  <button type="button" class="btn btn-primary mb-3">
-                    Add to Order
-                  </button>
-                  <div class="form-group mb-3 d-flex justify-content-center">
-                    <label for="quantity" class="mt-1 ">Quantity:</label>
-                    <input type="number" name="quantity" value="1" min="1" class="form-control " style="width: 35%!important;" />
-                  </div>
-                  <button type="button" class="btn btn-danger">
-                    Remove From Order
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img
-                  src="../assets/stonecap.png"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">Product</h5>
-                  <p class="card-text">
-                    This is where the text for a product description goes.
-                  </p>
-                  <button type="button" class="btn btn-primary mb-3">
-                    Add to Order
-                  </button>
-                  <div class="form-group mb-3 d-flex justify-content-center">
-                    <label for="quantity" class="mt-1 ">Quantity:</label>
-                    <input type="number" name="quantity" value="1" min="1" class="form-control " style="width: 35%!important;" />
-                  </div>
-                  <button type="button" class="btn btn-danger">
-                    Remove From Order
-                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Cancel
-          </button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
-            Update Order
+          <button type="button" v-on:click="updateOrder()" class="btn btn-primary" data-bs-dismiss="modal">
+            Update Order ({{productsToAdd.length}})
           </button>
         </div>
       </div>

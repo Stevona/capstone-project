@@ -1,10 +1,12 @@
 <template id="manageCustomers">
+  <FooterBar />
+  <div class="bg">
   <NavBar />
+
+<div class="bg-light border border-1 rounded container body-container">
   <div class="hello">
     <h1>{{ message }}</h1>
   </div>
-  <FooterBar />
-
   <div class="input-group rounded container mt-5">
     <input
       type="search"
@@ -15,12 +17,12 @@
       aria-describedby="search-addon"
     />
     <span class="input-group-text border-0" id="search-dropdown">
-       <select name="searchBy" id="searchBy" v-model="searchBy" class="form-select" aria-label="Default select example">
-         <option value="firstName">First Name</option>
-         <option value="lastName">Last Name</option>
-         <option value="address">Address</option>
-         <option value="phone">Phone</option>
-         <option value="email">Email</option>
+      <select name="searchBy" id="searchBy" v-model="searchBy" class="form-select" aria-label="Default select example">
+        <option value="firstName">First Name</option>
+        <option value="lastName">Last Name</option>
+        <option value="address">Address</option>
+        <option value="phone">Phone</option>
+        <option value="email">Email</option>
       </select>
       
     </span>
@@ -28,7 +30,7 @@
         Create Customer
     </button>
   </div>
-  <table summary="Manage Customers table" class="table table-hover container mt-5 pb-5">
+  <table summary="Manage Customers table" class="table table-hover container mt-5 bottomMargin">
     <thead>
       <tr>
         <th scope="col">Name</th>
@@ -50,12 +52,17 @@
       </tr>
     </tbody>
   </table>
+  </div>
+</div>
 </template>
 
 <script src="../js/manageCustomers.js"></script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.bottomMargin {
+  margin-block: 10rem;
+}
 h3 {
   margin: 40px 0 0;
 }
