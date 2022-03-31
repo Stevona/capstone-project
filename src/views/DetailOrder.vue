@@ -9,7 +9,7 @@
   <div class ="col">
       <div class="form-group">
           <label for="state">Customer Name</label>
-          <!-- <-- <input v-model="customer.firstName" readonly class="form-control-plaintext" id="customerName" /> --> 
+         <input v-model="fullName" readonly class="form-control-plaintext" id="customerName" />  
         </div> 
   </div>
   <div class="col">
@@ -27,7 +27,7 @@
 <form class="row g-10 d-flex justify-content-center">
   <div class="col-auto g-10 d-flex justify-content-center" style="padding-top: 2%;">
          <button class="btn btn-primary" type="submit" id="editOrderButton">
-      <router-link :to="{ name: 'EditOrder', params: { id: order.orderId }}">Edit Order</router-link>
+      <router-link :to="{ name: 'EditOrder', params: { id: orderId }}">Edit Order</router-link>
          </button>
     </div>
 </form>

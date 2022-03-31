@@ -11,7 +11,22 @@ export default defineComponent({
       success: false,
       error: false,
       loading: false,
+      firstName: this.$route.params.firstName,
+      lastName: this.$route.params.lastName
     };
+  },
+  computed: {
+    fullName: {
+      get() {
+        return `${this.firstName} ${this.lastName}`;
+      },
+      set(newValue) {
+        const m = newValue.match(/(\S*)\s+(.*)/);
+
+        this.firstName = m[1];
+        this.lastName = m[2];
+      }
+    }
   },
   created() {
     this.getOrder()
@@ -32,6 +47,7 @@ export default defineComponent({
         console.log(error)
       }
     },
+    
 },
   mounted() {
     this.message = "Order Details";
