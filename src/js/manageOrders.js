@@ -18,7 +18,7 @@ export default defineComponent({
           return this.searchString
             .toLowerCase()
             .split(" ")
-            .every(v => order[this.searchBy].toLowerCase().includes(v));
+            .every(v => order[this.searchBy].includes(v));
         });
       } else {
         return this.orders;
@@ -38,6 +38,11 @@ export default defineComponent({
         })
         this.orders = await response.json()
       } catch(error) {
+        if(error.toString().includes('Unexpected token')) {
+          localStorage.removeItem('user')
+          alert('Please Relogin session has expired')
+          window.location.href = '/login';
+        }
         console.log(error)
       }
     },
