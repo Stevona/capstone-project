@@ -90,6 +90,9 @@ export default defineComponent({
         return;
       }
       this.loading = true
+      if(this.customer.middleName == "") {
+        this.customer.middleName = null
+      }
       try {
         const response = await fetch('/api/customers/' + `${this.customerId}`, {
           method: 'PUT',
