@@ -1,5 +1,9 @@
 <template id="addCustomer">
+  <div class="bg">
+  <FooterBar />
   <NavBar />
+
+<div class="bg-light border border-1 rounded container body-container">
   <div v-if="success" class="alert alert-success">
     <strong>Success!</strong> Customer has been created!
   </div>
@@ -9,8 +13,6 @@
   <div class="hello">
     <h1>{{ message }}</h1>
   </div>
-  <FooterBar />
-
   <form class="container mb-4" v-on:submit.prevent="onSubmit">
     <div class="row mb-3">
       <div class="col">
@@ -109,12 +111,26 @@
   <div v-if="loading" class="overlay spinner-border text-danger" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
+
+</div>
+  </div>
 </template>
 
 <script src="../js/addCustomer.js"></script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.body-container {
+  min-height: 90vh;
+}
+.bg {
+  background: url("../assets/body_bg.jpg") no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+}
 h3 {
   margin: 40px 0 0;
 }
