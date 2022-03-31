@@ -31,7 +31,10 @@ router.get('/:id', async(req, res) => {
     if (isValidToken) {
       try{
         let order = await Order.findByPk(req.params.id, {
-          include: [ Customer, Product, OrderStatusCode ]
+          include: [ Customer, Product, {
+            model: OrderStatusCode,
+            required: true
+          }]
         });
         if (order) {
           res.status(200).json(order);
