@@ -104,24 +104,21 @@
           <th scope="col">Total Order Price</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row">24535</th>
-          <td>In Progress</td>
-          <td>2/22/22</td>
-          <td>$420.69</td>
+      <tbody  v-if="customer.Orders.length >= 1">
+        <tr v-for="(order, index) in customer.order" :key="index">
+          <th scope="row">
+             <router-link :to="{ name: 'DetailOrder', params: { id: order.orderId, firstName: customer.firstName, lastName: customer.lastName }}">{{order.orderId}}</router-link>
+            </th>
+        <td>{{order.OrderStatusCode.orderStatusCode}}</td>
+        <td>{{order.datetimeOrderPlaced}}</td>
+        <td>{{order.totalOrderPrice}}</td>
         </tr>
+      </tbody>
+      <tbody v-else> 
         <tr>
-          <th scope="row">24535</th>
-          <td>In Progress</td>
-          <td>2/22/22</td>
-          <td>$420.69</td>
-        </tr>
-        <tr>
-          <th scope="row">24535</th>
-          <td>In Progress</td>
-          <td>2/22/22</td>
-          <td>$420.69</td>
+         <th scope="row"></th> 
+           <td> </td>
+           <td>No Active Orders</td>
         </tr>
       </tbody>
     </table>
