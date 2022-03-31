@@ -57,7 +57,7 @@ router.get('/:id', async(req, res) => {
 router.post('/',
 
 body('firstName', 'First name must be alphabetical').isAlpha(),
-body('middleName', 'Middle name must be alphabetical').isAlpha(),
+body('middleName', 'Middle name must be alphabetical').isAlpha().optional({nullable: true}),
 body('lastName', 'Last name must be alphabetical').isAlpha(),
 body('country','Country must be alphabetical').isAlpha('en-US', {ignore: " "}),
 body('address', 'Address must be alphanumeric').isAlphanumeric('en-US', {ignore: " #-.,"}),
@@ -94,7 +94,7 @@ async(req,res)=>{
 router.put('/:id', 
 
 body('firstName', 'First name must be alphabetical').isAlpha(),
-body('middleName', 'Middle name must be alphabetical').isAlpha(),
+body('middleName', 'Middle name must be alphabetical').isAlpha().optional({nullable: true}),
 body('lastName', 'Last name must be alphabetical').isAlpha(),
 body('country','Country must be alphabetical').isAlpha('en-US', {ignore: " "}),
 body('address', 'Address must be alphanumeric').isAlphanumeric('en-US', {ignore: " #-.,"}),
