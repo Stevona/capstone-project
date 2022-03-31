@@ -83,4 +83,9 @@ li {
 a {
   color: white;
 }
+
+label {
+  font-weight: bold;
+  text-decoration: underline;
+}
 </style>
