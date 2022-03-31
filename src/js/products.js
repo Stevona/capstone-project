@@ -82,13 +82,6 @@ export default defineComponent({
       });
       this.productsToAdd = tempList
     },
-    close: function() {
-      this.productsToAdd.forEach(product => {
-        delete product.quantityAdded
-        delete product.inOrders
-      });
-      this.productsToAdd = []
-    },
     updateOrder: function() {
       let tempList = this.productsToAdd.filter(product => {
         return product.quantityAdded !== ""

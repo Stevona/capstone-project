@@ -37,8 +37,8 @@
             type="button"
             class="btn-close"
             data-bs-dismiss="modal"
-            v-on:click="close()"
             aria-label="Close"
+            v-on:click="updateOrder()"
           ></button>
         </div>
         <div class="modal-body">
@@ -84,14 +84,6 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-            v-on:click="close()"
-          >
-            Cancel
-          </button>
           <button type="button" v-on:click="updateOrder()" class="btn btn-primary" data-bs-dismiss="modal">
             Update Order ({{productsToAdd.length}})
           </button>
