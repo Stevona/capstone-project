@@ -96,6 +96,7 @@ const routes = [
     path: '/detailOrder/:id',
     name: 'DetailOrder',
     component: detailOrder,
+    props: true,
     meta:{
       title: "Order Details"
     }

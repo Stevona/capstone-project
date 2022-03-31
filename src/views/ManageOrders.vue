@@ -43,7 +43,7 @@
     <tbody>
       <tr v-for="(order, index) in resultOrders" :key="index">
         <th scope="row">
-          <router-link :to="{ name: 'DetailOrder', params: { id: order.orderId }}">{{order.customerId}}</router-link>
+          <router-link :to="{ name: 'DetailOrder', params: { id: order.orderId, firstName: order.Customer.firstName, lastName: order.Customer.lastName }}">{{order.orderId}}</router-link>
         </th>
         <th scope="row">
           <router-link :to="{ name: 'DetailCustomer', params: { id: order.Customer.customerId }}">{{order.Customer.firstName}} {{order.Customer.lastName}}</router-link>
