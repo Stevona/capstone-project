@@ -30,6 +30,11 @@ export default defineComponent({
         })
         this.customer = await response.json()
       } catch(error) {
+        if(error.toString().includes('Unexpected token')) {
+          localStorage.removeItem('user')
+          alert('Please Relogin session has expired')
+          window.location.href = '/login';
+        }
         console.log(error)
       }
     },
@@ -99,8 +104,14 @@ export default defineComponent({
           this.success = true;
         }
       } catch(error) {
+        if(error.toString().includes('Unexpected token')) {
+          localStorage.removeItem('user')
+          alert('Please Relogin session has expired')
+          window.location.href = '/login';
+        } else {
+          this.error = true;
+        }
         console.log(error)
-        this.error = true;
       }
       this.loading = false;
     },
