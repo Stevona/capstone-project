@@ -1,9 +1,12 @@
 <template id="manageOrders">
+  <FooterBar />
+  <div class="bg">
   <NavBar />
+
+  <div class="bg-light border border-1 rounded container body-container">
   <div class="hello">
     <h1>{{ message }}</h1>
   </div>
-  <FooterBar />
 
   <div class="input-group rounded container mt-5">
     <input
@@ -54,6 +57,10 @@
       </tr>
     </tbody>
   </table>
+
+  </div>
+  </div>
+
 </template>
 
 <script src="../js/manageOrders.js"></script>
