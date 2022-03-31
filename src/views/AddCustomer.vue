@@ -1,5 +1,9 @@
 <template id="addCustomer">
+  <FooterBar />
+  <div class="bg">
   <NavBar />
+
+<div class="bg-light border border-1 rounded container body-container">
   <div v-if="success" class="alert alert-success">
     <strong>Success!</strong> Customer has been created!
   </div>
@@ -9,8 +13,6 @@
   <div class="hello">
     <h1>{{ message }}</h1>
   </div>
-  <FooterBar />
-
   <form class="container mb-4" v-on:submit.prevent="onSubmit">
     <div class="row mb-3">
       <div class="col">
@@ -108,6 +110,9 @@
   </form>
   <div v-if="loading" class="overlay spinner-border text-danger" role="status">
     <span class="visually-hidden">Loading...</span>
+  </div>
+
+</div>
   </div>
 </template>
 

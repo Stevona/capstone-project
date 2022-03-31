@@ -1,9 +1,12 @@
 <template id="manageOrders">
+  <FooterBar />
+  <div class="bg">
   <NavBar />
+
+  <div class="bg-light border border-1 rounded container body-container">
   <div class="hello">
     <h1>{{ message }}</h1>
   </div>
-  <FooterBar />
 
   <div class="input-group rounded container mt-5">
     <input
@@ -17,8 +20,9 @@
     <span class="input-group-text border-0" id="search-dropdown">
        <select name="searchBy" id="searchBy" v-model="searchBy" class="form-select" aria-label="Default select example">
          <option value="orderId">Order ID</option>
-         <option value="customerId">Customer ID</option>
-         <option value="orderStatuscodeID">Order Status Code</option>
+         <option value="Customer.firstName">Customer First Name</option>
+         <option value="Customer.lastName">Customer Last Name</option>
+         <option value="OrderStatusCode.orderStatusCode">Order Status Code</option>
          <option value="datetimeOrderPlaced">Date Ordered</option>
          <option value="totalOrderPrice">Total Order Price</option>
       </select>
@@ -29,13 +33,12 @@
     </button>
   </div>
 
-  <table summary="Manage Orders table" class="table table-hover container mt-5 pb-5">
+  <table summary="Manage Orders table" class="table table-hover container mt-5 bottomMargin">
     <thead>
       <tr>
         <th scope="col">Order ID</th>
-        <th scope="col">Customer ID</th>
+        <th scope="col">Customer</th>
         <th scope="col">Order Status Code</th>
-        <th scope="col"> </th>
         <th scope="col">Date Ordered</th>
         <th scope="col">Total Order Price</th>
       </tr>
@@ -43,22 +46,30 @@
     <tbody>
       <tr v-for="(order, index) in resultOrders" :key="index">
         <th scope="row">
-          <router-link :to="{ name: 'DetailOrder', params: { id: order.orderId }}">{{order.customerId}}</router-link>
+          <router-link :to="{ name: 'DetailOrder', params: { id: order.orderId, firstName: order.Customer.firstName, lastName: order.Customer.lastName }}">{{order.orderId}}</router-link>
         </th>
-        <td>{{order.orderId}}</td>
-        <td>{{order.customerId}}</td>
-        <td>{{order.orderStatuscodeID}}</td>
+        <th scope="row">
+          <router-link :to="{ name: 'DetailCustomer', params: { id: order.Customer.customerId }}">{{order.Customer.firstName}} {{order.Customer.lastName}}</router-link>
+        </th>
+        <td>{{order.OrderStatusCode.orderStatusCode}}</td>
         <td>{{order.datetimeOrderPlaced}}</td>
         <td>{{order.totalOrderPrice}}</td>
       </tr>
     </tbody>
   </table>
+
+  </div>
+  </div>
+
 </template>
 
 <script src="../js/manageOrders.js"></script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.bottomMargin {
+  margin-block: 10rem;
+}
 h3 {
   margin: 40px 0 0;
 }
