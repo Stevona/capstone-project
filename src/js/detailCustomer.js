@@ -29,6 +29,11 @@ export default defineComponent({
         })
         this.customer = await response.json()
       } catch(error) {
+        if(error.toString().includes('Unexpected token')) {
+          localStorage.removeItem('user')
+          alert('Please Relogin session has expired')
+          window.location.href = '/login';
+        }
         console.log(error)
       }
     },

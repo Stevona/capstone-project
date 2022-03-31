@@ -1,6 +1,6 @@
 <template id="DashBoard">
-  <NavBar />
     <div class="dashboard-main">
+      <NavBar />
       <h1>{{name}}</h1>
       <div class="container">
         <div class="d-flex flex-row flex-wrap justify-content-between pt-5">
@@ -26,7 +26,7 @@
                       <td>In Progress</td>
                       <td>2/22/22</td>
                       <td>24/03/22</td>
-                      <td>$420.69</td>
+                      <td>$123.45</td>
                     </tr>
                     <tr>
                       <th scope="row">24535</th>
@@ -34,7 +34,7 @@
                       <td>In Progress</td>
                       <td>2/22/22</td>
                       <td>24/03/22</td>
-                      <td>$420.69</td>
+                      <td>$123.45</td>
                     </tr>
                     <tr>
                       <th scope="row">24535</th>
@@ -42,7 +42,7 @@
                       <td>In Progress</td>
                       <td>2/22/22</td>
                       <td>24/03/22</td>
-                      <td>$420.69</td>
+                      <td>$123.45</td>
                     </tr>
                     <tr>
                       <th scope="row">24535</th>
@@ -50,7 +50,7 @@
                       <td>In Progress</td>
                       <td>2/22/22</td>
                       <td>24/03/22</td>
-                      <td>$420.69</td>
+                      <td>$123.45</td>
                     </tr>
                     <tr>
                       <th scope="row">24535</th>
@@ -58,7 +58,7 @@
                       <td>In Progress</td>
                       <td>2/22/22</td>
                       <td>24/03/22</td>
-                      <td>$420.69</td>
+                      <td>$123.45</td>
                     </tr>
                   </tbody>
               </table>
@@ -69,19 +69,12 @@
             </div>
             <div class="d-flex flex-column">
               <div class="d-flex justify-content-center">
-                <button type="button" class="ql-btn col-md-auto m-1">Create Customer</button>
-                <button type="button" class="ql-btn col-md-auto m-1">Manage Customer</button>
-                <button type="button" class="ql-btn col-md-auto m-1">Create Order</button>
+                <a href="/addCustomer"><button type="button" class="ql-btn col-md-auto m-1">Create Customer</button></a>
+                <a href="/manageCustomers"><button type="button" class="ql-btn col-md-auto m-1">Manage Customer</button></a>
               </div>
               <div class="d-flex justify-content-center">
-                <button type="button" class="ql-btn col-md-auto m-1">Create Customer</button>
-                <button type="button" class="ql-btn col-md-auto m-1">Manage Customer</button>
-                <button type="button" class="ql-btn col-md-auto m-1">Create Order</button>
-              </div>
-              <div class="d-flex justify-content-center">
-                <button type="button" class="ql-btn col-md-auto m-1">Create Customer</button>
-                <button type="button" class="ql-btn col-md-auto m-1">Manage Customer</button>
-                <button type="button" class="ql-btn col-md-auto m-1">Create Order</button>
+                <a href="/addOrder"><button type="button" class="ql-btn col-md-auto m-1">Create Order</button></a>
+                <a href="/manageOrders"><button type="button" class="ql-btn col-md-auto m-1">Manage Orders</button></a>
               </div>
             </div>
           </div>
@@ -122,8 +115,7 @@ h2 {
   width: 100%;
   min-height: 100vh;
   /* height: 100%; */
-
-  padding: 1vh;
+  padding: 0;
 }
 
 table {

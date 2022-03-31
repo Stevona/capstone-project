@@ -36,34 +36,32 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
   </form>
-
   <table summary="Products table" class="table table-hover container mt-5">
     <thead>
       <tr>
         <th scope="col">Product SKU</th>
         <th scope="col">Product Name</th>
         <th scope="col">Quantity</th>
-        <th scope="col">Price</th>
+        <th scope="col">Item Price</th>
+        <th scope="col">Total Price</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <th scope="row">24535</th>
-        <td>Shirt</td>
-        <td>2</td>
-        <td>$420.69</td>
+    <tbody v-if="productsToAdd.length >= 1">
+      <tr v-for="(product, index) in productsToAdd" :key="index">
+        <td scope="row">{{product.productSKU}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.quantityAdded}}</td>
+        <td>{{product.productPrice}}</td>
+        <td>{{(product.quantityAdded * product.productPrice).toFixed(2)}}</td>
       </tr>
+    </tbody>
+    <tbody v-else>
       <tr>
-        <th scope="row">24535</th>
-        <td>Pants</td>
-        <td>2</td>
-        <td>$420.69</td>
-      </tr>
-      <tr>
-        <th scope="row">24535</th>
-        <td>Socks</td>
-        <td>1</td>
-        <td>$420.69</td>
+        <th scope="row"></th>
+        <td></td>
+        <td>No Products Added</td>
+        <td></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -77,13 +75,14 @@
     </thead>
     <tbody>
       <tr>
-        <td>1</td>
-        <td>1</td>
+        <td>{{totalQuanityofItems}}</td>
+        <td>{{totalPriceOfOrder.toFixed(2)}}</td>
       </tr>
     </tbody>
   </table>
   <div class="col-auto">
-    <ProductS />
+    <!-- <ProductS @productsToAdd="updateProducts" :tempProductsToAdd="productsToAdd"/> -->
+    <ProductS @productsToAdd="updateProducts" />
   </div>
 </template>
 
