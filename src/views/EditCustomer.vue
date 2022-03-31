@@ -1,5 +1,10 @@
 <template id="editCustomer">
+  <FooterBar />
+
+    <div class="bg">
   <NavBar />
+
+  <div class="bg-light border border-1 rounded container body-container">
   <div v-if="success" class="alert alert-success">
     <strong>Success!</strong> Customer has been updated!
   </div>
@@ -10,7 +15,6 @@
   <div class="hello">
     <h1>{{ message }}</h1>
   </div>
-  <FooterBar />
   <form class="container mb-4" v-on:submit.prevent="onSubmit">
     <div class="row mb-3">
       <div class="col">
@@ -90,7 +94,7 @@
       <label for="notes">Customer Notes</label>
       <input v-model="customer.customerNotes" type="text" class="form-control" id="notes" />
     </div>
-     <div class="col-auto g-10 d-flex justify-content-center" style="padding-top: 2%;">
+    <div class="col-auto g-10 d-flex justify-content-center" style="padding-top: 2%;">
       <router-link style="padding-right:5%" :to="{ name: 'DetailCustomer', params: { id: customerId }}">
         <button class="btn btn-primary mr-2" id="backButton">
           Back to Detail Page
@@ -102,8 +106,8 @@
   <div v-if="loading" class="overlay spinner-border text-danger" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
-
- 
+  </div>
+  </div>
 </template>
 
 <script src="../js/editCustomer.js"></script>

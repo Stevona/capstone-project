@@ -1,6 +1,6 @@
 <template id="addCustomer">
-  <div class="bg">
   <FooterBar />
+  <div class="bg">
   <NavBar />
 
 <div class="bg-light border border-1 rounded container body-container">
@@ -120,17 +120,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.body-container {
-  min-height: 90vh;
-}
-.bg {
-  background: url("../assets/body_bg.jpg") no-repeat center;
-  background-size: cover;
-  background-attachment: fixed;
-  width: 100%;
-  min-height: 100vh;
-  padding: 0;
-}
 h3 {
   margin: 40px 0 0;
 }

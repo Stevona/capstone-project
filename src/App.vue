@@ -30,4 +30,16 @@ h1 {
   filter: drop-shadow(1px 1px white);
   margin: 1rem;
 }
+.body-container {
+  min-height: 100vh
+
+}
+.bg {
+  background: url("./assets/body_bg.jpg") no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+}
 </style>
