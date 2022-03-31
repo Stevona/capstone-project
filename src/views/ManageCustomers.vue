@@ -1,10 +1,12 @@
 <template id="manageCustomers">
+  <div class="bg">
   <NavBar />
+  <FooterBar />
+
+<div class="bg-light border border-1 rounded container body-container">
   <div class="hello">
     <h1>{{ message }}</h1>
   </div>
-  <FooterBar />
-
   <div class="input-group rounded container mt-5">
     <input
       type="search"
@@ -15,12 +17,12 @@
       aria-describedby="search-addon"
     />
     <span class="input-group-text border-0" id="search-dropdown">
-       <select name="searchBy" id="searchBy" v-model="searchBy" class="form-select" aria-label="Default select example">
-         <option value="firstName">First Name</option>
-         <option value="lastName">Last Name</option>
-         <option value="address">Address</option>
-         <option value="phone">Phone</option>
-         <option value="email">Email</option>
+      <select name="searchBy" id="searchBy" v-model="searchBy" class="form-select" aria-label="Default select example">
+        <option value="firstName">First Name</option>
+        <option value="lastName">Last Name</option>
+        <option value="address">Address</option>
+        <option value="phone">Phone</option>
+        <option value="email">Email</option>
       </select>
       
     </span>
@@ -50,12 +52,25 @@
       </tr>
     </tbody>
   </table>
+  </div>
+</div>
 </template>
 
 <script src="../js/manageCustomers.js"></script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.body-container {
+  min-height: 90vh;
+}
+.bg {
+  background: url("../assets/body_bg.jpg") no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+}
 .bottomMargin {
   margin-block: 10rem;
 }
