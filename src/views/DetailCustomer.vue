@@ -94,7 +94,7 @@
     <span class="visually-hidden">Loading...</span>
   </div>
 
-  <h3>Active Orders</h3>
+  <h3>Recent Orders</h3>
   <div>
     <table summary="Active Orders table" class="table table-hover container">
       <thead>
