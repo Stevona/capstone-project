@@ -25,7 +25,7 @@ export default defineComponent({
   },
   methods: {
     validateEmail() {
-      if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
+      if (/^\w+([\.-_]?\w+)*@\w+([\.-_]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
         return false;
       }
       else{
@@ -77,6 +77,9 @@ export default defineComponent({
         return;
       }
       this.loading = true
+      if(this.middleName == "") {
+        this.middleName = null
+      }
       try {
         const response = await fetch('/api/customers', {
           method: 'POST',
@@ -114,8 +117,14 @@ export default defineComponent({
           this.customerNotes = ""
         }
       } catch(error) {
+        if(error.toString().includes('Unexpected token')) {
+          localStorage.removeItem('user')
+          alert('Please Relogin session has expired')
+          window.location.href = '/login';
+        } else {
+          this.error = true;
+        }
         console.log(error)
-        this.error = true;
       }
       this.loading = false;
     },

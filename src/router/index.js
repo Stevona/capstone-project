@@ -69,7 +69,7 @@ const routes = [
     }
   },
   {
-    path: '/editOrder',
+    path: '/editOrder/:id',
     name: 'EditOrder',
     component: editOrder,
     meta: {
@@ -96,6 +96,7 @@ const routes = [
     path: '/detailOrder/:id',
     name: 'DetailOrder',
     component: detailOrder,
+    props: true,
     meta:{
       title: "Order Details"
     }
