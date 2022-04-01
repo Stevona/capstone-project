@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const { Customer, Order, OrderStatusCode } = require('../orm/tracking-model');
-const { body, validationResult } = require('express-validator');
+const { body, oneOf, validationResult } = require('express-validator');
 const tokenValidator = require('./tokenValidator');
 
 /* GET customers listing. */
@@ -63,7 +63,11 @@ body('address', 'Address must be alphanumeric').isAlphanumeric('en-US', {ignore:
 body('city', 'City must be alphanumeric').isAlphanumeric(),
 body('region', 'Region must be alphanumeric').isAlphanumeric(),
 body('email', 'Must be a valid email').isEmail().normalizeEmail(),
-body('zip', 'Must be a valid postal code').isPostalCode('US', 'CA', 'GB'),
+oneOf([
+  body('zip', 'Must be a valid postal code').isPostalCode('US'),
+  body('zip', 'Must be a valid postal code').isPostalCode('CA'),
+  body('zip', 'Must be a valid postal code').isPostalCode('GB')
+]),
 body('phone', 'Must be a valid phone number').isMobilePhone('any'),
 
 async(req,res)=>{
@@ -100,7 +104,11 @@ body('address', 'Address must be alphanumeric').isAlphanumeric('en-US', {ignore:
 body('city', 'City must be alphanumeric').isAlphanumeric(),
 body('region', 'Region must be alphanumeric').isAlphanumeric(),
 body('email', 'Must be a valid email').isEmail().normalizeEmail(),
-body('zip', 'Must be a valid postal code').isPostalCode('US', 'CA', 'GB'),
+oneOf([
+  body('zip', 'Must be a valid postal code').isPostalCode('US'),
+  body('zip', 'Must be a valid postal code').isPostalCode('CA'),
+  body('zip', 'Must be a valid postal code').isPostalCode('GB')
+]),
 body('phone', 'Must be a valid phone number').isMobilePhone('any'),
 
 async(req, res) => {
