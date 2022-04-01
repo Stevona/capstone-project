@@ -8,7 +8,6 @@
       <div class="hello">
         <h1>{{ message }}</h1>
       </div>
-      {{order}}
       <form class="container mb-4">
         <div class="row mb-3">
           <div class="col">
@@ -16,7 +15,6 @@
               <label for="customerName">Customer Email</label>
               <v-select v-model="order.Customer" label="email" :options="customers"></v-select>
             </div>
-            {{customerID}}
           </div>
           <div class="col">
             <div class="form-group mb-3">
@@ -37,7 +35,6 @@
                 <label for="customerName">Order Status</label>
                 <v-select v-model="order.OrderStatusCode" label="orderStatusCode" :options="orderStatusCodes"></v-select>
               </div>
-              {{orderStatusCode}}
           </div>
           <div class="col">
             <div class="form-group mb-3">
