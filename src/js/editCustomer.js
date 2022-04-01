@@ -30,11 +30,16 @@ export default defineComponent({
         })
         this.customer = await response.json()
       } catch(error) {
+        if(error.toString().includes('Unexpected token')) {
+          localStorage.removeItem('user')
+          alert('Please Relogin session has expired')
+          window.location.href = '/login';
+        }
         console.log(error)
       }
     },
     validateEmail() {
-      if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.customer.email)) {
+      if (/^\w+([\.-_]?\w+)*@\w+([\.-_]?\w+)*(\.\w{2,3})+$/.test(this.customer.email)) {
         return false;
       }
       else{
@@ -85,6 +90,9 @@ export default defineComponent({
         return;
       }
       this.loading = true
+      if(this.customer.middleName == "") {
+        this.customer.middleName = null
+      }
       try {
         const response = await fetch('/api/customers/' + `${this.customerId}`, {
           method: 'PUT',
@@ -99,8 +107,14 @@ export default defineComponent({
           this.success = true;
         }
       } catch(error) {
+        if(error.toString().includes('Unexpected token')) {
+          localStorage.removeItem('user')
+          alert('Please Relogin session has expired')
+          window.location.href = '/login';
+        } else {
+          this.error = true;
+        }
         console.log(error)
-        this.error = true;
       }
       this.loading = false;
     },

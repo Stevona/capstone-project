@@ -1,9 +1,14 @@
 <template id="editOrder">
+  <FooterBar />
+
+  <div class="bg">
   <NavBar />
+
+  <div class="bg-light border border-1 rounded container body-container">
   <div class="hello">
     <h1>{{message}}</h1>
   </div>
-  <FooterBar />
+
   <form class="container mb-4">
   <div class="row mb-3">
   <div class ="col">
@@ -30,16 +35,18 @@
 </form>
 <form class="row g-10 d-flex justify-content-center">
   <div class="col-auto">
+    <router-link :to="{ name: 'DetailOrder', params: { id: orderId }}">
+        <button class="btn btn-primary" type="submit" id="backButton">
+        Back To Details Page
+        </button>
+      </router-link>
+  </div>
+  <div class="col-auto">
     <button type="draft" class="btn btn-primary mb-1">Save as Draft</button>
   </div>
   <div class="col-auto">
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>
-  <div class="col-auto g-10 d-flex justify-content-center" style="padding-top: 2%;">
-         <button class="btn btn-primary" type="submit" id="backButton">
-      <router-link :to="{ name: 'DetailOrder', params: { id: order.orderId }}">Cancel</router-link>
-         </button>
-    </div>
 </form>
 
  <table summary="Products table" class="table table-hover container mt-5">
@@ -75,6 +82,10 @@
   <div class="col-auto">
     <ProductS />
   </div>
+  </div>
+  </div>
+
+
 </template>
 
 <script src="../js/editOrder.js"></script>
