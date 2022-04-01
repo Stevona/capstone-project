@@ -94,7 +94,6 @@
           </router-link >
         </div>
       </form>
-
       <table summary="Products table" class="table table-hover container mt-5">
         <thead>
           <tr>
@@ -109,9 +108,9 @@
           <tr v-for="(product, index) in order.Products" :key="index">
             <td scope="row">{{product.productSKU}}</td>
             <td>{{product.productName}}</td>
-            <td>{{product.productQuantity}}</td>
+            <td>{{product.OrderProduct.quantity}}</td>
             <td>${{product.productPrice}}</td>
-             <td>${{(product.productQuantity * product.productPrice).toFixed(2)}}</td>
+             <td>${{(product.OrderProduct.quantity * product.productPrice).toFixed(2)}}</td>
           </tr>
         </tbody>
       </table>

@@ -13,8 +13,8 @@ export default defineComponent({
       loading: false,
     };
   },
-  created() {
-    this.getOrder()
+  async created() {
+    await this.getOrder()
   },
   methods: {
     async getOrder () {

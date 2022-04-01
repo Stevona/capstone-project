@@ -6,14 +6,13 @@
   <div class="hello">
     <h1>{{ message }}</h1>
   </div>
-  <form class="container mb-4">
+  <form class="container mb-4" v-on:submit.prevent="onSubmit">
     <div class="row mb-3">
       <div class="col">
         <div class="col-auto">
           <label for="customerName">Customer Email</label>
           <v-select v-model="customer" label="email" :options="customers"></v-select>
         </div>
-        {{customerID}}
       </div>
       <div class="col">
         <div class="form-group mb-3">
@@ -27,12 +26,12 @@
       <input v-model="orderNotes" type="notes" class="form-control" id="notes" />
     </div>
   </form>
-  <form class="row g-10 d-flex justify-content-center">
+  <form class="row g-10 d-flex justify-content-center"  v-on:submit.prevent="onSubmit">
     <div class="col-auto">
-      <button type="draft" class="btn btn-primary mb-1">Save as Draft</button>
+      <button class="btn btn-primary mb-1">Save as Draft</button>
     </div>
     <div class="col-auto">
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button v-on:click="submitOrder()" class="btn btn-primary">Submit</button>
     </div>
   </form>
   <table summary="Products table" class="table table-hover container mt-5">
