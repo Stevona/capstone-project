@@ -21,12 +21,11 @@ jobs:
         with:
           node-version: '14.x'
 
-      - name: npm install, build, and test
+      - name: npm install and build
         run: |
           rm -rf node_modules
           npm install
           npm run build --if-present
-          npm run test --if-present
       
       #testing this rn
       - name: Zip artifact for deployment
