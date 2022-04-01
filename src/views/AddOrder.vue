@@ -10,24 +10,21 @@
     <div class="row mb-3">
       <div class="col">
         <div class="col-auto">
-          <label for="customerName">Customer Name</label>
-          <select class="form-select" id="inlineFormCustomSelect">
-            <option value="1">John Doe</option>
-            <option value="2">Guy Mann</option>
-            <option value="3">Easter Bunny</option>
-          </select>
+          <label for="customerName">Customer Email</label>
+          <v-select v-model="customer" label="email" :options="customers"></v-select>
         </div>
+        {{customerID}}
       </div>
       <div class="col">
         <div class="form-group mb-3">
           <label for="datePlaced">Order Date</label>
-          <input type="date" class="form-control" id="datePlaced" />
+          <input v-model="orderDate" type="date" class="form-control" id="datePlaced" />
         </div>
       </div>
     </div>
     <div class="form-group">
       <label for="notes">Order Notes</label>
-      <input type="notes" class="form-control" id="notes" />
+      <input v-model="orderNotes" type="notes" class="form-control" id="notes" />
     </div>
   </form>
   <form class="row g-10 d-flex justify-content-center">
@@ -53,8 +50,8 @@
         <td scope="row">{{product.productSKU}}</td>
         <td>{{product.productName}}</td>
         <td>{{product.quantityAdded}}</td>
-        <td>{{product.productPrice}}</td>
-        <td>{{(product.quantityAdded * product.productPrice).toFixed(2)}}</td>
+        <td>${{product.productPrice}}</td>
+        <td>${{(product.quantityAdded * product.productPrice).toFixed(2)}}</td>
       </tr>
     </tbody>
     <tbody v-else>
@@ -78,7 +75,7 @@
     <tbody>
       <tr>
         <td>{{totalQuanityofItems}}</td>
-        <td>{{totalPriceOfOrder.toFixed(2)}}</td>
+        <td>${{totalPriceOfOrder.toFixed(2)}}</td>
       </tr>
     </tbody>
   </table>
@@ -108,10 +105,20 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: #9b0c23;
 }
 label {
   font-weight: bold;
   text-decoration: underline;
+}
+.btn {
+  border: 2px solid #79091c;
+  background-color: #9b0c23;
+  color: white;
+  cursor:pointer;
+}
+
+.btn:hover {
+  background-color: #a0273b;
 }
 </style>

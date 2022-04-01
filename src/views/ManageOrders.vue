@@ -79,6 +79,16 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: #9b0c23;
+}
+.btn {
+  border: 2px solid #79091c;
+  background-color: #9b0c23;
+  color: white;
+  cursor:pointer;
+}
+
+.btn:hover {
+  background-color: #a0273b;
 }
 </style>

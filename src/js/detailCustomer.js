@@ -7,15 +7,18 @@ export default defineComponent({
     return {
       message: "",
       customer: [],
+      orders: [],
       customerId: this.$route.params.id,
       success: false,
       error: false,
       loading: false,
+      hasOrder: false,
     };
   },
   created() {
     this.getCustomer()
   },
+ 
   methods: {
     async getCustomer () {
       try {
@@ -26,8 +29,13 @@ export default defineComponent({
             'Content-Type': 'application/json',
             'Authorization': 'Bearer '+ localStorage.getItem('user'),
           },
+          
         })
         this.customer = await response.json()
+        console.log(this.customer)
+        if(this.customer.Orders.length >= 1) {
+          this.hasOrder = true
+        }
       } catch(error) {
         if(error.toString().includes('Unexpected token')) {
           localStorage.removeItem('user')

@@ -7,11 +7,39 @@ export default defineComponent({
     return {
       message: "",
       productsToAdd: [],
+      customers: [],
       totalQuanityofItems: 0,
-      totalPriceOfOrder: 0
+      totalPriceOfOrder: 0,
+      orderDate: '',
+      orderNotes: '',
+      customer: '',
     };
   },
   methods: {
+    async getCustomers () {
+      try {
+        const response = await fetch('/api/customers', {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer '+localStorage.getItem('user'),
+          },
+        })
+        this.customers = await response.json()
+        this.customers.forEach(customer => {
+          customer.fullName = customer.firstName + ' ' + customer.lastName
+        })
+        console.log(this.customers)
+      } catch(error) {
+        if(error.toString().includes('Unexpected token')) {
+          localStorage.removeItem('user')
+          alert('Please Relogin session has expired')
+          window.location.href = '/login';
+        }
+        console.log(error)
+      }
+    },
     updateProducts(tempProductsToAdd) {
       this.totalQuanityofItems = 0
       this.totalPriceOfOrder = 0
@@ -29,5 +57,6 @@ export default defineComponent({
   },
   mounted() {
     this.message = "Create new Order";
+    this.getCustomers()
   },
 });

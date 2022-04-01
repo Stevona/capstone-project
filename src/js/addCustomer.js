@@ -61,10 +61,29 @@ export default defineComponent({
       }
   },
 
+  nameLength() {
+    if (this.firstName.length > 20) {
+      alert("First Name too long")
+      return true;
+    }
+    else if (this.middleName.length > 20) {
+      alert("Middle Name too long")
+      return true;
+    }
+    else if (this.lastName.length > 40) {
+      alert("Last Name too long")
+      return true;
+    }
+    else{
+      return false
+    }
+},
+
     async submit () {
       if(this.firstName == "" ||
       this.lastName == "" ||
       this.hasNumberName() ||
+      this.nameLength() ||
       this.phone == "" ||
       this.validatePhone() ||
       this.validateEmail() ||
