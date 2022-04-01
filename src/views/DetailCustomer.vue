@@ -145,12 +145,17 @@
           class="col-auto g-10 d-flex justify-content-center"
           style="padding-top: 2%"
         >
-          <button class="btn btn-primary" type="submit" id="editCustomerButton">
-            <router-link
-              :to="{ name: 'EditCustomer', params: { id: customerId } }"
-              >Edit Customer</router-link
+          <router-link
+            :to="{ name: 'EditCustomer', params: { id: customerId } }"
+          >
+            <button
+              class="btn btn-primary"
+              type="submit"
+              id="editCustomerButton"
             >
-          </button>
+              Edit Customer
+            </button>
+          </router-link>
         </div>
       </form>
       <div
@@ -161,7 +166,7 @@
         <span class="visually-hidden">Loading...</span>
       </div>
 
-      <h3>Active Orders</h3>
+      <h3>Recent Orders</h3>
       <div>
         <table
           summary="Active Orders table"
@@ -175,73 +180,36 @@
               <th scope="col">Total Order Price</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">24535</th>
-              <td>In Progress</td>
-              <td>2/22/22</td>
-              <td>$123.45</td>
+          <tbody v-if="hasOrder">
+            <tr v-for="(order, index) in customer.Orders" :key="index">
+              <th scope="row">
+                <router-link
+                  :to="{
+                    name: 'DetailOrder',
+                    params: {
+                      id: order.orderId,
+                      firstName: customer.firstName,
+                      lastName: customer.lastName,
+                    },
+                  }"
+                  >{{ order.orderId }}</router-link
+                >
+              </th>
+              <td>{{ order.OrderStatusCode.orderStatusCode }}</td>
+              <td>{{ order.datetimeOrderPlaced }}</td>
+              <td>{{ order.totalOrderPrice }}</td>
             </tr>
+          </tbody>
+          <tbody v-else>
             <tr>
-              <th scope="row">24535</th>
-              <td>In Progress</td>
-              <td>2/22/22</td>
-              <td>$123.45</td>
-            </tr>
-            <tr>
-              <th scope="row">24535</th>
-              <td>In Progress</td>
-              <td>2/22/22</td>
-              <td>$123.45</td>
+              <th scope="row"></th>
+              <td></td>
+              <td>No Active Orders</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <div class="form-group">
-      <label for="notes">Customer Notes</label>
-      <input v-model="customer.customerNotes" type="text" readonly class="form-control-plaintext" id="notes" />
-    </div>
-     <div class="col-auto g-10 d-flex justify-content-center" style="padding-top: 2%;">
-       <router-link :to="{ name: 'EditCustomer', params: { id: customerId }}">
-         <button class="btn btn-primary" type="submit" id="editCustomerButton">
-      Edit Customer
-         </button> </router-link>
-    </div>
-  </form>
-  <div v-if="loading" class="overlay spinner-border text-danger" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-
-  <h3>Recent Orders</h3>
-  <div>
-    <table summary="Active Orders table" class="table table-hover container">
-      <thead>
-        <tr>
-          <th scope="col">Order ID</th>
-          <th scope="col">Order Status Code</th>
-          <th scope="col">Date</th>
-          <th scope="col">Total Order Price</th>
-        </tr>
-      </thead>
-      <tbody v-if="hasOrder">
-        <tr v-for="(order, index) in customer.Orders" :key="index">
-          <th scope="row">
-             <router-link :to="{ name: 'DetailOrder', params: { id: order.orderId, firstName: customer.firstName, lastName: customer.lastName }}">{{order.orderId}}</router-link>
-            </th>
-        <td>{{order.OrderStatusCode.orderStatusCode}}</td>
-        <td>{{order.datetimeOrderPlaced}}</td>
-        <td>{{order.totalOrderPrice}}</td>
-        </tr>
-      </tbody>
-      <tbody v-else> 
-        <tr>
-         <th scope="row"></th> 
-           <td> </td>
-           <td>No Active Orders</td>
-        </tr>
-        </tbody>
-    </table>
   </div>
 </template>
 
