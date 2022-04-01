@@ -61,7 +61,7 @@
                     Price: ${{product.productPrice}}
                   </p>
                   <p class="card-text" style="font-size: 14px">
-                    Quantity Avaliable: ${{product.productQuantity}}
+                    Quantity Avaliable: {{product.productQuantity}}
                   </p>
                   <p class="card-text" style="font-size: 14px">
                     Product SKU: {{product.productSKU}}
