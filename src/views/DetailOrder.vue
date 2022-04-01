@@ -8,7 +8,7 @@
         <h1>{{ message }}</h1>
       </div>
 
-      <form class="container mb-4">
+      <form class="container mb-4  text-center">
         <div class="row mb-3">
           <div class="col">
             <div class="form-group">
@@ -48,12 +48,12 @@
         <div
           class="col-auto g-10 d-flex justify-content-center"
           style="padding-top: 2%"
-        >
+        ><router-link :to="{ name: 'EditOrder', params: { id: orderId } }"
+              >
           <button class="btn btn-primary" type="submit" id="editOrderButton">
-            <router-link :to="{ name: 'EditOrder', params: { id: orderId } }"
-              >Edit Order</router-link
-            >
+            Edit Order
           </button>
+          </router-link >
         </div>
       </form>
 
@@ -113,5 +113,18 @@ a {
 label {
   font-weight: bold;
   text-decoration: underline;
+}
+.btn {
+  border: 2px solid #79091c;
+  background-color: #9b0c23;
+  color: white;
+  cursor:pointer;
+}
+
+.btn:hover {
+  background-color: #a0273b;
+}
+input { 
+    text-align: center; 
 }
 </style>

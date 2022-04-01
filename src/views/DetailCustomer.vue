@@ -8,7 +8,7 @@
         <h1>{{ message }}</h1>
       </div>
 
-      <form class="container mb-4" v-on:submit.prevent="onSubmit">
+      <form class="container mb-4 text-center" v-on:submit.prevent="onSubmit">
         <div class="row mb-3">
           <div class="col">
             <div class="form-group">
@@ -234,5 +234,18 @@ a {
 label {
   font-weight: bold;
   text-decoration: underline;
+}
+.btn {
+  border: 2px solid #79091c;
+  background-color: #9b0c23;
+  color: white;
+  cursor:pointer;
+}
+
+.btn:hover {
+  background-color: #a0273b;
+}
+input { 
+    text-align: center; 
 }
 </style>

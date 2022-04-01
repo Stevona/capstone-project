@@ -111,4 +111,13 @@ li {
 a {
   color: #42b983;
 }
+.btn-primary{
+  border: 2px solid #79091c;
+  background-color: #9b0c23;
+  color: white;
+  cursor:pointer;
+}
+.btn-primary:hover{
+  background-color: #a0273b;
+}
 </style>

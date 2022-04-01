@@ -35,7 +35,7 @@
       </form>
       <form class="row g-10 d-flex justify-content-center">
         <div class="col-auto">
-          <router-link :to="{ name: 'DetailOrder', params: { id: orderId } }">
+          <router-link :to="{ name: 'DetailOrder', params: { id: orderId, firstName: order.Customer.firstName, lastName: order.Customer.lastName} }">
             <button class="btn btn-primary" type="submit" id="backButton">
               Back To Details Page
             </button>
@@ -109,5 +109,15 @@ a {
 label {
   font-weight: bold;
   text-decoration: underline;
+}
+.btn {
+  border: 2px solid #79091c;
+  background-color: #9b0c23;
+  color: white;
+  cursor:pointer;
+}
+
+.btn:hover {
+  background-color: #a0273b;
 }
 </style>

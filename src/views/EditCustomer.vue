@@ -132,4 +132,15 @@ label {
   font-weight: bold;
   text-decoration: underline;
 }
+.btn {
+  border: 2px solid #79091c;
+  background-color: #9b0c23;
+  color: white;
+  cursor:pointer;
+}
+
+.btn:hover {
+  background-color: #a0273b;
+}
+
 </style>

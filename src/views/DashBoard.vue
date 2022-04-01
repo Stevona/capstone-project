@@ -106,4 +106,8 @@ h2 {
 table {
   background-color: rgb(250, 249, 241);
 }
+
+a {
+  color: #9b0c23;
+}
 </style>
