@@ -74,10 +74,29 @@ export default defineComponent({
         return false
       }
   },
+
+    nameLength() {
+      if (this.customer.firstName.length > 20) {
+        alert("First Name too long")
+        return true;
+      }
+      else if (this.customer.middleName.length > 20) {
+        alert("Middle Name too long")
+        return true;
+      }
+      else if (this.customer.lastName.length > 40) {
+        alert("Last Name too long")
+        return true;
+      }
+      else{
+        return false
+      }
+    },
     async submit () {
       if(this.customer.firstName == "" ||
       this.customer.lastName == "" ||
       this.hasNumberName() ||
+      this.nameLength() ||
       this.customer.phone == "" ||
       this.validatePhone() ||
       this.validateEmail() ||

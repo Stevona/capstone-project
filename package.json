@@ -29,7 +29,8 @@
     "puppeteer": "^13.5.1",
     "sequelize": "^6.17.0",
     "vue": "^3.2.31",
-    "vue-router": "^4.0.13"
+    "vue-router": "^4.0.13",
+    "vue-select": "^4.0.0-beta.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
