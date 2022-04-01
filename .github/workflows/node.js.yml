@@ -4,8 +4,6 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ testing, main ]
   pull_request:
     branches: [ testing, main ]
 
@@ -18,9 +16,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: 'Install Node'
       uses: actions/setup-node@v1
-    - name: Install mocha
-      run: npm install -g mocha
     - name: Install dependencies
       run: npm install 
-    - name: "Run Test"
-      run: npm run test-DevSecOps
+    - name: Run All Test
+      run: npm run test --if-present
