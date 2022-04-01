@@ -32,7 +32,6 @@ export default defineComponent({
           
         })
         this.customer = await response.json()
-        console.log(this.customer)
         if(this.customer.Orders.length >= 1) {
           this.hasOrder = true
         }

@@ -114,6 +114,20 @@
           </tr>
         </tbody>
       </table>
+      <table summary="Total table" class="table container mt-1">
+    <thead>
+      <tr>
+        <th scope="col">Total Quantity</th>
+        <th scope="col">Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{totalQuanityofItems}}</td>
+        <td>${{totalPriceOfOrder.toFixed(2)}}</td>
+      </tr>
+    </tbody>
+  </table>
     </div>
   </div>
 </template>

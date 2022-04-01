@@ -12,18 +12,20 @@ export default defineComponent({
       success: false,
       error: false,
       loading: false,
+      totalQuanityofItems: 0,
+      totalPriceOfOrder: 0,
       customers:[],
       orderStatusCode: '',
       orderStatusCodes:[
         {orderStatusCodeId: 1, orderStatusCode: 'Draft'},
         {orderStatusCodeId: 2, orderStatusCode: 'Open'},
         {orderStatusCodeId: 3, orderStatusCode: 'Finalized'},
-        {orderStatusCodeId: 4, orderStatusCode: 'Preparint to ship'},
+        {orderStatusCodeId: 4, orderStatusCode: 'Preparing to ship'},
         {orderStatusCodeId: 5, orderStatusCode: 'Ready for shipping'},
         {orderStatusCodeId: 6, orderStatusCode: 'Shipped'},
         {orderStatusCodeId: 7, orderStatusCode: 'Delivered'},
         {orderStatusCodeId: 8, orderStatusCode: 'Closed'},
-      ]
+      ],
     };
   },
   created() {
@@ -44,7 +46,6 @@ export default defineComponent({
         this.customers.forEach(customer => {
           customer.fullName = customer.firstName + ' ' + customer.lastName
         })
-        console.log(this.customers)
       } catch(error) {
         if(error.toString().includes('Unexpected token')) {
           localStorage.removeItem('user')
@@ -68,10 +69,10 @@ export default defineComponent({
         this.order.Products.forEach(product => {
           product.quantityAdded = product.OrderProduct.quantity
           product.inOrders = true
+          this.totalQuanityofItems += product.quantityAdded
+          this.totalPriceOfOrder += (product.quantityAdded * product.productPrice)
           this.productsToAdd.push(product)
         })
-       // this.productsToAdd = this.order.Product.OrderProduct
-        console.log("here", this.productsToAdd )
       } catch(error) {
         if(error.toString().includes('Unexpected token')) {
           localStorage.removeItem('user')
@@ -84,7 +85,6 @@ export default defineComponent({
     updateProducts(tempProductsToAdd) {
       this.totalQuanityofItems = 0
       this.totalPriceOfOrder = 0
-      console.log("here",tempProductsToAdd)
       tempProductsToAdd.forEach((product, index) => {
         if(product.quantityAdded !== undefined) {
           this.totalQuanityofItems += product.quantityAdded
@@ -94,7 +94,49 @@ export default defineComponent({
         }
       });
       this.productsToAdd = tempProductsToAdd
-    }
+    },
+    async submitOrderUpdate () {
+      this.order.Products = []
+      this.order.totalOrderPrice = this.totalPriceOfOrder
+      this.order.orderStatusCodeId = this.order.OrderStatusCode.orderStatusCodeId
+      if(this.productsToAdd.length >= 1) {
+        this.productsToAdd.forEach(product => {
+          this.order.Products.push({
+            productId: product.productId,
+            productSKU: product.productSKU,
+            productPrice: parseFloat(product.productPrice),
+            productName: product.productName,
+            productQuantity: product.productQuantity,
+            OrderProduct: {
+              quantity: product.quantityAdded,
+              priceEach: parseFloat(product.productPrice)
+            }
+          })
+        })
+      } else {
+        return;
+      }
+      try {
+        const response = await fetch('/api/orders/' + `${this.order.orderId}`, {
+          method: 'PUT',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer '+ localStorage.getItem('user'),
+          },
+          body: JSON.stringify(this.order)
+        })
+        let updatedOrder = await response.json()
+        window.location.href = `/detailOrder/${updatedOrder.orderId}`;
+      } catch(error) {
+        if(error.toString().includes('Unexpected token')) {
+          localStorage.removeItem('user')
+          alert('Please Relogin session has expired')
+          window.location.href = '/login';
+        }
+        console.log(error)
+      } 
+    },
   },
   mounted() {
     this.message = "Edit Order";
