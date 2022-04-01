@@ -11,6 +11,8 @@ export default defineComponent({
       success: false,
       error: false,
       loading: false,
+      totalQuanityofItems: 0,
+      totalPriceOfOrder: 0,
     };
   },
   async created() {
@@ -28,6 +30,10 @@ export default defineComponent({
           },
         })
         this.order = await response.json()
+        this.order.Products.forEach(product => {
+          this.totalQuanityofItems += product.OrderProduct.quantity
+          this.totalPriceOfOrder += (product.OrderProduct.quantity * product.productPrice)
+        })
       } catch(error) {
         if(error.toString().includes('Unexpected token')) {
           localStorage.removeItem('user')
