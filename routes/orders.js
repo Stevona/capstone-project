@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { Order, Customer, Product, OrderStatusCode } = require('../orm/tracking-model');
+const { Order, Customer, Product, OrderStatusCode, OrderProduct } = require('../orm/tracking-model');
 const tokenValidator = require('./tokenValidator');
 
 /* GET Order listing. */
@@ -61,6 +61,21 @@ router.post('/', async(req,res)=>{
       let protoOrder = req.body;
       try{
         let model = await Order.create(protoOrder);
+        model.setDataValue('Products', protoOrder.Products);
+        //let orderTotal = 0.00;
+        if (protoOrder.Products) {
+          protoOrder.Products.forEach(async(product) => {
+            let protoOrderProduct = {
+              quantity: product.OrderProduct.quantity,
+              priceEach: (product.OrderProduct.priceEach).toFixed(2),
+              orderId: model.orderId,
+              productId: product.productId
+            };
+            await OrderProduct.create(protoOrderProduct);
+            //orderTotal = (orderTotal + (protoOrderProduct.quantity * protoOrderProduct.priceEach));
+          });
+          //model.setDataValue('totalOrderPrice', orderTotal);
+        }
         res.status(201).json(model);
       } catch (error){
         console.log(error);
@@ -80,13 +95,31 @@ router.put('/:id', async(req, res) => {
     if (isValidToken) {
       let protoOrder = req.body;
       try{
-        let orders = await Order.findByPk(req.params.id);
-        if (orders){
+        let order = await Order.findByPk(req.params.id);
+        if (order){
           let updates = await Order.update(protoOrder, {
             where: { orderId: req.params['id'] }
           });
           if (updates) {
             let orderUpdate = await Order.findByPk(req.params.id);
+            await OrderProduct.destroy({
+              where: { orderId: protoOrder.orderId }
+            });
+            orderUpdate.setDataValue('Products', protoOrder.Products);
+            //let orderTotal = 0.00;
+            if (protoOrder.Products) {
+              protoOrder.Products.forEach(async(product) => {
+                let protoOrderProduct = {
+                  quantity: product.OrderProduct.quantity,
+                  priceEach: (product.OrderProduct.priceEach).toFixed(2),
+                  orderId: orderUpdate.orderId,
+                  productId: product.productId
+                };
+                await OrderProduct.create(protoOrderProduct);
+                //orderTotal = (orderTotal + (protoOrderProduct.quantity * protoOrderProduct.priceEach));
+              });
+              //model.setDataValue('totalOrderPrice', orderTotal);
+            }
             res.status(200).json(orderUpdate);
           } else {
             res.status(404).send(`Not found: could not update order with specified id`);
@@ -109,6 +142,9 @@ router.delete('/:id', async(req, res) => {
     const isValidToken = await tokenValidator.checkToken(req.headers.authorization.split(' ')[1]);
     if (isValidToken) {
       try{
+        await OrderProduct.destroy({
+          where: { orderId: req.params['id'] }
+        })
         await Order.destroy({
           where: { orderId: req.params['id'] }
         });
