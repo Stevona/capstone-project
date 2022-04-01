@@ -42,4 +42,13 @@ h1 {
   min-height: 100vh;
   padding: 0;
 }
+.modal-backdrop {
+    display: none;
+    z-index: 1040 !important;
+}
+
+.modal-content {
+    margin: 2px auto;
+    z-index: 1100 !important;
+}
 </style>
